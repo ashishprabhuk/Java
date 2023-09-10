@@ -31,11 +31,13 @@ abstract class Vehicle {
 class Car extends Vehicle {
     
     // Implement the abstract method
+    @Override
     void start() {
         System.out.println("Car started.");
     }
     
     // You can override non-final methods from the abstract class
+    @Override
     void stop() {
         System.out.println("Car stopped.");
     }
