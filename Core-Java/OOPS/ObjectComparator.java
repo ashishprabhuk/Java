@@ -34,8 +34,6 @@ class MarksComparator implements Comparator<Person> {
     }
 }
 
-
-
 public class ObjectComparator {
     public static void main(String[] args) {
         List<Person> persons = new ArrayList<>();
