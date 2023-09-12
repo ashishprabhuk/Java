@@ -1,7 +1,6 @@
 package ObjectClass.ObjectCloning;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 class Person {
     String name;
@@ -37,7 +36,6 @@ public class DeepCopy{
         
         // The original person's hobbies remain unchanged
         System.out.println("Original Hobbies: " + original.getHobbies());
-        
         System.out.println("Copied Hobbies: " + copied.getHobbies());
     }
 }
