@@ -10,7 +10,7 @@ interface Manager extends Employee {
     void supervise();
 }
 
-// The TeamLead class represents a specific manager, a team lead, in the company.
+// The TeamLead class represents a specific manager, a team lead, in the company
 class TeamLead implements Manager {
     @Override
     public void work() {
