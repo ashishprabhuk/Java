@@ -111,6 +111,20 @@ public class Patterns {
     }
 
 
+    static void pat10(int n){                                   //patter -10 :-
+        System.out.println("Pattern - 10:-");                 //*********
+        for(int row = 1; row<=n; row++){                        // *******
+            int size = row-1;                                   //  *****
+            for(int col1 = 1; col1<=size;col1++){               //   ***
+                System.out.print(" ");                        //    *
+            }
+            for(int col2 = 1;col2<=2*n-(2*row-1);col2++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         // pat1(5);
         // pat2(5);
@@ -120,6 +134,7 @@ public class Patterns {
         // pat6(5);
         // pat7(5);
         // pat8(5);
-        pat9(5);
+        // pat9(5);
+        pat10(5);
     }
 }
