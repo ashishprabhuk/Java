@@ -1,5 +1,7 @@
 package DSA.Patterns;
 
+import java.util.Scanner;
+
 public class Patterns {
 
     static void pat1(int n){
@@ -125,7 +127,29 @@ public class Patterns {
         }
     }
 
+
+    static void pat11(int n){   
+        n -= 1;                                                  //patter -11 :-
+        System.out.println("Pattern - 11:-");                  //     *
+        for(int row = 1; row<=2*n; row++){                       //    ***     
+            int cols1 = (row > n+1)? row-n-1 : n-row;            //   *****
+            for(int col1 = 1; col1<=cols1;col1++){               //  *******
+                System.out.print(" ");                         // *********
+            }                                                    // *********  
+            int col2 =1;                                         //  *******
+            int cols2 = (row >=n+1)?(2*n-(2*row-n)+1)+n:2*row-1; //   ***** 
+            for(col2 = 1;col2<=cols2;col2++){                    //    ***
+                System.out.print("*");                         //     *
+            }                                                   
+            System.out.println();                               
+        }
+    }
+
+
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter N:");
+        int n = sc.nextInt();
         // pat1(5);
         // pat2(5);
         // pat3(5);
@@ -135,6 +159,8 @@ public class Patterns {
         // pat7(5);
         // pat8(5);
         // pat9(5);
-        pat10(5);
+        // pat10(5);
+        pat11(n);
+        sc.close();
     }
 }
