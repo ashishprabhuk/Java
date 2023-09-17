@@ -1,6 +1,6 @@
 package DSA.Patterns;
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
 public class Patterns {
 
@@ -132,12 +132,12 @@ public class Patterns {
         n -= 1;                                                  //patter -11 :-
         System.out.println("Pattern - 11:-");                  //     *
         for(int row = 1; row<=2*n; row++){                       //    ***     
-            int cols1 = (row > n+1)? row-n-1 : n-row;            //   *****
+            int cols1 = (row > n)? row-n-1 : n-row;              //   *****
             for(int col1 = 1; col1<=cols1;col1++){               //  *******
                 System.out.print(" ");                         // *********
             }                                                    // *********  
             int col2 =1;                                         //  *******
-            int cols2 = (row >=n+1)?(2*n-(2*row-n)+1)+n:2*row-1; //   ***** 
+            int cols2 = (row >n)?(2*n-(2*row-n)+1)+n:2*row-1;    //   ***** 
             for(col2 = 1;col2<=cols2;col2++){                    //    ***
                 System.out.print("*");                         //     *
             }                                                   
@@ -146,21 +146,54 @@ public class Patterns {
     }
 
 
+    static void pat12(int n){                                    //patter -12 :-
+        System.out.println("Pattern - 12:-");                  //         1
+        for(int row = 1; row<=n; row++){                         //       2 1 2 
+            int col1;                                            //     3 2 1 2 3      
+            for(col1=1;col1<=n-row;col1++){                      //   4 3 2 1 2 3 4
+                System.out.print("  ");                        // 5 4 3 2 1 2 3 4 5
+            }
+            int col2;
+            for(col2 =1;col2<=n-col1+1;col2++){
+                int item = row-col2+1;
+                System.out.print(item+" ");
+            }
+            for(int col3=2;col3<=row;col3++){
+                System.out.print(col3+" ");
+            }
+            System.out.println();
+        }
+    }
+
+
+    static void pat13(int n){        //n=4                             //patter -12 :-
+        System.out.println("Pattern - 13:-");                  //         1
+        for(int row = 1; row<=2*n-1; row++){                         //       2 1 2 
+            for(int col=1;col<=2*n-1;col++){
+                int i = (row>1 && col>1 && row<2*n-1 && col<2*n-1)?(row>2 && row<2*n-2 && col>2 && col<2*n-2)?(row>3 && row<2*n-3 && col>3 && col<2*n-3)?n-3:n-2:n-1:n;                      //   4 3 2 1 2 3 4
+                System.out.print(i+" ");                        // 5 4 3 2 1 2 3 4 5
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter N:");
-        int n = sc.nextInt();
-        // pat1(5);
-        // pat2(5);
-        // pat3(5);
-        // pat4(5);
-        // pat5(5);
-        // pat6(5);
-        // pat7(5);
-        // pat8(5);
-        // pat9(5);
-        // pat10(5);
-        pat11(n);
-        sc.close();
+        // Scanner sc = new Scanner(System.in);
+        // System.out.print("Enter N:");
+        // int n = sc.nextInt();
+        // pat1(n);
+        // pat2(n);
+        // pat3(n);
+        // pat4(n);
+        // pat5(n);
+        // pat6(n);
+        // pat7(n);
+        // pat8(n);
+        // pat9(n);
+        // pat10(n);
+        // pat11(n);
+        // pat12(5);
+        // pat12(4);
+        pat13(4);
     }
 }
