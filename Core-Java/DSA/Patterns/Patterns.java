@@ -177,6 +177,35 @@ public class Patterns {
         }
     }
 
+
+    static void pattern22(int n){
+    for(int row=0;row<2*n-1;row++){
+        for(int col=0;col<2*n-1;col++){
+
+            // Initialising the top, down, left and right indices of a cell.
+            int top = row;
+            int bottom = col; // Min of 4 directions and then we subtract from n
+            int right = (2*n - 2) - col;// because previously we would get a pattern whose border
+            int left = (2*n - 2) - row;// has 0's, but we want with border N's and then decrease inside.
+            
+            System.out.print(n- Math.min(Math.min(top,bottom), Math.min(left,right)) + " ");
+        }
+        System.out.println();
+        }
+    }
+
+
+    static void pat14(int n){
+        for(int row=1; row<=n; row++) {
+            for(int col=1; col<=n;col++){
+                // String space = " ";
+                String i = (row >1 && col >1 && row <= n-1 && col<=n-1) ? " ": "*";
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         // Scanner sc = new Scanner(System.in);
         // System.out.print("Enter N:");
@@ -194,6 +223,10 @@ public class Patterns {
         // pat11(n);
         // pat12(5);
         // pat12(4);
-        pat13(4);
+        // pat13(4);
+        // System.out.println("------------------");
+        // pattern22(4);
+        pat14(4);
+        pat14(16);
     }
 }
