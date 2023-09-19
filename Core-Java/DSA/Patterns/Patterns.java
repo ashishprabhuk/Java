@@ -166,19 +166,19 @@ public class Patterns {
     }
 
 
-    static void pat13(int n){        //n=4                             //patter -12 :-
-        System.out.println("Pattern - 13:-");                  //         1
-        for(int row = 1; row<=2*n-1; row++){                         //       2 1 2 
+    static void pat13(int n){        //n=4                       
+        System.out.println("Pattern - 13:-");
+        for(int row = 1; row<=2*n-1; row++){                 
             for(int col=1;col<=2*n-1;col++){
                 int i = (row>1 && col>1 && row<2*n-1 && col<2*n-1)?(row>2 && row<2*n-2 && col>2 && col<2*n-2)?(row>3 && row<2*n-3 && col>3 && col<2*n-3)?n-3:n-2:n-1:n;                      //   4 3 2 1 2 3 4
-                System.out.print(i+" ");                        // 5 4 3 2 1 2 3 4 5
+                System.out.print(i+" ");                      
             }
             System.out.println();
         }
     }
 
 
-    static void pattern22(int n){
+    static void pat13_new(int n){
     for(int row=0;row<2*n-1;row++){
         for(int col=0;col<2*n-1;col++){
 
@@ -206,6 +206,162 @@ public class Patterns {
         }
     }
 
+
+    static void pat15(int n){
+        int num = 1;                                        //patter - 15:-
+        for(int row=1; row<=n; row++){                      // 1
+            if (row % 2 == 1)  num = 1;                     // 01
+            else  num = 0;                                  // 101
+                                                            // 0101
+            for(int col = 1; col<=row; col++){              // 10101
+                System.out.print(num);                      // 010101
+                num = 1-num;
+            }
+            System.out.println();
+        }
+    }
+
+
+    static void pat16(int n){
+        int num = 1;                                        //patter - 15:-
+        for(int row=1; row<=n; row++){                      // 1
+            for(int col=1; col<=row; col++){                // 2 3
+                System.out.print(num + " ");                // 4 5 6
+                num++;                                      // 7 8 9 10
+            }                                               // 11 12 13 14 15
+            System.out.println();
+        }
+    }
+
+    static void pat17(int n){//patter - 15:-
+        for(int row=1; row<=n; row++){                      // 1      1
+            for(int col=1; col<=row; col++){                // 12    21
+                System.out.print(col);                      // 123  321
+            }                                               // 12344321                   
+            for(int col1=1; col1<=2*n-2*row; col1++){
+                System.out.print(" ");
+            }
+            for(int col2=row; col2>=1; col2--){
+                System.out.print(col2); 
+            }
+            System.out.println();
+        }
+    }
+
+    static void pat18(int n){                                   //patter - 18:-
+        for(int row=1; row<=n; row++){                          // A
+            for(int col=1; col<=row; col++){                    // AB
+                char c = (char)('A' + col-1);                   // ABC
+                System.out.print(c);                            // ABCD
+            }                                                   // ABCDE
+            System.out.println();                                              
+        }
+    }
+
+    static void pat19(int n){                               //patter - 15:-
+        for(int row=1; row<=n; row++){                      // ABCDE
+            for(int col=1; col<=n-row+1; col++){            // ABCD
+                char c = (char)('A' + col-1);               // ABC
+                System.out.print(c);                        // AB
+            }                                               // A
+            System.out.println();                                                           
+        }
+    }
+
+    static void pat20(int n){                               //patter - 15:-
+        for(int row=1; row<=n; row++){                      // A
+            for(int col=1; col<=row; col++){                // BB
+                char c = (char)('A' + row-1);               // CCC    
+                System.out.print(c);                        // DDDD
+            }                                               // EEEEE
+            System.out.println();                                               
+        }
+    }
+
+
+    static void pat21(int n){                               //patter - 15:-
+        for(int row=1; row<=n; row++){ 
+            for(int col= 1; col<=n-row;col++){              //    A
+                System.out.print(" ");                    //   ABA
+            }                                               //  ABCBA
+            for(int col=1; col<=row; col++){                // ABCDCBA      
+                char c = (char)('A' + col-1);                   
+                System.out.print(c);                       
+            }  
+            for(int col=2; col<=row; col++){                
+                char c = (char)('A' + row -col);                 
+                System.out.print(c);                        
+            }                                             
+            System.out.println();                                               
+        }
+    }
+
+
+    static void pat22(int n){                               
+        for(int row=1; row<=n; row++){                      //patter - 15:-
+            for(int col= 1; col<=row;col++){                // E
+                char c =(char)('A' + (n+col-row-1));        // D E
+                System.out.print(c+" ");                    // C D E
+            }                                               // B C D E                             
+            System.out.println();                           // A B C D E                                       
+        }
+    }
+
+
+    static void pat23(int n){                               
+        for(int row=1; row<=n; row++){                      //patter - 23:-
+            for(int col= 1; col<=n-row+1;col++){            // **********
+                System.out.print("*");                    // ****  ****
+            }                                               // ***    ***
+            for(int col= 2; col<=2*row-1; col++){           // **      **
+                System.out.print(" ");                    // *        *
+            }                                               // *        *
+            for(int col =1;col<n-row+2;col++){              // **      **
+                System.out.print("*");                    // ***    ***
+            }                                               // ****  ****                           
+            System.out.println();                           // **********                                      
+        }
+        for(int row=1; row<=n; row++){                      
+            for(int col= 1; col<=row;col++){                
+                System.out.print("*");                    
+            } 
+            for(int col= 2; col<=2*n-2*row+1; col++){                
+                System.out.print(" ");                    
+            }  
+            for(int col =1;col<row+1;col++){
+                System.out.print("*");
+            }                                                                        
+            System.out.println();                                                                 
+        }
+    }
+
+    static void pat24(int n){                               
+        for(int row=1; row<=n; row++){                      //patter - 23:-
+            for(int col= 1; col<=row;col++){                // *        *
+                System.out.print("*");                    // **      **
+            }                                               // ***    ***
+            for(int col= 2; col<=2*n-2*row+1; col++){       // ****  **** 
+                System.out.print(" ");                    // **********
+            }                                               // ****  ****
+            for(int col =1;col<=row;col++){                 // ***    ***
+                System.out.print("*");                    // **      **
+            }                                               // *        *                               
+            System.out.println();                                                                 
+        }
+        for(int row=2; row<=n; row++){                      
+            for(int col= 1; col<=n-row+1;col++){                
+                System.out.print("*");                    
+            } 
+            for(int col= 2; col<=2*row-1; col++){                
+                System.out.print(" ");                    
+            }  
+            for(int col =1;col<n-row+2;col++){
+                System.out.print("*");
+            }                                                                        
+            System.out.println();                                                                 
+        }
+    }
+
     public static void main(String[] args) {
         // Scanner sc = new Scanner(System.in);
         // System.out.print("Enter N:");
@@ -225,8 +381,17 @@ public class Patterns {
         // pat12(4);
         // pat13(4);
         // System.out.println("------------------");
-        // pattern22(4);
-        pat14(4);
-        pat14(16);
+        // pat13_new(4);
+        // pat14(4);
+        // pat15(6);
+        // pat16(5);
+        // pat17(4);
+        // pat18(5);
+        // pat19(5);
+        // pat20(5);
+        // pat21(4);
+        // pat22(5);
+        // pat23(5);
+        // pat24(7);
     }
 }
