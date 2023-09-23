@@ -1,4 +1,5 @@
-public class MathFunctionExample {
+package DSA.Maths;
+public class MathFunctions {
     public static void main(String[] args) {
         // Absolute value
         int absoluteValueInt = Math.abs(-10);

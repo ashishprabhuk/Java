@@ -41,4 +41,7 @@ public class StringBuilders {
         String result = sb.toString();
         System.out.println("Final String: " + result);
     }
+
+    public void append(char ch) {
+    }
 }

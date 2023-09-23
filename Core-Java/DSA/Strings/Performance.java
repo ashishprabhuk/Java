@@ -1,5 +1,4 @@
-package Strings;
-
+package DSA.Strings;
 public class Performance {
     
     public static void NormalStr(){
