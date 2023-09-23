@@ -15,6 +15,7 @@ public class AccessOrdered{
 
         // Access an element (moves it to the end of the order)
         int aliceScore = scores.get("Alice");
+        System.out.println(aliceScore); // 95
 
         // Iterate through the LinkedHashMap (order is based on access frequency)
         for (Map.Entry<String, Integer> entry : scores.entrySet()) {

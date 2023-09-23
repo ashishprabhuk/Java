@@ -1,4 +1,4 @@
-package Strings;
+package DSA.Strings;
 
 public class StringBuffers{
     public static void main(String[] args) {

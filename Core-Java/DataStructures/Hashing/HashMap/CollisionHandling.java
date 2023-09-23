@@ -27,8 +27,8 @@ public class CollisionHandling {
 }
 
 class Student {
-    private String name;
-    private int studentId;
+    String name;
+    int studentId;
 
     public Student(String name, int studentId) {
         this.name = name;
