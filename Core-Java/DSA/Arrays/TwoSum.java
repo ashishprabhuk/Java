@@ -12,7 +12,7 @@ public class TwoSum {
         }
         return new int[]{};
     }
-    
+
     static int[] twoSum_hash(int[] nums, int target){
         Map<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < nums.length; i++){
@@ -24,6 +24,7 @@ public class TwoSum {
         }
         return new int[]{};
     }
+    
     public static void main(String[] args) {
         int[] arr = {15,9,4,12,6}; // 15(0) + 6(4) = 21;
         // int[] ans = twoSum(arr,21);
