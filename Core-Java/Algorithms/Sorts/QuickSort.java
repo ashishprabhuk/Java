@@ -1,4 +1,13 @@
 package Algorithms.Sorts;
+/*
+The key process in quickSort is a partition(). 
+The target of partitions is to place the pivot (any element can be chosen to be a pivot) 
+at its correct position in the sorted array and put all smaller elements to the left of the pivot, 
+and all greater elements to the right of the pivot.
+
+Partition is done recursively on each side of the pivot after the pivot is placed 
+in its correct position and this finally sorts the array.
+*/ 
 
 public class QuickSort {
     
@@ -36,7 +45,7 @@ public class QuickSort {
             quickSort(arr, pivotIndex + 1, high);
         }
     }
-    
+
     public static void main(String[] args) {
         int[] arr = {38, 27, 43, 3, 9, 82, 10};
         quickSort(arr, 0, arr.length - 1);
@@ -46,4 +55,3 @@ public class QuickSort {
         }
     }
 }
-

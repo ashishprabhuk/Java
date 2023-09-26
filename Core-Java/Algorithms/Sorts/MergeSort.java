@@ -68,8 +68,7 @@ public class MergeSort {
 * Advantages of Merge Sort:
  *  Merge sort has a worst-case time complexity of O(N logN),
  * which means it performs well even on large datasets.
-*/
-/*
+
  *  Drawbacks of Merge Sort:
  * Merge sort requires additional memory to store the merged sub-arrays during the sorting process. 
 */
