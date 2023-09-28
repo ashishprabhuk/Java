@@ -4,16 +4,6 @@ import java.util.Scanner;
 
 public class RevStrDelimiters {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String input = "A man, in the boat says : I see 1-2-3 in the sky";
-        // String input = sc.nextLine();
-        char[] chars = input.toCharArray();
-        reverseStr(chars);
-        System.out.println(new String(chars));
-        sc.close();
-    }
-
     public static void reverseStr(char[] chars) {
         int start = 0;
         int end = chars.length - 1;
@@ -38,5 +28,17 @@ public class RevStrDelimiters {
             start++;
             end--;
         }
+        // return new String(chars);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = "A man, in the boat says : I see 1-2-3 in the sky";
+        // String input = sc.nextLine();
+        char[] chars = input.toCharArray();
+        reverseStr(chars);
+        System.out.println(new String(chars));
+        // System.out.println(reverseStr(chars)); // for return types
+        sc.close();
     }
 }
