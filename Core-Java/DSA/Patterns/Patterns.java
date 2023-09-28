@@ -381,7 +381,7 @@ public class Patterns {
         // pat12(4);
         // pat13(4);
         // System.out.println("------------------");
-        // pat13_new(4);
+        pat13_new(4);
         // pat14(4);
         // pat15(6);
         // pat16(5);
