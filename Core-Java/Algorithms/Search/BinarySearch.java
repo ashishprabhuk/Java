@@ -1,28 +1,30 @@
 package Algorithms.Search;
 
+import java.util.Arrays;
+
 public class BinarySearch {
 
     // Function to perform binary search
     public static int binarySearch(int[] arr, int target) {
-        int left = 0;
-        int right = arr.length - 1;
+        int start = 0;
+        int end = arr.length - 1;
 
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
 
             // Check if the target is equal to the middle element
             if (arr[mid] == target) {
                 return mid; // Return the index where the target element is found
             }
 
-            // If the target is greater, ignore the left half
+            // If the target is greater, ignore the start half
             if (arr[mid] < target) {
-                left = mid + 1;
+                start = mid + 1;
             }
 
-            // If the target is smaller, ignore the right half
+            // If the target is smaller, ignore the end half
             else {
-                right = mid - 1;
+                end = mid - 1;
             }
         }
 
@@ -30,8 +32,9 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        int[] arr = { 2, 4, 6, 8, 10, 12, 14, 16 };
-        int target = 10;
+        int[] arr = { 2,1,4,3};
+        Arrays.sort(arr);
+        int target = 3;
 
         int result = binarySearch(arr, target);
 
@@ -42,3 +45,11 @@ public class BinarySearch {
         }
     }
 }
+
+/*  
+ * This algorithm works by repeatedly dividing the sorted array in half until the 
+ * desired element is found or the entire array has been searched.
+ * 
+ * The binary search algorithm has a time complexity of O(log n), where n is the size of the array. 
+ * This is significantly faster than the linear search algorithm, which has a time complexity of O(n).
+ */

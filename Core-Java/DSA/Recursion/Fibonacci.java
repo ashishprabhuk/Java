@@ -5,12 +5,13 @@ public class Fibonacci {
         if(n==0||n==1){     // F(5) = F(4) + F(3) = 3 + 2 = 5
             return n;       // F(6) = F(5) + F(4) = 5 + 3 = 8
         }                   // F(7) = F(6) + F(5) = 8 + 5 = 13
-        int f1=fib(n-1);
-        int f2=fib(n-2);
-        int nth=f1+f2;
-        return nth;
+        // int f1=fib(n-1);
+        // int f2=fib(n-2);
+        // int nth=f1+f2;
+        // return nth;
+        return n * fib(n-1);
     }
     public static void main(String[] args) {
-        System.out.println(fib(4));
+        System.out.println(fib(6));
     }
 }
