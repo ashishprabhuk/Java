@@ -11,7 +11,7 @@ public class Bus {
         this.capacity = capacity;
     }
 
-    public void setBus(int busNo) {
+    public void setBus(int busNo) { //mutators
         this.busNo = busNo;
     }
     public void setAC(boolean ac) {
@@ -21,15 +21,17 @@ public class Bus {
         this.capacity = capacity;
     }
 
-    public int getBus() {
+    public int getBus() { //accessor methods
         return busNo;
     }
-    
     public boolean getAC() {
         return ac;
     }
-    
     public int getCapacity() {
         return capacity;
     }
+    
+    public void busInfo(){
+        System.out.println("Bus no.: " + busNo + ", capacity: " + capacity + ", AC: " + ac);
+    } 
 }

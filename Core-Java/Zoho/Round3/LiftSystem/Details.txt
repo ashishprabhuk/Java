@@ -1,0 +1,57 @@
+Certainly, I'll explain the code step by step to help you understand it, 
+especially if you're a beginner.
+
+**1. `Lift` Class:**
+   - This class represents a single elevator (lift) and has three properties:
+     - `currentFloor`: Represents the current floor where the lift is located.
+     - `capacity`: Represents the maximum number of people the lift can carry.
+     - `underMaintenance`: A flag to indicate whether the lift is under maintenance.
+
+**2. `LiftSystem` Class:**
+   - This class represents the entire lift system and contains a collection of lifts.
+   - Constructor (`LiftSystem(int numLifts)`):
+     - Initializes the `lifts` list with the specified number of lifts (`numLifts`).
+     - Each lift is created with a capacity of 10 people and starts at the ground floor (floor 0).
+
+**3. `displayLiftStatus` Method:**
+   - Displays the current status of all lifts, including their current floors.
+
+**4. `assignLiftToUser` Method:**
+   - Assigns a lift to a user based on source and destination floors.
+   - It finds the closest available lift (not under maintenance) to the source floor and assigns it to the user.
+   - Updates the lift's current floor accordingly.
+
+**5. `assignNearestLift` Method:**
+   - Assigns the nearest available lift to a user based on their source floor.
+   - Similar to `assignLiftToUser` but only considers proximity.
+
+**6. `assignLiftWithDirection` Method:**
+   - Assigns a lift based on direction and proximity to the user's request.
+   - For example, if a user is going down, it assigns a lift moving in the same direction.
+   - Updates the lift's current floor accordingly.
+
+**7. `restrictLifts` Method:**
+   - Implements lift restrictions based on floors as described in the question.
+   - For example, it restricts L1 and L2 to floors 0-5 and L3 and L4 to floors 6-10.
+
+**8. `assignLiftWithLeastStops` Method:**
+   - Assigns a lift to a user with the least number of stops to reach the destination.
+   - Takes into account the current floor and destination floor.
+   - Updates the lift's current floor accordingly.
+
+**9. `assignLiftByCapacity` Method:**
+   - Assigns a lift to a user based on the lift's capacity.
+   - It selects the lift with the highest capacity that can accommodate the required number of people.
+   - Updates the lift's current floor accordingly.
+
+**10. `markLiftUnderMaintenance` Method:**
+    - Marks a specific lift as under maintenance.
+    - Sets the lift's current floor to -1.
+    - Helps simulate maintenance scenarios.
+
+**11. `main` Method:**
+    - The main entry point of the program.
+    - Creates a `LiftSystem` with 5 lifts and demonstrates various lift system functionalities.
+    - It displays the initial status, assigns lifts to users, restricts lifts, marks lifts under maintenance, and displays status updates.
+
+This code provides a simplified representation of a lift system, and you can further enhance it and add error handling based on your specific requirements and use cases. It's a good starting point for understanding the basic structure of a Java program and how classes and methods can be used to model a lift system.
