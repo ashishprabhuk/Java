@@ -1,5 +1,7 @@
 package Zoho;
 
+import java.util.Arrays;
+
 public class ZohoPatterns {
     static void pattern_1(int n){
         for(int row = 1; row <= n; row++){
@@ -25,8 +27,22 @@ public class ZohoPatterns {
             System.out.println();
         }
     }
+    static void pattern_3(String str){
+        int len = str.length();
+        for (int i = 0; i < len; i++) {
+            int j = len - 1 - i;
+            for (int k = 0; k < len; k++) {
+                if (k == i || k == j)
+                    System.out.print(str.charAt(k));
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
     
     public static void main(String[] args) {
-        pattern_2(4);
+        // pattern_2(4);
+        pattern_3("SARANYA");
     }
 }
