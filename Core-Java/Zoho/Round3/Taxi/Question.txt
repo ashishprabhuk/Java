@@ -1,0 +1,131 @@
+?Design a Call taxi booking application
+-There are n number of taxi’s. For simplicity, assume 4. But it should work for any number of taxi’s.
+-The are 6 points(A,B,C,D,E,F)
+-All the points are in a straight line, and each point is 15kms away from the adjacent points.
+-It takes 60 mins to travel from one point to another
+-Each taxi charges Rs.100 minimum for the first 5 kilometers and Rs.10 for the subsequent kilometers.
+-For simplicity, time can be entered as absolute time. Eg: 9hrs, 15hrs etc.
+-All taxi’s are initially stationed at A.
+-When a customer books a Taxi, a free taxi at that point is allocated
+-If no free taxi is available at that point, a free taxi at the nearest point is allocated.
+-If two taxi’s are free at the same point, one with lower earning is allocated
+-Note that the taxi only charges the customer from the pickup point to the drop point. Not the distance it travels from an adjacent point to pickup the customer.
+-If no taxi is free at that time, booking is rejected
+
+----------------------------------------------------------------------------------------------------
+Design modules for
+1)Call taxi booking 
+Input 1:
+Customer ID: 1
+Pickup Point: A
+Drop Point: B
+Pickup Time: 9
+
+Output 1:
+Taxi can be allotted.
+Taxi-1 is allotted
+
+Input 2:
+Customer ID: 2
+Pickup Point: B
+Drop Point: D
+Pickup Time: 9
+
+Output 1:
+Taxi can be allotted.
+Taxi-2 is allotted 
+(Note: Since Taxi-1 would have completed its journey when second booking is done, so Taxi-2 from nearest point A which is free is allocated)
+Input 3:
+Customer ID: 3
+Pickup Point: B
+Drop Point: C
+Pickup Time: 12
+
+Output 1:
+Taxi can be allotted.
+Taxi-1 is allotted 
+
+----------------------------------------------------------------------------------------------------
+2) Display the Taxi details
+Taxi No:    Total Earnings:
+BookingID    CustomerID    From    To    PickupTime    DropTime    Amount
+   
+Output:
+Taxi-1    Total Earnings: Rs. 400
+
+1     1     A    B    9    10    200
+3    3    B    C    12    13    200
+
+Taxi-2 Total Earnings: Rs. 350
+2    2    B    D    9    11    350
+----------------------------------------------------------------------------------------------------
+
+@Explanation:
+Certainly! I'll provide an explanation of the code step by step:
+
+#1. Taxi Class (Taxi.java):
+- The `Taxi` class represents a taxi with various attributes and methods.
+- Attributes:
+  - `id`: A unique identifier for the taxi.
+  - `booked`: A boolean indicating whether the taxi is currently booked or not.
+  - `currentSpot`: The current location of the taxi (initialized to 'A').
+  - `freeTime`: The time when the taxi will be available (initialized to 6 AM).
+  - `totalEarnings`: The total earnings of the taxi.
+  - `trips`: A list to store details of all the trips taken by the taxi.
+
+#2. Taxi Constructor:**
+- When a `Taxi` object is created, it initializes the attributes, assigns a unique ID, and sets the initial values.
+
+#3. Getter Methods:**
+- Getter methods are provided to access the attributes of the taxi.
+
+#4. `book` Method:**
+- This method is used to book a taxi for a trip.
+- It calculates the distance between the pickup and drop locations, earnings based on distance, and the drop time.
+- Then, it updates the taxi's attributes, marks it as booked, and adds trip details to the `trips` list.
+- If the taxi is already booked, it prints a message stating that it's already booked.
+
+#5. `printTrips` Method:**
+- This method prints the trip history of the taxi, including details of all trips taken by the taxi.
+
+#6. TaxiBooking Class (TaxiBooking.java):**
+- The `TaxiBooking` class is the main class for the taxi booking system.
+
+#7. Main Method:**
+- The `main` method is where the program execution starts.
+- It creates a `Scanner` object for user input and initializes a list of taxis (`taxis`).
+
+#8. Taxi Initialization:**
+- Four taxis are created using a loop and added to the `taxis` list.
+
+#9. User Interaction Loop:**
+- The program enters a loop that allows users to interact with the system until they choose to exit.
+
+#10. User Menu Options:**
+- The program presents a menu with four options:
+  - Option 1: Book a Taxi
+  - Option 2: Print Taxi Details
+  - Option 3: Print Trip History
+  - Option 4: Exit
+
+#11. Option 1: Book a Taxi:**
+- Users can book a taxi by providing the pickup point, drop point, and pickup time.
+- It checks for available taxis and books the first available one for the trip.
+- If no taxis are available, it informs the user.
+
+#12. Option 2: Print Taxi Details:**
+- Users can view details of all taxis, including their current spot, free time, and total earnings.
+
+#13. Option 3: Print Trip History:**
+- Users can view the trip history of a specific taxi by providing its ID.
+- If an invalid taxi ID is provided, it informs the user.
+
+#14. Option 4: Exit:**
+- Users can choose to exit the program, which terminates the loop and ends the program.
+
+#15. Scanner Closing:**
+- Finally, the `Scanner` is closed to release resources when the program exits.
+
+This code simulates a taxi booking system where users can book taxis, view taxi details, 
+and review trip histories for each taxi. It demonstrates object-oriented programming concepts 
+and user interaction in a console-based application.

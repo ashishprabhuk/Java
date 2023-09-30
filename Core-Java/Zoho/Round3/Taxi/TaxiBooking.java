@@ -1,6 +1,7 @@
 package Zoho.Round3.Taxi;
 import java.util.*;
 
+// Main class for the taxi booking system
 public class TaxiBooking {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -65,7 +66,6 @@ public class TaxiBooking {
                 System.out.println("Invalid choice. Please select a valid option.");
             }
         }
-        sc.close();
+        sc.close(); // Close the scanner
     }
 }
-
