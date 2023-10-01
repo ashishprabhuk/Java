@@ -1,4 +1,4 @@
-package DSA.Arrays;
+package DSA.Arrays.OneDArray;
 import java.util.*;
 
 public class TwoSum {

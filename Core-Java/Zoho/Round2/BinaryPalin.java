@@ -1,4 +1,4 @@
-package Zoho;
+package Zoho.Round2;
 
 public class BinaryPalin {
     // Method to convert decimal to binary and check if it's a palindrome

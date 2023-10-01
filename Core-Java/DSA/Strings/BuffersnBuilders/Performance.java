@@ -1,4 +1,4 @@
-package DSA.Strings;
+package DSA.Strings.BuffersnBuilders;
 public class Performance {
     
     public static void NormalStr(){
