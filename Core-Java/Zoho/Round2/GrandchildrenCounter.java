@@ -1,4 +1,4 @@
-package DSA.Strings;
+package Zoho.Round2;
 
 import java.util.*;
 
@@ -31,14 +31,21 @@ public class GrandchildrenCounter {
     }
 
     public static void main(String[] args) {
+        // String[][] relationships = {
+        //     {"luke", "shaw"},
+        //     {"wayne", "rooney"},
+        //     {"rooney", "ronaldo"},
+        //     {"shaw", "rooney"}
+        // };
         String[][] relationships = {
-            {"luke", "shaw"},
-            {"wayne", "rooney"},
-            {"rooney", "ronaldo"},
-            {"shaw", "rooney"}
+            {"Lava" , "kushwaha"},
+            {"Rama" , "Lava"},
+            {"Lava" ,"Ravanan"},
+            {"Abi" , "Lava"}
         };
 
-        String father = "ronaldo";
+        // String father = "ronaldo";
+        String father = "Ravanan";
 
         int numberOfGrandchildren = countGrandchildren(relationships, father);
 

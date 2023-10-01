@@ -102,12 +102,29 @@ public class ZohoPatterns {
         }
         sc.close();
     }
+
+    static void pattern_5(){
+    
+        int n = 6;
+        int num = 1;
+    
+        for (int i = 1; i <= n; i++) {
+            int currentNum = num;
+            for (int j = 1; j <= n - i + 1; j++) {
+                System.out.print(currentNum + " ");
+                currentNum += (n - j + 1);
+            }
+            System.out.println();
+            num++;
+        }
+    }
     
     public static void main(String[] args) {
         // pattern_1(4);
         // pattern_2(4);
         // pattern_3("12345");
-        pattern_4();
+        // pattern_4();
+        pattern_5();
     }
 }
 

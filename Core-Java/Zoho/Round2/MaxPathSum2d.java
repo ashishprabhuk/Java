@@ -5,11 +5,19 @@ package Zoho.Round2;
 
 public class MaxPathSum2d {
     public static void main(String[] args) {
+        // int[][] grid = {
+        //     {10, 20},
+        //     {21, 3},
+        //     {1,6}
+        // };
         int[][] grid = {
-            {10, 20},
-            {21, 3},
-            {1,6}
+            {15,25,30},
+            {45,25,60},
+            {70,75,10}
         };
+        
+
+
 
         int maxPathSum = findMaxPathSum(grid);
         System.out.println("Maximum path sum: " + maxPathSum);
