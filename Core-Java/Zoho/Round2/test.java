@@ -1,28 +1,33 @@
 package Zoho.Round2;
-
-public class test {
-    public static void main(String[] args) {
-        String str = "Name: Ashish Prabhu-K,2143";
-        char[] chars = str.toCharArray();
-        reverse(chars);
-        System.out.println(new String(chars));
-    }
-    static void reverse(char[] chars){
-        int start = 0;
-        int end = chars.length-1;
-        while(start<end){
-            while(start<end && !Character.isLetterOrDigit(chars[start])){
-                start++;
-            }
-            while(start<end && !Character.isLetterOrDigit(chars[end])){
-                end--;
-            }
-            char temp = chars[start];
-            chars[start] = chars[end];
-            chars[end] = temp;
-            
-            start++;
-            end--;
+import java.util.*;
+public class test
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		String s = sc.next();
+        int space = (s.length()-1)*2;
+        char[] arr = new char[s.length()];
+        
+        int j = 0;
+        for(int i=s.length()/2;i<s.length();i++){
+            arr[j]=s.charAt(i);
+            j++;
         }
-    }
+        for(int i=0;i<s.length()/2;i++){
+            arr[j]=s.charAt(i);
+            j++;
+        }
+        
+		
+		for(int i=0;i<s.length();i++){
+		    if(space>0)
+		        System.out.format("%1$"+space+"s", "");
+		    for(int k=0;k<i+1;k++){
+		        System.out.print(arr[k]);
+		    }
+		    System.out.print("\n");
+		    space = space-2;
+		}
+	}
 }
