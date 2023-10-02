@@ -1,5 +1,10 @@
 package DataStructures.Hashing.HashSet;
 import java.util.*;
+/*  
+ * A HashSet in Java is a collection that implements the Set interface and is based on 
+ * the hash table data structure. It does not allow duplicate elements and 
+ * does not guarantee the order of elements
+ */
 
 public class HashSetExample {
     public static void main(String[] args) {
