@@ -2,14 +2,15 @@ package Zoho.Round3.BankSystem;
 import java.util.*;
 
 public class BankingSystem {
-    private static Map<String, Customer> customers = new HashMap<>();
-    private static Scanner scanner = new Scanner(System.in);
-    private static Customer activeCustomer = null;
+    private static Map<String, Customer> customers = new HashMap<>(); // Stores customer data using their unique IDs as keys.
+    private static Scanner scanner = new Scanner(System.in); // Scanner for user input.
+    private static Customer activeCustomer = null; // Stores the currently logged-in customer.
 
     public static void main(String[] args) {
 
+        // Adding some sample customers to the system.
         customers.put("C1", new Customer("C1", "PW1"));
-        customers.put("C2", new Customer("C1", "PW2"));
+        customers.put("C2", new Customer("C2", "PW2"));
 
         while (true) {
             System.out.println("Welcome to the Banking System!");
@@ -22,11 +23,11 @@ public class BankingSystem {
 
             switch (choice) {
                 case 1:
-                    login();
+                    login(); // Call the login function.
                     break;
                 case 2:
                     System.out.println("Thank you for using our Banking System!");
-                    System.exit(0);
+                    System.exit(0); // Exit the program.
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
@@ -39,6 +40,7 @@ public class BankingSystem {
         System.out.print("Enter your Password: ");
         String password = scanner.nextLine();
 
+        // Check if the entered customer ID exists and the password is correct.
         if (customers.containsKey(customerId) && customers.get(customerId).authenticate(password)) {
             activeCustomer = customers.get(customerId);
             System.out.println("Login successful!");
@@ -58,22 +60,22 @@ public class BankingSystem {
 
                 switch (choice) {
                     case 1:
-                        createGiftCard();
+                        createGiftCard(); // Call the createGiftCard function.
                         break;
                     case 2:
-                        topUpGiftCard();
+                        topUpGiftCard(); // Call the topUpGiftCard function.
                         break;
                     case 3:
-                        viewTransactionHistory();
+                        viewTransactionHistory(); // Call the viewTransactionHistory function.
                         break;
                     case 4:
-                        blockGiftCard();
+                        blockGiftCard(); // Call the blockGiftCard function.
                         break;
                     case 5:
-                        depositFunds();
+                        depositFunds(); // Call the depositFunds function.
                         break;
                     case 6:
-                        logout();
+                        logout(); // Call the logout function.
                         return; // Exit the login loop
                     default:
                         System.out.println("Invalid choice. Please try again.");
@@ -142,7 +144,6 @@ public class BankingSystem {
             System.out.println("Invalid deposit amount.");
         }
     }
-    
 
     private static void viewTransactionHistory() {
         System.out.print("Enter the 5-digit Card Number to view transaction history: ");
@@ -181,7 +182,7 @@ public class BankingSystem {
     }
 
     private static void logout() {
-        activeCustomer = null;
+        activeCustomer = null; // Log out the active customer.
         System.out.println("Logged out successfully.");
     }
 }
