@@ -17,6 +17,7 @@ public class BookingSystem {
             System.out.println("6. Print");
             System.out.println("7. Available seats");
             System.out.println("8. Exit");
+            System.out.println("--------------------------------");
             System.out.print("Enter your choice: ");
 
             int choice = sc.nextInt();

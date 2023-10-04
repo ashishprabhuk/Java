@@ -42,7 +42,6 @@ public class UniqueMatrix {
 }
 
 /*
- * 
  * Enter Row Size: 4
  * Enter Column Size: 3
  * Enter the matrix:

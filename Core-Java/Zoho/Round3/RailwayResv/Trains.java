@@ -2,9 +2,9 @@ package Zoho.Round3.RailwayResv;
 import java.util.*;
 
 class Trains {
-    private static final int MAX_SEATS = 63; 
-    private static final int MAX_RAC = 18;   
-    private static final int MAX_WL = 10;    
+    private static final int MAX_SEATS = 10; 
+    private static final int MAX_RAC = 1;   
+    private static final int MAX_WL = 1;    
 
     private List<Passenger> passengers = new ArrayList<>();
     private List<Passenger> racPassengers = new ArrayList<>();
