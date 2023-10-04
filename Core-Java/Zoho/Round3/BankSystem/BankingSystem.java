@@ -27,7 +27,8 @@ public class BankingSystem {
                     break;
                 case 2:
                     System.out.println("Thank you for using our Banking System!");
-                    System.exit(0); // Exit the program.
+                    // System.exit(0); // Exit the program.
+                    return; // Exit the program.
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }

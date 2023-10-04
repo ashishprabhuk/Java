@@ -15,7 +15,7 @@ class Passenger {
     // Constructor to create a new Passenger object
     public Passenger(String name, int age, String berthPreference) {
         // Assign a unique ID to the passenger and increment the counter
-        this.id = idCounter++;
+        this.id = idCounter++; 
         
         // Initialize passenger details based on constructor parameters
         this.name = name;
@@ -50,6 +50,6 @@ class Passenger {
     @Override
     public String toString() {
         return "Passenger ID: " + id + ", Name: " + name + ", Age: " + age +
-               ", Berth Preference: " + berthPreference + ", Status: " + status;
+                ", Berth Preference: " + berthPreference + ", Status: " + status;
     }
 }

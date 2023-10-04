@@ -14,7 +14,9 @@ public class BookingSystem {
             System.out.println("3. View Passengers");
             System.out.println("4. View RAC Passengers");
             System.out.println("5. View Waiting List");
-            System.out.println("6. Exit");
+            System.out.println("6. Print");
+            System.out.println("7. Unavailable seats");
+            System.out.println("8. Exit");
             System.out.print("Enter your choice: ");
 
             int choice = sc.nextInt();
@@ -75,6 +77,14 @@ public class BookingSystem {
                     break;
 
                 case 6:
+                    System.out.println("Printing the tickets.");
+                    train.printBookedTickets(); // Exit the program
+                    break;
+                case 7:
+                    System.out.println("Printing the unavailable seats.");
+                    train.printAvailableTickets(); // Exit the program
+                    break;
+                case 8:
                     System.out.println("Exiting the program.");
                     sc.close(); // Close the scanner
                     System.exit(0); // Exit the program
