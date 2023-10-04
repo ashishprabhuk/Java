@@ -15,7 +15,7 @@ public class BookingSystem {
             System.out.println("4. View RAC Passengers");
             System.out.println("5. View Waiting List");
             System.out.println("6. Print");
-            System.out.println("7. Unavailable seats");
+            System.out.println("7. Available seats");
             System.out.println("8. Exit");
             System.out.print("Enter your choice: ");
 
