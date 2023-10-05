@@ -1,9 +1,9 @@
-package Zoho.Round2.Arrays;
+package Zoho.Round2.Maths;
 
 public class ThresholdCount {
     public static void main(String[] args) {
-        int[] array = {5, 8, 10, 13, 6, 2};
-        int threshold = 3;
+        int[] array = {5, 8, 10, 13, 2, 2};
+        int threshold = 5;
 
         int totalCount = calculateThresholdCount(array, threshold);
         System.out.println("Count = " + totalCount);
@@ -33,7 +33,11 @@ public class ThresholdCount {
 }
 
 /*  
-@explanation:
+
+Given an array and a threshold value find the o/p
+eg) i/p {5,8,10,13,6,2} ; threshold = 3;
+o/p count = 17
+explanation:
     Number   parts  counts
     5       {3,2}     2
     8      {3,3,2}    3

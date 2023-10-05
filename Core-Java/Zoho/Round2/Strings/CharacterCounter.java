@@ -9,18 +9,18 @@ public class CharacterCounter {
 
     public static int countCharacters(String input) {
         int count = 0;
-        boolean escape = false;
+        boolean flag = false;
 
         for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
 
-            if (c == '$' && !escape) {
-                escape = true;
-            } else if (c == '$' && escape) {
-                escape = false;
+            if (c == '$' && !flag) {
+                flag = true;
+            } else if (c == '$' && flag) {
+                flag = false;
             } else {
                 count++;
-                escape = false;
+                flag = false;
             }
         }
 

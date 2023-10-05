@@ -4,7 +4,7 @@ import java.util.*;
 public class WordFrequency {
     public static void main(String[] args) {
         String passage = "jana Gana Mana jana";
-        String[] words = passage.split("\\s+");
+        String[] words = passage.split(" ");
 
         Map<String, List<Integer>> wordOccurrences = new HashMap<>();
 
