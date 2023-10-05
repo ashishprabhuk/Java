@@ -4,33 +4,46 @@ import java.util.*;
 
 public class SortByMostSignificantDigit {
     public static void main(String[] args) {
-        Integer[] numbers = { 100, 1, 11, 21, 2, 3 };
+        int[] numbers = { 100, 1, 11, 21, 2, 3 };
         sortByMostSignificantDigit(numbers);
         System.out.println(Arrays.toString(numbers));
     }
 
-    public static void sortByMostSignificantDigit(Integer[] numbers) {
-        // Create an array of the most significant digits
-        int[] mostSignificantDigits = new int[numbers.length];
-        for (int i = 0; i < numbers.length; i++) {
-            mostSignificantDigits[i] = Integer.parseInt(Integer.toString(numbers[i]).substring(0, 1));
+    public static void sortByMostSignificantDigit(int[] numbers) {
+        Arrays.sort(numbers);
+        // Create a list of Integer objects to store the numbers
+        List<Integer> numberList = new ArrayList<>();
+        for (int num : numbers) {
+            numberList.add(num);
         }
 
-        // Sort the original array based on the most significant digits
-        for (int i = 0; i < numbers.length - 1; i++) {
-            for (int j = 0; j < numbers.length - i - 1; j++) {
-                if (mostSignificantDigits[j] > mostSignificantDigits[j + 1]) {
-                    // Swap numbers[j] and numbers[j+1]
-                    int temp = numbers[j];
-                    numbers[j] = numbers[j + 1];
-                    numbers[j + 1] = temp;
-
-                    // Swap mostSignificantDigits[j] and mostSignificantDigits[j+1]
-                    temp = mostSignificantDigits[j];
-                    mostSignificantDigits[j] = mostSignificantDigits[j + 1];
-                    mostSignificantDigits[j + 1] = temp;
-                }
+        // Sort the list using a custom comparator based on the most significant digit
+        Collections.sort(numberList, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer num1, Integer num2) {
+                int msd1 = getMostSignificantDigit(num1);
+                int msd2 = getMostSignificantDigit(num2);
+                return Integer.compare(msd1, msd2);
             }
+        });
+
+        // Copy the sorted numbers back to the original array
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = numberList.get(i);
         }
     }
+
+    public static int getMostSignificantDigit(int number) {
+        while (number >= 10) {
+            number /= 10;
+        }
+        return number;
+    }
 }
+
+
+/*
+to sort numbers based on
+digits starting from most significant numbers. Eg:
+input-100 1 11 21 2 3. Output-1 100 11 2 21 3
+ */

@@ -5,9 +5,11 @@ import java.util.*;
 public class SortDates {
     public static void main(String[] args){
         String[] dates = {
-            "01 Mar 2015",
-            "11 Apr 1996",
-            "22 Oct 2007"
+            "21 Apr 2003",
+            "02 Apr 2003",
+            "29 Aug 2009",
+            "05 Jan 1982",
+            "14 Jan 1970"
         };
 
         // Create a custom comparator to sort dates
@@ -35,3 +37,7 @@ public class SortDates {
         }
     }
 }
+
+/*
+ * Q1. Given dates in day,month, year order sort them.
+ */

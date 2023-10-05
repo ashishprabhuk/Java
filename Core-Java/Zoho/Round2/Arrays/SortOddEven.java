@@ -3,16 +3,16 @@ import java.util.Arrays;
 
 public class SortOddEven{
     public static void main(String[] args) {
-        int[] input1 = {13, 2, 4, 15, 12, 10, 5};
-        int[] input2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] input1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        // int[] input2 = {13, 2, 4, 15, 12, 10, 5};
         
-        System.out.println("Output 1: " + Arrays.toString(input1));
+        System.out.println("Input 1: " + Arrays.toString(input1));
         sortOddEven(input1);
         System.out.println("Output 1: " + Arrays.toString(input1));
         
-        System.out.println("Output 2: " + Arrays.toString(input2));
-        sortOddEven(input2);
-        System.out.println("Output 2: " + Arrays.toString(input2));
+        // System.out.println("Input 2: " + Arrays.toString(input2));
+        // sortOddEven(input2);
+        // System.out.println("Output 2: " + Arrays.toString(input2));
     }
     
     public static void sortOddEven(int[] arr) {
@@ -41,3 +41,14 @@ public class SortOddEven{
         }
     }
 }
+
+
+/*
+Write a program to sort the elements in odd
+positions in descending order and elements in
+ascending order
+Eg 1: Input: 13,2 4,15,12,10,5
+Output: 13,2,12,10,5,15,4
+Eg 2: Input: 1,2,3,4,5,6,7,8,9
+Output: 9,2,7,4,5,6,3,8,1
+ */

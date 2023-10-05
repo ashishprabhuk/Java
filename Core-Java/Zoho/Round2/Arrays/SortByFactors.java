@@ -3,16 +3,14 @@ import java.util.*;
 
 public class SortByFactors {
     public static void main(String[] args) {
-        Integer[] arr1 = { 8, 2, 3, 12, 16 };
-        Integer[] arr2 = {5, 11, 10, 20, 9, 16, 23};
+        // Integer[] arr1 = { 8, 2, 3, 12, 16 };
+        Integer[] arr1 = {5, 11, 10, 20, 9, 16, 23};
         
         // Sort the array using a custom comparator
         Arrays.sort(arr1, new FactorComparator());
-        Arrays.sort(arr2, new FactorComparator());
         
         // Print the sorted array
         System.out.println(Arrays.toString(arr1));
-        System.out.println(Arrays.toString(arr2));
     }
     
     // Custom Comparator to compare numbers based on factors
@@ -43,3 +41,13 @@ public class SortByFactors {
         }
     }
 }
+
+/*
+To find the factors of the numbers given in an
+array and to sort the numbers in descending order
+according to the factors present in it.
+Input:
+Given array : 8, 2, 3, 12, 16
+Output:
+12, 16, 8, 2, 3
+ */
