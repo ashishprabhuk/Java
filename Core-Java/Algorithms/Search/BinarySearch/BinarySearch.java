@@ -21,7 +21,6 @@ public class BinarySearch {
             if (arr[mid] < target) {
                 start = mid + 1;
             }
-
             // If the target is smaller, ignore the end half
             else {
                 end = mid - 1;

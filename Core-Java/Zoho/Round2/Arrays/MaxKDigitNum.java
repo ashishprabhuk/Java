@@ -1,7 +1,6 @@
 package Zoho.Round2.Arrays;
-
-import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class MaxKDigitNum {
     public static void main(String[] args) {
@@ -17,37 +16,33 @@ public class MaxKDigitNum {
             arr[i] = scanner.nextInt();
         }
 
-        System.out.print("Enter the number of digits: ");
+        System.out.print("Enter number of digits: ");
         int k = scanner.nextInt();
 
-        int maxKDigitNumber = findMaxKDigitNumber(arr, k);
+        String maxKDigitNumber = findMaxKDigitNumber(arr, k);
 
-        System.out.println("Output:");
+        System.out.println("OUTPUT:");
         System.out.println(maxKDigitNumber);
     }
 
-    public static int findMaxKDigitNumber(int[] arr, int k) {
+    public static String findMaxKDigitNumber(int[] arr, int k) {
+        // Sort the array in descending order
         Arrays.sort(arr);
-
-        int maxKDigitNumber = 0;
-        int count = 0;
+        StringBuilder maxKDigitNumber = new StringBuilder();
 
         for (int i = arr.length - 1; i >= 0; i--) {
             int num = arr[i];
-            int numDigits = countDigits(num);
-
-            if (numDigits <= k) {
-                maxKDigitNumber = maxKDigitNumber * (int) Math.pow(10, numDigits) + num;
-                k -= numDigits;
-                count++;
+            if (num < Math.pow(10, k)) {
+                maxKDigitNumber.insert(0, num);
+                k -= countDigits(num);
             }
 
-            if (count == k) {
+            if (k == 0) {
                 break;
             }
         }
 
-        return maxKDigitNumber;
+        return maxKDigitNumber.toString();
     }
 
     public static int countDigits(int num) {
@@ -64,3 +59,26 @@ public class MaxKDigitNum {
         return count;
     }
 }
+
+
+
+/*
+Given an array of numbers and a number k. Print
+the maximum possible k digit number which can be
+formed using given numbers.
+INPUT :
+Enter the array size : 4
+Enter the elements : 1 4 973 97
+Enter number of digits : 3
+OUTPUT :
+974
+INPUT :
+Enter the array size : 6
+Enter the elements : 1 4 89 73 9 7
+Enter number of digits : 5
+OUTPUT :
+98973
+*/
+
+
+

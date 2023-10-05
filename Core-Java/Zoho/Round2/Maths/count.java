@@ -4,8 +4,8 @@ public class count {
     static int count1(int n){ //Solution - 1
         int x = n, count = 0;
         while (x!=0){
-            x = x/10; // "1234/10 = 1234.5" but int will not consider decimals.
-            count++;
+            x = x/10; // "12345/10 = 1234" => "1234/10 = 123" => "123/10 = 12" => "12/10 = 1" => "1/10 = 0"
+            count++;  //               1                  2                3               4             5
         }
         return count;
     }

@@ -1,4 +1,4 @@
-package Zoho.Round2.Arrays;
+package Zoho.Round2.Maths;
 
 public class CurrencyCount {
 
@@ -34,7 +34,7 @@ public class CurrencyCount {
     }
 
     // Driver function
-    public static void main(String argc[]) {
+    public static void main(String args[]) {
         int amount = 2143;
         countCurrency(amount);
     }
@@ -46,3 +46,13 @@ public class CurrencyCount {
  * This is done using the modulo operator (%). For example, if amount was 2500, and 
  * the current denomination is 1000, amount will be updated to 500 (2500 % 1000).
  */
+
+
+/*
+* ATM Machine Problem given notes of 1000,
+500, 100, 50, 20, 10(Number of notes given at the
+starting point and we have to N transactions if
+amount present return the amount present in ATM
+decrease count of notes and if not present then
+display “no sufficient amount”)
+*/
