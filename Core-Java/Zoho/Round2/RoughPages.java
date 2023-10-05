@@ -1,34 +1,63 @@
 package Zoho.Round2;
 import java.util.*;
-public class RoughPages
-{
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		
-		String s = sc.next();
-        int space = (s.length()-1)*2;
-        char[] arr = new char[s.length()];
-        
-        int j = 0;
-        for(int i=s.length()/2;i<s.length();i++){
-            arr[j]=s.charAt(i);
+public class RoughPages{
+    static int[] merge(int[] arr1, int[] arr2 ){
+        int[] comb = new int[arr1.length + arr2.length];
+        int i = 0, j = 0, index = 0;
+        while(i<arr1.length && j<arr2.length){
+            if(arr1[i]<arr2[j]){
+                comb[index] = arr1[i];
+                index++;
+                i++;
+            }else{
+                comb[index] = arr2[j];
+                index++;
+                j++;
+            }
+        }
+        while(i<arr1.length){
+            comb[index] = arr1[i];
+            index++;
+            i++;
+        }
+        while(j<arr2.length){
+            comb[index] = arr2[j];
+            index++;
             j++;
         }
-        for(int i=0;i<s.length()/2;i++){
-            arr[j]=s.charAt(i);
-            j++;
+        return comb;
+    }
+    
+    static int[] mergesort(int[] arr){
+        if(arr.length == 1){
+            return arr;
         }
-        
-		
-		for(int i=0;i<s.length();i++){
-		    if(space>0)
-		        System.out.format("%1$"+space+"s", "");
-		    for(int k=0;k<i+1;k++){
-		        System.out.print(arr[k]);
-		    }
-		    System.out.print("\n");
-		    space = space-2;
+        int mid = arr.length/2;
+        int[] left = mergesort(Arrays.copyOfRange(arr,0,mid));
+        int[] right = mergesort(Arrays.copyOfRange(arr,mid,arr.length));
+        return merge(left,right);
+    }
+    
+    static void bubble(int[] arr){
+        for(int i = arr.length-1;i>0;i--){
+            for(int j = 0; j<i;j++){
+				if(arr[j]>arr[j+1]){
+					int temp = arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]= temp;
+				}
+			}
 		}
 	}
+    
+	public static void main(String[] args) {
+		int[] arr = {1,4,2,6,0,5,3};
+		bubble(arr);
+// 		int[] sort = mergesort(arr);
+		// System.out.println(Arrays.toString(sort));
+		System.out.println(Arrays.toString(arr));
+		
+}
+
 }
 

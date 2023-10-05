@@ -33,3 +33,13 @@ public class CombinationSum {
         }
     }
 }
+
+/*  
+Given unsorted array find all combination of the
+element
+for a given sum. Order should be maintained.
+Input :
+8 3 4 7 9 N=7
+Output
+{3 4 } {7}
+ */

@@ -19,7 +19,7 @@ public class BubbleSort {
         }
     } 
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4};
+        int[] arr = {1,2,5,3,4};
         bubbleSort(arr);
         System.out.println(Arrays.toString(arr));
     }

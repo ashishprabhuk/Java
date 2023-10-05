@@ -47,11 +47,11 @@ public class MergeSort {
     // Recursively split and merge the array
     static int[] mergeSort(int[] arr){
         if (arr.length == 1) return arr; // Base case: Already sorted if there's 1 element
-        int midIndex = arr.length / 2;
+        int mid = arr.length / 2;
         
         // Split the array into left and right halves, then recursively sort them
-        int[] left = mergeSort(Arrays.copyOfRange(arr, 0, midIndex));
-        int[] right = mergeSort(Arrays.copyOfRange(arr, midIndex, arr.length));
+        int[] left = mergeSort(Arrays.copyOfRange(arr, 0, mid));
+        int[] right = mergeSort(Arrays.copyOfRange(arr, mid, arr.length));
         
         // Merge the sorted halves
         return merge(left, right);

@@ -1,8 +1,5 @@
 package Zoho.Round2.Arrays;
-
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class ArrayUnion {
     public static void main(String[] args) {
@@ -10,7 +7,6 @@ public class ArrayUnion {
 
         System.out.print("Enter size of first array: ");
         int size1 = scanner.nextInt();
-
         int[] arr1 = new int[size1];
 
         System.out.print("Enter the elements of the first array: ");
@@ -20,7 +16,6 @@ public class ArrayUnion {
 
         System.out.print("Enter size of second array: ");
         int size2 = scanner.nextInt();
-
         int[] arr2 = new int[size2];
 
         System.out.print("Enter the elements of the second array: ");
@@ -28,15 +23,12 @@ public class ArrayUnion {
             arr2[i] = scanner.nextInt();
         }
 
-        int[] union = findUnion(arr1, arr2);
+        findAndPrintUnion(arr1, arr2);
 
-        System.out.println("Output:");
-        for (int num : union) {
-            System.out.print(num + " ");
-        }
+        scanner.close();
     }
 
-    public static int[] findUnion(int[] arr1, int[] arr2) {
+    public static void findAndPrintUnion(int[] arr1, int[] arr2) {
         Set<Integer> unionSet = new HashSet<>();
 
         for (int num : arr1) {
@@ -47,13 +39,20 @@ public class ArrayUnion {
             unionSet.add(num);
         }
 
-        int[] union = new int[unionSet.size()];
-        int index = 0;
-
-        for (int num : unionSet) {
-            union[index++] = num;
-        }
-
-        return union;
+        System.out.print("Number of elements after union operation: " + unionSet.size() + "\n");
+        System.out.println("The union set of both arrays is : ");
+        System.out.print(unionSet.toString() + " ");
+        System.out.print(unionSet);
     }
 }
+
+/*  
+ * Given two arrays. Find its union.
+Input :
+Enter size of first array : 6
+Enter the elements : 1 2 3 4 5 3
+Enter size of second array : 4
+Enter the elements : 1 2 7 5
+OUTPUT :
+1 2 3 4 5 7
+ */
