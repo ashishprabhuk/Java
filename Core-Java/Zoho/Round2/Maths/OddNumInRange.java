@@ -4,9 +4,9 @@ import java.util.Scanner;
 public class OddNumInRange {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the lower bound:");
+        System.out.print("Enter the lower bound:");
         int lowerBound = sc.nextInt();
-        System.out.println("Enter the upper bound:");
+        System.out.print("Enter the upper bound:");
         int upperBound = sc.nextInt();
         
         System.out.println("Odd numbers in the range:");

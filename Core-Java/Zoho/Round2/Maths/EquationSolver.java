@@ -24,7 +24,7 @@ public class EquationSolver {
         }
     }
 
-    // Helper method to calculate factorial
+    // Helper method to calculate factorial (always keep factorial values in long)
     public static long factorial(int n) {
         if (n == 0 || n == 1) {
             return 1;
@@ -37,3 +37,11 @@ public class EquationSolver {
         }
     }
 }
+
+/*
+Solve the equation (XpowerY/Z!) + (Z/(X!+Z)) with
+given values of X, Y, Z. X and Z cannot be negative.
+Example:
+Input: X=2, Y=3, Z=4
+Output: 1
+ */

@@ -5,8 +5,8 @@ public class NumberToAlphabet {
         int n1 = 1;
         int n2 = 26;
         int n3 = 28;
-        int n4 = 30;
-        int n5 = 1000;
+        int n4 = 676;
+        int n5 = 705;
 
         System.out.println(convertToAlphabet(n1));
         System.out.println(convertToAlphabet(n2));
@@ -20,18 +20,24 @@ public class NumberToAlphabet {
 
         while (n > 0) {
             // Calculate the remainder when dividing by 26
-            int remainder = (n - 1) % 26;
-
-            // Convert the remainder to the corresponding alphabet character
-            char alphabetChar = (char) ('A' + remainder);
-
+            int rem = (n - 1) % 26;
+            // Convert the rem to the corresponding alphabet character
+            char alphabetChar = (char) ('A' + rem);
             // Append the character to the result
             result.insert(0, alphabetChar);
-
-            // Reduce n by (remainder + 1) and divide by 26
-            n = (n - remainder - 1) / 26;
+            // Reduce n by (rem + 1) and divide by 26
+            n = (n - 1) / 26;
         }
-
         return result.toString();
     }
 }
+
+/*
+Given a number, convert it into corresponding
+alphabet.
+Input Output
+1 A
+26 Z
+27 AA
+676 ZZZ
+ */

@@ -3,7 +3,7 @@ package Zoho.Round2.Maths;
 public class SquareNumInRange {
     public static void main(String[] args) {
         int a = 20;
-        int b = 100;
+        int b = 200;
 
         printSquareNumbersInRange(a, b);
     }
@@ -25,3 +25,4 @@ public class SquareNumInRange {
         return sqrt * sqrt == num;
     }
 }
+

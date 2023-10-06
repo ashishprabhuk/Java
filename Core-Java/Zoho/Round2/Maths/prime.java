@@ -4,7 +4,10 @@ public class prime {
 
     static boolean primes(int n){
         int num = n;
-        for(int i = 2; i < num; i++){
+        if (num <= 1) {
+            return false;
+        }
+        for(int i = 2; i*i < num; i++){
             if(num%i == 0) {
                 return false;
             }

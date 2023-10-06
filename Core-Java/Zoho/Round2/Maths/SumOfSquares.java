@@ -8,20 +8,22 @@ public class SumOfSquares {
     }
 
     public static int getMinCount(int n) {
-        int[] dp = new int[n + 1];
-        dp[0] = 0;
-
-        for (int i = 1; i <= n; i++) {
-            dp[i] = i; // Initialize dp[i] with the maximum possible value
-
-            for (int j = 1; j * j <= i; j++) {
-                dp[i] = Math.min(dp[i], 1 + dp[i - j * j]);
-            }
+        if (n <= 3) {
+            return n; // For n = 1, 2, 3, return n itself
         }
 
-        return dp[n];
+        int minCount = n; // Initialize minCount with n as the worst case
+
+        // Try every square number less than or equal to n
+        for (int i = 1; i * i <= n; i++) {
+            int temp = 1 + getMinCount(n - i * i); // Recursively find the count for n - x^2
+            minCount = Math.min(minCount, temp);
+        }
+
+        return minCount;
     }
 }
+
 
 /*
  * Find the minimum number of times required to

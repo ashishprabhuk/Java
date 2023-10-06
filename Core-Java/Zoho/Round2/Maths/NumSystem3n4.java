@@ -1,5 +1,11 @@
 package Zoho.Round2.Maths;
-
+/*
+Form a number system with only 3 and 4. Find
+the nth number of the number system.
+Eg.) The numbers are: 3, 4, 33, 34, 43, 44, 333, 334,
+343, 344, 433, 434, 443, 444, 3333, 3334, 3343,
+3344, 3433, 3434, 3443, 3444 ....
+*/
 public class NumSystem3n4 {
     // Function to generate the nth number in the number system
     public static String generateNthNumber(int n) {
@@ -11,15 +17,13 @@ public class NumSystem3n4 {
         
         while (n > 0) {
             int remainder = (n - 1) % 2; // Calculate the remainder when (n - 1) is divided by 2
-            sb.insert(0, (remainder == 0) ? '3' : '4'); // Insert '3' or '4' at the beginning of the result based on the remainder
+            sb.insert(0, (remainder == 0) ? "3" : "4"); // Insert '3' or '4' at the beginning of the result based on the remainder
             n = (n - 1) / 2; // Calculate the next value of n by integer division by 2
         }
-        
         return sb.toString(); // Convert the StringBuilder to a string and return the result
     }
-    
     public static void main(String[] args) {
-        int n = 10; // Change n to the desired nth number
+        int n = 22; // Change n to the desired nth number
         String nthNumber = generateNthNumber(n); // Call the generateNthNumber function to calculate the nth number
         System.out.println("The " + n + "th number in the number system is: " + nthNumber); // Print the result
     }

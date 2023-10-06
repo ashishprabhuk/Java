@@ -1,19 +1,26 @@
 package Zoho.Round2.Maths;
 
 public class gcd2Num {
-    static int gcd(int a, int b){
-        // Find Minimum of a and b
-        int result = Math.min(a, b);
-        while (result > 0) {
-            if (a % result == 0 && b % result == 0) {
-                break;  // if condition satisfies it(breaks) exits the loop
-            }
-            result--;
+    // Function to find the GCD using the Euclidean algorithm
+    public static int findGCD(int a, int b) {
+        if (b == 0) {
+            return a; // If b is 0, the GCD is a
+        } else {
+            // Otherwise, recursively call the function with (b, a % b)
+            // This step effectively replaces a with b and b with a % b
+            return findGCD(b, a % b);
         }
-        // Return gcd of a and b
-        return result;
     }
+
     public static void main(String[] args) {
-        System.out.println(gcd(98,56));
+        int num1 = 48;
+        int num2 = 18;
+
+        // Call the findGCD function to calculate the GCD of num1 and num2
+        int gcd = findGCD(num1, num2);
+
+        // Print the result
+        System.out.println("GCD of " + num1 + " and " + num2 + " is " + gcd);
     }
 }
+// greatest common divisor (GCD) of two numbers

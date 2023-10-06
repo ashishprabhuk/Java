@@ -8,17 +8,17 @@ public class SinX {
     }
 
     public static double calculateSinX(double x, int n) {
-        double sinx = x;
+        double sinX = x;
         double term = x;
         int sign = -1;
 
         for (int i = 3; i <= n * 2; i += 2) {
             term = (term * x * x) / ((i - 1) * i);
-            sinx += sign * term;
+            sinX += sign * term;
             sign *= -1;
         }
 
-        return sinx;
+        return sinX;
     }
 }
 
@@ -26,6 +26,5 @@ public class SinX {
  * Computing value of sin (x)
  * Input x = 30 n = 10
  * output = 0.5
- * Hint : The equation sin(x) = x – x^3 / 3! + x^5 / 5! –
- * ....
+ * Hint : The equation sin(x) = x – x^3 / 3! + x^5 / 5! – ....
  */

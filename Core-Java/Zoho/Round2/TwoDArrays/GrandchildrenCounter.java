@@ -25,7 +25,6 @@ public class GrandchildrenCounter {
                 }
             }
         }
-
         // Return the number of grandchildren for the given "father"
         return grandchildrenCount.getOrDefault(father, 0);
     }

@@ -12,7 +12,7 @@ public class MagicNumber {
     }
 
     public static boolean isMagicNumber(int number) {
-        int originalNumber = number;
+        int num = number;
         int sum = 0;
 
         while (number > 0) {
@@ -21,6 +21,12 @@ public class MagicNumber {
             number /= 10;
         }
 
-        return sum == originalNumber;
+        return sum == num;
     }
 }
+
+/*
+Find whether a given number is magic number
+or not. It is something which gives same digits even
+after cubing it.
+ */

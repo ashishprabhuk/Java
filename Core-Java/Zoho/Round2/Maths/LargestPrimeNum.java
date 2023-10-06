@@ -1,36 +1,46 @@
 package Zoho.Round2.Maths;
-import java.util.Arrays;
-
 public class LargestPrimeNum {
+
     public static void main(String[] args) {
-        int input = 4691; // 9461
-        // int input = 17; // 71
-        // int input = 7571; // 7517
-        int largestPrime = findLargestPrime(input);
-        System.out.println("Largest Prime Permutation: " + largestPrime);
+        int input = 4691;
+
+        // Convert the input number to a character array
+        char[] digits = Integer.toString(input).toCharArray();
+
+        // Find and print the largest prime permutation
+        String largestPrime = findLargestPrime(digits, 0, digits.length - 1);
+
+        if (largestPrime != null) {
+            System.out.println("Largest Prime Permutation: " + largestPrime);
+        } else {
+            System.out.println("No prime permutation found.");
+        }
     }
 
-    // Function to find the largest prime permutation of a given number
-    public static int findLargestPrime(int n) {
-        // Convert the number to an array of its digits
-        char[] digits = Integer.toString(n).toCharArray();
-        
-        // Sort the digits in ascending order
-        Arrays.sort(digits);
-
-        int largestPrime = 0;
-
-        // Generate permutations of the digits and check for primes
-        do {
-            // Convert the sorted digits back to an integer
+    // Recursive function to find the largest prime permutation
+    public static String findLargestPrime(char[] digits, int start, int end) {
+        // Base case: If we have processed all digits, check if it's prime
+        if (start == end) {
             int num = Integer.parseInt(new String(digits));
-
-            // Check if the current permutation is prime and larger than the largest found so far
-            if (isPrime(num) && num > largestPrime) {
-                largestPrime = num;
+            if (isPrime(num)) {
+                return new String(digits);
+            } else {
+                return null;
             }
-        } while (nextPermutation(digits)); // Generate the next permutation
+        }
+        //new String(digits):  it converts the array of characters into a string representation.
+        //Integer.parseInt(...):Convert a String to an Integer.returns the string as a primitive type int
 
+        String largestPrime = null;
+        // Try all possible permutations by swapping digits
+        for (int i = start; i <= end; i++) {
+            swap(digits, start, i);
+            String permutation = findLargestPrime(digits, start + 1, end); 
+            if (permutation != null && (largestPrime == null || permutation.compareTo(largestPrime) > 0)) {
+                largestPrime = permutation;
+            }
+            swap(digits, start, i); // Backtrack to restore the original order
+        }
         return largestPrime;
     }
 
@@ -47,42 +57,30 @@ public class LargestPrimeNum {
         return true;
     }
 
-    // Function to generate the next lexicographically greater permutation of an array
-    public static boolean nextPermutation(char[] array) {
-        int i = array.length - 2;
-        // Find the first index (i) where array[i] < array[i + 1]
-        while (i >= 0 && array[i] >= array[i + 1]) {
-            i--;
-        }
-        if (i < 0) {
-            return false; // If no such index exists, it's the last permutation
-        }
-        int j = array.length - 1;
-        // Find the smallest digit to the right of i that is greater than array[i]
-        while (array[j] <= array[i]) {
-            j--;
-        }
-        // Swap array[i] and array[j]
-        swap(array, i, j);
-        // Reverse the elements to the right of i
-        reverse(array, i + 1);
-        return true;
-    }
-
     // Function to swap two elements in an array
     public static void swap(char[] array, int i, int j) {
         char temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
-
-    // Function to reverse elements in an array starting from the given index
-    public static void reverse(char[] array, int start) {
-        int end = array.length - 1;
-        while (start < end) {
-            swap(array, start, end);
-            start++;
-            end--;
-        }
-    }
 }
+
+
+/*
+findLargestPrime is a recursive function that takes three arguments: digits (an array of characters representing the number), start (the index of the current digit being considered), and end (the index of the last digit in the array).
+
+The base case of the recursion is when start equals end, which means we have processed all the digits. In this case, it converts the array of digits back to an integer (num) and checks if num is a prime number using the isPrime function.
+
+If num is prime, it returns the array of digits as a string, indicating that this is a valid prime permutation. Otherwise, it returns null to indicate that this permutation is not prime.
+
+If we haven't reached the base case, the code iterates through all possible permutations of the digits by swapping the current digit with each digit to its right. It then recursively calls findLargestPrime with the updated digits array.
+
+It keeps track of the largest prime permutation found (largestPrime) and updates it whenever a new prime permutation is discovered that is larger than the previously found one.
+
+After trying all permutations, the function returns the largestPrime found during the process.
+
+Finally, there are two utility functions:
+
+isPrime(int num): This function checks if an integer num is prime.
+swap(char[] array, int i, int j): This function swaps two elements in the character array array at positions i and j.
+ */

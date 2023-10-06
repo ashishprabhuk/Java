@@ -1,6 +1,6 @@
 package Zoho.Round2.Maths;
 
-import java.awt.Point;
+import java.awt.Point; // !important package for point
 
 public class DistanceCalculator {
     public static void main(String[] args) {
@@ -25,3 +25,11 @@ public class DistanceCalculator {
         return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
     }
 }
+
+/*
+2.Find the distance between two given points and
+round it to the nearest number.
+Example:
+Input: (2,4)(4,10)
+Output: 6
+ */

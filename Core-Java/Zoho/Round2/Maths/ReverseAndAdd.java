@@ -2,11 +2,20 @@ package Zoho.Round2.Maths;
 
 public class ReverseAndAdd {
     public static void main(String[] args) {
-        int num = 39;
-        // int num = 32;
-        System.out.println(reverseAndAdd(num));
+        // int num = 39;
+        int num = 765;
+        int palin = reverseAndAdd(num);
+        if(isPalindrome(palin)){
+            System.out.println("Its is palindrome: " + palin);
+        }else{
+            System.out.println("no");
+        }
     }
 
+    static void helper(int num){
+        System.out.println(reverseAndAdd(num));
+    }
+    
     public static int reverseAndAdd(int num) {
         int i = 0;
         while (i < 5) {
