@@ -29,7 +29,7 @@ public class ArrayUnion {
     }
 
     public static void findAndPrintUnion(int[] arr1, int[] arr2) {
-        Set<Integer> unionSet = new HashSet<>();
+        Set<Integer> unionSet = new HashSet<>(); 
 
         for (int num : arr1) {
             unionSet.add(num);

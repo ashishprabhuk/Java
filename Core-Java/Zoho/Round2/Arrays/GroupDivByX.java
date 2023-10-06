@@ -17,11 +17,18 @@ public class GroupDivByX {
         System.out.println("Enter the x value:");
         int x = sc.nextInt();
 
+        generateGroups(array, x);
+
+        sc.close();
+    }
+
+    public static void generateGroups(int[] array, int x) {
+        int size = array.length;
         int powerset_size = (int) Math.pow(2, size);
 
         for (int counter = 0; counter < powerset_size; counter++) {
             int sum = 0, k = 0;
-            int[] arrayb = new int[size]; // Temporary array to store elements sc the current group
+            int[] arrayb = new int[size]; // Temporary array to store elements of the current group
 
             for (int i = 0; i < size; i++) {
                 int num = counter & (1 << i);
@@ -42,9 +49,9 @@ public class GroupDivByX {
                 System.out.println();
             }
         }
-        sc.close();
     }
 }
+
 
 /*
 To find the number of groups and output the
