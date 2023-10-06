@@ -3,7 +3,7 @@ package Zoho.Round2.Maths;
 public class ThresholdCount {
     public static void main(String[] args) {
         int[] array = {5, 8, 10, 13, 2, 2};
-        int threshold = 5;
+        int threshold = 3;
 
         int totalCount = calculateThresholdCount(array, threshold);
         System.out.println("Count = " + totalCount);
@@ -24,7 +24,6 @@ public class ThresholdCount {
                     num = 0;
                 }
             }
-
             totalCount += count;
         }
 
