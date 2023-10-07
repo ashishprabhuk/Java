@@ -14,33 +14,36 @@ And sort the numbers based on the weight and print it as follows
 Should display the numbers based on increasing order.
  */
 public class NumWeightSum {
-    public static void main(String args[]){
-        int[] numArray = {10,36,54,89,12};
-        int len = numArray.length;
-        
-        for(int i=0; i<len; i++)
-            for(int j=i+1; j<len; j++)
-                if(numArray[i] > numArray[j]){
-                    int temp = numArray[i];
-                    numArray[i] = numArray[j];
-                    numArray[j] = temp;
-                }
-        int[] wegArray = new int[len];
-        
-        for(int i=0; i<len; i++){
-            wegArray[i] = 0;
-            int sq =(int) Math.sqrt(numArray[i]);
-            if((sq*sq) == numArray[i])
-                wegArray[i] = wegArray[i] + 5;
+    public static void main(String args[]) {
+        int[] numArray = {10, 36, 54, 89, 12};
 
-            if(numArray[i]%4==0 || numArray[i]%6==0)
-                wegArray[i] = wegArray[i] + 4;
+        int[] weights = calculateWeights(numArray);
 
-            if(numArray[i]%2 == 0)
-                wegArray[i] = wegArray[i] + 3;
+        for (int i = 0; i < numArray.length; i++) {
+            System.out.print("<" + numArray[i] + "," + weights[i] + ">");
+            if (i < numArray.length - 1) {
+                System.out.print(",");
+            }
         }
-        
-        for(int i=0; i<len; i++)
-            System.out.print("<"+numArray[i]+","+wegArray[i]+">,");
+    }
+
+    public static int[] calculateWeights(int[] numArray) {
+        int len = numArray.length;
+        int[] weights = new int[len];
+
+        for (int i = 0; i < len; i++) {
+            weights[i] = 0;
+            int sq = (int) Math.sqrt(numArray[i]);
+            if ((sq * sq) == numArray[i]) {
+                weights[i] += 5;
+            }
+            if (numArray[i] % 4 == 0 || numArray[i] % 6 == 0) {
+                weights[i] += 4;
+            }
+            if (numArray[i] % 2 == 0) {
+                weights[i] += 3;
+            }
+        }
+        return weights;
     }
 }

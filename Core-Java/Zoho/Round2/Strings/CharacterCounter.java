@@ -2,28 +2,35 @@ package Zoho.Round2.Strings;
 
 public class CharacterCounter {
     public static void main(String[] args) {
-        String input = "Hello$World$";
-        int count = countCharacters(input);
+        String input = "Ashish$Prabhu$";
+        int count = countCharactersWithEscape(input);
         System.out.println("Output: " + count);
     }
 
-    public static int countCharacters(String input) {
+    public static int countCharactersWithEscape(String input) {
         int count = 0;
-        boolean flag = false;
+        boolean escape = false;
 
         for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
-
-            if (c == '$' && !flag) {
-                flag = true;
-            } else if (c == '$' && flag) {
-                flag = false;
+            char currentChar = input.charAt(i);
+            if (currentChar == '$' && !escape) {
+                escape = !escape; // Increment count if '$' is not in escape mode
             } else {
-                count++;
-                flag = false;
+                count++;   // Increment count for all other characters
             }
         }
-
         return count;
     }
 }
+
+
+
+/*
+3.Count the numbers of characters in the given
+string treating ‘$’ as escape sequence. If ‘$’ is
+preceeded by ”, consider it as normal ‘$’ and not
+the escape sequence. If ” occurs, treat it as single ”.
+Example:
+Input: Hello$World$
+Output: 11
+ */

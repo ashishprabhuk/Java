@@ -19,16 +19,13 @@ public class NumberToLetters {
             // Get the first digit
             int num1 = Character.getNumericValue(digits.charAt(0));
             char letter1 = (char) ('A' + num1 - 1);
-
             // Generate a combination with the first digit
             generateCombinations(digits.substring(1), current + letter1);
-
             // Check if there are at least two digits and the first two digits form a valid letter
             if (digits.length() >= 2) {
                 int num2 = Integer.parseInt(digits.substring(0, 2));
                 if (num2 >= 10 && num2 <= 26) {
                     char letter2 = (char) ('A' + num2 - 1);
-
                     // Generate a combination with the first two digits
                     generateCombinations(digits.substring(2), current + letter2);
                 }
@@ -36,3 +33,14 @@ public class NumberToLetters {
         }
     }
 }
+
+
+/*
+Given a string of integers find out all the
+possible words that can made out of it in
+continuous order. Eg: 11112
+ans: AAAAB
+AKAB
+AAKB
+AAAL etc.
+ */

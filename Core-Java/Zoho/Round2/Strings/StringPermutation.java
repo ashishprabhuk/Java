@@ -1,5 +1,4 @@
 package Zoho.Round2.Strings;
-import java.util.Scanner;
 
 public class StringPermutation {
     public static void main(String[] args) {
@@ -8,24 +7,38 @@ public class StringPermutation {
         permute(str, 0, n - 1);
     }
 
-    static void permute(String str, int l, int r) {
-        if (l == r)
+    static void permute(String str, int left, int right) {
+        if (left == right)
             System.out.println(str);
         else {
-            for (int i = l; i <= r; i++) {
-                str = swap(str, l, i);
-                permute(str, l + 1, r);
-                str = swap(str, l, i);
+            for (int i = left; i <= right; i++) {
+                str = swap(str, left, i);
+                permute(str, left + 1, right);
+                str = swap(str, left, i);
             }
         }
     }
-
-    static String swap(String a, int i, int j) {
+    static String swap(String str, int i, int j) {
         char temp;
-        char[] charArray = a.toCharArray();
+        char[] charArray = str.toCharArray();
         temp = charArray[i];
         charArray[i] = charArray[j];
         charArray[j] = temp;
         return String.valueOf(charArray);
     }
 }
+
+/*
+Print all distinct permutations of a string having duplicates.
+
+Input : 
+ABC
+
+Output : 
+ABC
+ACB
+BAC
+BCA
+CBA
+CAB
+*/

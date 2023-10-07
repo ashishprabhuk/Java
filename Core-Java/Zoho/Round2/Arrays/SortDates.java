@@ -3,7 +3,7 @@ import java.text.*;
 import java.util.*;
 
 public class SortDates {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String[] dates = {
             "21 Apr 2003",
             "02 Apr 2003",
@@ -12,6 +12,15 @@ public class SortDates {
             "14 Jan 1970"
         };
 
+        String[] sortedDates = sortDates(dates);
+
+        // Print the sorted dates
+        for (String date : sortedDates) {
+            System.out.println(date);
+        }
+    }
+
+    public static String[] sortDates(String[] dates) {
         // Create a custom comparator to sort dates
         Comparator<String> dateComparator = new Comparator<String>() {
             @Override
@@ -31,12 +40,10 @@ public class SortDates {
         // Sort the dates using the custom comparator
         Arrays.sort(dates, dateComparator);
 
-        // Print the sorted dates
-        for (String date : dates) {
-            System.out.println(date);
-        }
+        return dates;
     }
 }
+
 
 /*
  * Q1. Given dates in day,month, year order sort them.

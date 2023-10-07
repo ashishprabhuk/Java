@@ -13,7 +13,7 @@ public class AnagramFinder {
     public static List<String> findAnagrams(String[] inputArray, String wordToFind) {
         List<String> anagrams = new ArrayList<>();
 
-        // Convert the word to find to lowercase and sort its characters
+        // Convert the wordToFind to lowercase and sort its characters
         char[] sortedWordToFind = wordToFind.toLowerCase().toCharArray();
         Arrays.sort(sortedWordToFind);
 
@@ -27,8 +27,15 @@ public class AnagramFinder {
                 anagrams.add(word);
             }
         }
-
         return anagrams;
     }
 }
 
+/*
+3. It’s about anagram.i/p was array of strings .and a
+word was given to find whether it has anagram in
+given array.
+I/p catch, got, tiger, mat, eat, Pat, tap, tea
+Word: ate
+O/p eat, tea
+ */

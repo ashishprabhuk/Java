@@ -18,32 +18,49 @@ public class RomanToDecimal {
     }
 
     public static int romanToDecimal(String s) {
-        HashMap<Character, Integer> romanMap = new HashMap<>();
-        romanMap.put('I', 1);
-        romanMap.put('V', 5);
-        romanMap.put('X', 10);
-        romanMap.put('L', 50);
-        romanMap.put('C', 100);
-        romanMap.put('D', 500);
-        romanMap.put('M', 1000);
+        HashMap<Character, Integer> roman = new HashMap<>();
+        roman.put('I', 1);
+        roman.put('V', 5);
+        roman.put('X', 10);
+        roman.put('L', 50);
+        roman.put('C', 100);
+        roman.put('D', 500);
+        roman.put('M', 1000);
 
         int decimalValue = 0;
         int prevValue = 0;
 
         for (int i = s.length() - 1; i >= 0; i--) {
             char currentChar = s.charAt(i);
-            int currentValue = romanMap.get(currentChar);
+            int currentValue = roman.get(currentChar);
 
             if (currentValue < prevValue) {
                 decimalValue -= currentValue;
             } else {
                 decimalValue += currentValue;
             }
-
             prevValue = currentValue;
         }
-
         return decimalValue;
     }
 }
 
+/*
+Given a Roman numeral, the task is to find its corresponding decimal value.
+
+Example : 
+
+Input: IX
+Output: 9
+IX is a Roman symbol which represents 9 
+
+Input: XL
+Output: 40
+XL is a Roman symbol which represents 40
+
+Input: MCMIV
+Output: 1904
+M is a thousand, 
+CM is nine hundred and 
+IV is four
+ */

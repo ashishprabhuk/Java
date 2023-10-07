@@ -1,48 +1,71 @@
 package Zoho.Round2.TwoDArrays;
 
-public class RectangleCounter {
-    public static void main(String[] args) {
-        int[][] matrix = {
-                { 0, 1, 1, 0 },
-                { 1, 1, 1, 0 },
-                { 0, 0, 1, 1 },
-                { 0, 0, 1, 1 }
-        };
-        int count = countRectangles(matrix);
-        System.out.println("Number of Rectangles: " + count);
-    }
+import java.util.Stack;
 
-    public static int countRectangles(int[][] matrix) {
+public class RectangleCounter {
+    static int calculateMaxRectangleArea(int[][] matrix) {
         int rows = matrix.length;
         int cols = matrix[0].length;
-        int count = 0;
+        int maxArea = 0;
+        int[] heights = new int[cols];
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (matrix[i][j] == 1) {
-                    count += countRectanglesFromCell(matrix, i, j);
+                    heights[j] += 1;
+                } else {
+                    heights[j] = 0;
                 }
             }
+            maxArea = Math.max(maxArea, calculateMaxHistogramArea(heights));
         }
-
-        return count;
+        return maxArea;
     }
 
-    public static int countRectanglesFromCell(int[][] matrix, int startRow, int startCol) {
-        int rows = matrix.length;
-        int cols = matrix[0].length;
-        int count = 0;
+    static int calculateMaxHistogramArea(int[] heights) {
+        int maxArea = 0;
+        int n = heights.length;
+        Stack<Integer> stack = new Stack<>();
 
-        for (int i = startRow; i < rows; i++) {
-            for (int j = startCol; j < cols; j++) {
-                if (matrix[i][j] == 1) {
-                    count++;
-                } else {
-                    return count;
-                }
+        for (int i = 0; i <= n; i++) {
+            while (!stack.isEmpty() && (i == n || heights[i] < heights[stack.peek()])) {
+                int height = heights[stack.pop()];
+                int width = stack.isEmpty() ? i : i - stack.peek() - 1;
+                maxArea = Math.max(maxArea, height * width);
+            }
+            if (i < n) {
+                stack.push(i);
             }
         }
+        return maxArea;
+    }
 
-        return count;
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {0, 1, 1, 0},
+            {1, 1, 1, 1},
+            {1, 1, 1, 1},
+            {1, 1, 1, 1}
+        };
+        System.out.print("Area of the largest rectangle is " + calculateMaxRectangleArea(matrix));
     }
 }
+
+
+
+
+
+
+
+
+/*
+in a matrix find the number of rectangles filled
+with 1s.
+
+Input: 
+0 1 1 0
+1 1 1 0
+0 0 1 1
+0 0 1 1
+Output: 2.
+ */

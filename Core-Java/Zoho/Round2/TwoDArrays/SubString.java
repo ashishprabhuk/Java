@@ -2,10 +2,6 @@ package Zoho.Round2.TwoDArrays;
 
 public class SubString {
     public static void main(String[] args) {
-        // Define the input string
-        // String inputString = "WELCOMETOZOHOCORPORATION";
-
-        // Create a two-dimensional character array
         char[][] twoDArray = {
             {'W', 'E', 'L', 'C', 'O'},
             {'M', 'E', 'T', 'O', 'Z'},
@@ -14,19 +10,31 @@ public class SubString {
             {'T', 'I', 'O', 'N'}
         };
 
-        // Define the substring to search for
         String searchString = "TOO";
 
-        // Initialize variables to store start and end indices
-        int startRow = -1, startCol = -1, endRow = -1, endCol = -1;
+        int[] indices = searchSubstring(twoDArray, searchString);
 
-        // Search for the substring "TOO" in all directions
-        for (int i = 0; i < twoDArray.length; i++) {
-            for (int j = 0; j < twoDArray[i].length; j++) {
-                // Check horizontal right
-                if (j + searchString.length() <= twoDArray[i].length) {
+        if (indices != null) {
+            int startRow = indices[0];
+            int startCol = indices[1];
+            int endRow = indices[2];
+            int endCol = indices[3];
+
+            System.out.println("Start index: <" + startRow + ", " + startCol + ">");
+            System.out.println("End index: <" + endRow + ", " + endCol + ">");
+        } else {
+            System.out.println("Substring not found.");
+        }
+    }
+
+    public static int[] searchSubstring(char[][] twoDArray, String searchString) {
+        int rowCount = twoDArray.length;
+        int colCount = twoDArray[0].length;
+
+        for (int i = 0; i < rowCount; i++) {
+            for (int j = 0; j < colCount; j++) {
+                if (j + searchString.length() <= colCount) {
                     boolean found = true;
-                    // Check each character of the substring
                     for (int k = 0; k < searchString.length(); k++) {
                         if (twoDArray[i][j + k] != searchString.charAt(k)) {
                             found = false;
@@ -34,18 +42,11 @@ public class SubString {
                         }
                     }
                     if (found) {
-                        // If the substring is found horizontally, store the start and end indices
-                        startRow = i;
-                        startCol = j;
-                        endRow = i;
-                        endCol = j + searchString.length() - 1;
-                        break; // Break out of the loop since we found the substring
+                        return new int[]{i, j, i, j + searchString.length() - 1};
                     }
                 }
-                // Check vertical down
-                if (i + searchString.length() <= twoDArray.length) {
+                if (i + searchString.length() <= rowCount) {
                     boolean found = true;
-                    // Check each character of the substring
                     for (int k = 0; k < searchString.length(); k++) {
                         if (twoDArray[i + k][j] != searchString.charAt(k)) {
                             found = false;
@@ -53,26 +54,15 @@ public class SubString {
                         }
                     }
                     if (found) {
-                        // If the substring is found vertically, store the start and end indices
-                        startRow = i;
-                        startCol = j;
-                        endRow = i + searchString.length() - 1;
-                        endCol = j;
-                        break; // Break out of the loop since we found the substring
+                        return new int[]{i, j, i + searchString.length() - 1, j};
                     }
                 }
             }
         }
-
-        // Print the result
-        if (startRow != -1 && startCol != -1) {
-            System.out.println("Start index: <" + startRow + ", " + startCol + ">");
-            System.out.println("End index: <" + endRow + ", " + endCol + ">");
-        } else {
-            System.out.println("Substring not found.");
-        }
+        return null;
     }
 }
+
 
 /*  
  * The input string inputString is defined as "WELCOMETOZOHOCORPORATION."

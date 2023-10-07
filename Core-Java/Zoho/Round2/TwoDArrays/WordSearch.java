@@ -77,14 +77,20 @@ public class WordSearch {
 
         // String[] words = { "ABCD", "AFKP", "MPO", "AEIM", "CFKO" };
         String[] words = { "van", "zoho", "love", "are", "is" };
-
-        for (String word : words) {
-            if (isWordPresent(matrix, word)) {
+        String word ="love";
+        if (isWordPresent(matrix, word)) {
                 System.out.println(word + " is present in the matrix.");
             } else {
                 System.out.println(word + " is not present in the matrix.");
             }
-        }
+
+        // for (String word : words) {
+        //     if (isWordPresent(matrix, word)) {
+        //         System.out.println(word + " is present in the matrix.");
+        //     } else {
+        //         System.out.println(word + " is not present in the matrix.");
+        //     }
+        // }
     }
 
     public static boolean isWordPresent(char[][] matrix, String word) {

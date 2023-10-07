@@ -10,7 +10,6 @@ public class GrandchildrenCounter {
         for (String[] relationship : relationships) {
             String child = relationship[0];
             String parent = relationship[1];
-
             // Check if the parent is the given "father"
             if (parent.equals(father)) {
                 // Find the children of the child
@@ -30,22 +29,20 @@ public class GrandchildrenCounter {
     }
 
     public static void main(String[] args) {
-        // String[][] relationships = {
-        //     {"luke", "shaw"},
-        //     {"wayne", "rooney"},
-        //     {"rooney", "ronaldo"},
-        //     {"shaw", "rooney"}
-        // };
         String[][] relationships = {
-            {"Lava" , "kushwaha"},
-            {"Rama" , "Lava"},
-            {"Lava" ,"Ravanan"},
-            {"Abi" , "Lava"}
+            {"luke", "shaw"},
+            {"wayne", "rooney"},
+            {"rooney", "ronaldo"},
+            {"shaw", "rooney"}
         };
-
-        // String father = "ronaldo";
-        String father = "Ravanan";
-
+        // String[][] relationships = {
+        //     {"Lava" , "kushwaha"},
+        //     {"Rama" , "Lava"},
+        //     {"Lava" ,"Ravanan"},
+        //     {"Abi" , "Lava"}
+        // };
+        String father = "ronaldo";
+        // String father = "Ravanan";
         int numberOfGrandchildren = countGrandchildren(relationships, father);
 
         System.out.println(father + " has " + numberOfGrandchildren + " grandchildren.");

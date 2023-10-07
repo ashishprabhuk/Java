@@ -44,11 +44,33 @@ class StrPatternMatch {
 
     public static void main(String[] args) {
         String str = "baaabab";
-        String pattern = "*****ba*****ab";
+        String pattern = "ba?ab";
 
         if (isMatch(str, pattern))
-            System.out.println("Yes");
+            System.out.println("True");
         else
-            System.out.println("No");
+            System.out.println("False");
     }
 }
+
+
+/*
+Given the Text and we have to find the Pattern
+/? ->means one characters are missing
+* -> means multiple characters are missing
+Example:Text Pattern
+
+Output
+
+baaabab baaa?ab
+TRUE
+
+baaabab b*ab
+TRUE
+
+baaabab *ab
+TRUE
+
+baaabab ba?ab
+FALSE
+ */

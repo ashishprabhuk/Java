@@ -21,7 +21,17 @@ public class PangramCheck {
                 alphabetSet.add(Character.toLowerCase(c));
             }
         }
-    
-        return alphabetSet.size() == 26; // There are 26 letters in the English alphabet
+        return alphabetSet.size() == 26;
     }
 }
+
+/*
+Pangram Checking
+Check whether all english alphabets are present in
+the given sentence or not
+I/P: abc defGhi JklmnOP QRStuv wxyz
+O/P: True
+
+I/P: abc defGhi JklmnOP QRStuv
+O/P: False
+ */

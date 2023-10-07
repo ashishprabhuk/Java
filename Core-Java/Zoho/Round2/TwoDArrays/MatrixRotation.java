@@ -6,6 +6,8 @@ public class MatrixRotation {
 
     // Function to rotate a matrix
     static void rotateMatrix(int m, int n, int mat[][]) {
+        int numRows = 3;
+        int numCols = 3;
         int row = 0, col = 0;
         int prev, curr;
 
@@ -60,9 +62,9 @@ public class MatrixRotation {
     }
 
     public static void main(String[] args) {
-        int matrix[][] = {{1, 2, 3},
-                          {4, 5, 6},
-                          {7, 8, 9}};
+        int matrix[][]={{1, 2, 3},
+                        {4, 5, 6},
+                        {7, 8, 9}};
         rotateMatrix(numRows, numCols, matrix);
     }
 }

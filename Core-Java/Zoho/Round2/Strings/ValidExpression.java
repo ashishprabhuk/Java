@@ -3,9 +3,9 @@ import java.util.Stack;
 
 public class ValidExpression {
     public static void main(String[] args) {
-        String input1 = "(a+b)(a*b)";
+        String input1 = "(a+b)+(a*b)";
         String input2 = "(ab)(ab+)";
-        String input3 = "((a+b)";
+        String input3 = "((a+b))";
         
         if (isValidExpression(input1)) {
             System.out.println("Input 1: Valid");
@@ -65,3 +65,14 @@ public class ValidExpression {
         return Character.isLetter(prevChar) && Character.isLetter(nextChar);
     }
 }
+
+/*
+Check whether a given mathematical expression
+is valid.
+Eg.) Input : (a+b)(a*b)
+Output : Valid
+Input : (ab)(ab+)
+Output : Invalid
+Input : ((a+b)
+Output : Invalid
+ */

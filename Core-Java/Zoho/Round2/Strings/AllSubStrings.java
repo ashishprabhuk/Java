@@ -11,7 +11,7 @@ public class AllSubStrings {
             for (int j = i + 1; j <= len; j++) {
                 String substring = input.substring(i, j);
                 System.out.println(substring);
-            }
+            } 
         }
     }
 }

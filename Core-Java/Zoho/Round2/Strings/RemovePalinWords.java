@@ -3,9 +3,13 @@ import java.util.*;
 
 public class RemovePalinWords {
     public static void main(String[] args) {
-        String sentence = "He did a good deed";
-        String[] words = sentence.split(" ");
+        String sentence = "Ashish speaks malayalam";
+        String result = removePalindromeWords(sentence);
+        System.out.println(result);
+    }
 
+    public static String removePalindromeWords(String sentence) {
+        String[] words = sentence.split(" ");
         List<String> remainingWords = new ArrayList<>();
 
         for (String word : words) {
@@ -14,8 +18,7 @@ public class RemovePalinWords {
             }
         }
 
-        String output = String.join(" ", remainingWords);
-        System.out.println(output);
+        return String.join(" ", remainingWords);
     }
 
     public static boolean isPalindrome(String word) {
@@ -33,3 +36,18 @@ public class RemovePalinWords {
         return true;
     }
 }
+
+
+
+/*
+Given a sentence of string, in that remove the
+palindrome words and print the remaining.
+Input:
+He did a good deed
+Output:
+He good
+Input:
+Ashish speaks malayalam
+Output:
+Ashish speaks
+ */

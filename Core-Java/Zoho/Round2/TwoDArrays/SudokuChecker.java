@@ -1,12 +1,12 @@
 package Zoho.Round2.TwoDArrays;
 
 public class SudokuChecker {
-    
+
     // Function to check if a row, column, or sub-grid contains duplicate values
     private static boolean hasDuplicates(int[] arr) {
         boolean[] seen = new boolean[10]; // We use an array to keep track of seen values (1-9)
         for (int num : arr) {
-            if (num != 0) {
+            if (num != 0) { // Ignore empty cells
                 if (seen[num]) {
                     return true; // Found a duplicate
                 }
@@ -15,7 +15,7 @@ public class SudokuChecker {
         }
         return false;
     }
-    
+
     // Function to check the correctness of a 9x9 Sudoku grid
     public static boolean isSudokuValid(int[][] board) {
         // Check rows
@@ -24,7 +24,7 @@ public class SudokuChecker {
                 return false;
             }
         }
-        
+
         // Check columns
         for (int j = 0; j < 9; j++) {
             int[] column = new int[9];
@@ -35,7 +35,7 @@ public class SudokuChecker {
                 return false;
             }
         }
-        
+
         // Check subgrids (3x3 regions)
         for (int i = 0; i < 9; i += 3) {
             for (int j = 0; j < 9; j += 3) {
@@ -51,23 +51,23 @@ public class SudokuChecker {
                 }
             }
         }
-        
+
         return true; // Sudoku is valid
     }
 
     public static void main(String[] args) {
         int[][] sudokuGrid = {
-            { 5, 1, 3, 6, 8, 7, 2, 4, 9 },
-            { 8, 4, 9, 5, 2, 1, 6, 3, 7 },
-            { 2, 6, 7, 3, 4, 9, 5, 8, 1 },
-            { 1, 5, 8, 4, 6, 3, 9, 7, 2 },
-            { 9, 7, 4, 2, 1, 8, 3, 6, 5 },
-            { 3, 2, 6, 7, 9, 5, 4, 1, 8 },
-            { 7, 8, 2, 9, 3, 4, 1, 5, 6 },
-            { 6, 3, 5, 1, 7, 2, 8, 9, 4 },
-            { 4, 9, 1, 8, 5, 6, 7, 2, 3 } 
+            {5, 1, 3, 6, 8, 7, 2, 4, 9},
+            {8, 4, 9, 5, 2, 1, 6, 3, 7},
+            {2, 6, 7, 3, 4, 9, 5, 8, 1},
+            {1, 5, 8, 4, 6, 3, 9, 7, 2},
+            {9, 7, 4, 2, 1, 8, 3, 6, 5},
+            {3, 2, 6, 7, 9, 5, 4, 1, 8},
+            {7, 8, 2, 9, 3, 4, 1, 5, 6},
+            {6, 3, 5, 1, 7, 2, 8, 9, 4},
+            {4, 9, 1, 8, 5, 6, 7, 2, 3}
         };
-        
+
         if (isSudokuValid(sudokuGrid)) {
             System.out.println("Sudoku is valid.");
         } else {
@@ -75,6 +75,7 @@ public class SudokuChecker {
         }
     }
 }
+
 
 /*  
  * Certainly, let's go through the code and explain it step by step:

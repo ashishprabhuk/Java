@@ -1,5 +1,4 @@
 package Zoho.Round2.Strings;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +36,6 @@ public class LineFormation {
                 lineLength = wordLength;
             }
         }
-
         if (lineLength > 0) {
             lines.add(line.toString());
         }
@@ -58,7 +56,6 @@ public class LineFormation {
                 }
             }
         }
-
         if (currentLine.length() > 0) {
             formattedLines.add(currentLine.toString());
         }
@@ -74,3 +71,7 @@ public class LineFormation {
         return formattedLines;
     }
 }
+
+/*
+
+ */

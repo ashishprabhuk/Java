@@ -1,33 +1,25 @@
 package Zoho.Round2.Strings;
-// Java implementation to convert a
-// sentence into its equivalent
-// mobile numeric keypad sequence
 
 public class MobileKeypad {
 
 	// Function which computes the sequence
-	static String printSequence(String arr[], String input)
-	{
+	static String mobileKeys(String arr[], String input){
+		input = input.toUpperCase();
 		String output = "";
-
 		// length of input string
 		int n = input.length();
 		for (int i = 0; i < n; i++) {
 			// Checking for space
-			if (input.charAt(i) == ' ')
+			if (input.charAt(i) == ' '){
 				output = output + "0";
-
-			else {
+			}else {
 				// Calculating index for each character
 				int position = input.charAt(i) - 'A';
 				output = output + arr[position];
 			}
 		}
-
-		// Output sequence
 		return output;
 	}
-
 	// Driver Code
 	public static void main(String[] args)
 	{
@@ -39,8 +31,8 @@ public class MobileKeypad {
 				"7777", "8", "88", "888", "9", "99",
 				"999", "9999" };
 
-		String input = "GEEKSFORGEEKS";
-		System.out.println(printSequence(str, input));
+		String input = "ashish prabhu";
+		System.out.println(mobileKeys(str, input));
 	}
 }
 

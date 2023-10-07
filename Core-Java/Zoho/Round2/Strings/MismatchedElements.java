@@ -11,11 +11,6 @@ public class MismatchedElements {
         // Call the findMismatchedElements function to find mismatched elements
         ArrayList<Character> mismatchedElements = findMismatchedElements(arr1, arr2);
 
-        // Print the mismatched elements
-        // System.out.print("Mismatched Elements: ");
-        // for (char element : mismatchedElements) {
-        //     System.out.print(element);
-        // }
         System.out.print("Mismatched Elements: [");
         for (int i = 0; i < mismatchedElements.size(); i++) {
             System.out.print(mismatchedElements.get(i));
@@ -38,7 +33,6 @@ public class MismatchedElements {
         for (char c : arr2) {
             set.add(c);
         }
-
         // Iterate through arr1 to find mismatched elements
         for (char c : arr1) {
             // If the current character from arr1 is not in arr2 (not in the HashSet set)
@@ -47,7 +41,6 @@ public class MismatchedElements {
                 mismatched.add(c);
             }
         }
-
         // Return the ArrayList containing mismatched elements
         return mismatched;
     }

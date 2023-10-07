@@ -4,16 +4,16 @@ import java.util.*;
 
 public class StrPermutation {
     public static void main(String[] args) {
-        String input = "ABC";
-        List<String> results = generatePermutationsAndCombinations(input);
+        String str = "ABC";
+        List<String> results = combinations(str);
         for (String result : results) {
             System.out.println(result);
         }
     }
 
-    public static List<String> generatePermutationsAndCombinations(String input) {
+    public static List<String> combinations(String str) {
         List<String> results = new ArrayList<>();
-        generate("", input, results);
+        generate("", str, results);
         return results;
     }
 
@@ -25,3 +25,16 @@ public class StrPermutation {
         }
     }
 }
+
+/*
+Write a program to print all permutations of a
+given string. Note here you need to take all
+combinations as well, say for the input ABC the
+output should be as follows:
+Input: ABC
+Output:
+A
+B C
+AB AC BA BC CA CB
+ABC ACB BCA BAC CBA CAB
+*/

@@ -21,7 +21,7 @@ public class PasswordStrength {
         boolean rule1 = password.matches(".*[a-z].*"); // At least one lowercase letter
         boolean rule2 = password.matches(".*[A-Z].*"); // At least one uppercase letter
         boolean rule3 = password.matches(".*\\d.*");   // At least one digit
-        boolean rule4 = password.matches(".*[@#$!%].*"); // At least one special character
+        boolean rule4 = password.matches(".*[!@#$%^&*?].*"); // At least one special character
 
         int satisfiedRules = 0;
         if (rule1) satisfiedRules++;
@@ -38,7 +38,7 @@ public class PasswordStrength {
         } else if (satisfiedRules == 4) {
             return "Strong";
         } else {
-            return "Weak"; // If no rules are satisfied
+            return "Weak";
         }
     }
 }
