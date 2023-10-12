@@ -1,8 +1,7 @@
 package Zoho.Round2.Patterns;
 
-import java.util.Scanner;
 
-// import java.util.*;
+import java.util.*;
 
 public class ZohoPatterns {
     static void pattern_1(int n) {
@@ -188,14 +187,14 @@ public class ZohoPatterns {
     }
 
     public static void main(String[] args) {
-        // pattern_1(4);
-        // pattern_2(4);
-        // pattern_3("12345");
-        // pattern_4();
-        // pattern_5();
-        // String word = "PROGRAM";
-        // printFromMiddle(word);
-        // printPattern("PROGRAM");
+        pattern_1(4);
+        pattern_2(4);
+        pattern_3("12345");
+        pattern_4();
+        pattern_5();
+        String word = "PROGRAM";
+        printFromMiddle(word);
+        printPattern("PROGRAM");
         printPascalTriangle(7);
     }
 }

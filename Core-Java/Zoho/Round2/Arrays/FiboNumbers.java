@@ -49,7 +49,6 @@ public class FiboNumbers {
             b = c;
             c = a + b;
         }
-
         return fibonacciNumbers;
     }
 }
