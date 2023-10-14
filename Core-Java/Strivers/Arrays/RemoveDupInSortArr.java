@@ -4,13 +4,12 @@ import java.util.*;
 
 public class RemoveDupInSortArr {
     public static void main(String[] args) {
-        int arr[] = {1,1,2,2,2,3,3};
-        int k = removeDuplicates_BF(arr);
+        int arr[] = {1,2,2,3,3,3,4,4,4,4};
+        int k = removeDuplicates_OP(arr);
         System.out.println("The array after removing duplicate elements is ");
         for (int i = 0; i < k; i++) {
             System.out.print(arr[i] + " ");
         }
-        System.out.println(Arrays.toString(arr));
     }
     
     static int removeDuplicates_BF(int[] arr) { //pass by reference
@@ -34,7 +33,7 @@ public class RemoveDupInSortArr {
                 arr[i] = arr[j];
             }
         }
-        return i+1;
+        return ++i;
     }
 
 
