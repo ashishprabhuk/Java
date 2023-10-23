@@ -1,43 +1,43 @@
 package Zoho.Round2.Strings;
 
-public class removeDuplicates {
-    public static String removeDuplicate(String input) {
-        StringBuilder result = new StringBuilder();
-        char[] chars = input.toCharArray();
-        int[] count = new int[256]; // Assuming ASCII characters
+import java.util.LinkedHashSet;
 
-        for (char c : chars) {
-            if (count[c] == 0) {
-                count[c]++;
-                result.append(c);
-            } else {
-                char replacement = findReplacement(c);
-                count[replacement]++;
-                result.append(replacement);
+public class removeDuplicates {
+    public static void main(String[] args) {
+        String str = "AshishPrabhu";
+        removeDuplicate_OP(str);
+        System.out.println(removeDuplicate_BF(str));
+    }
+    
+    private static void removeDuplicate_OP(String str) { 
+        LinkedHashSet<Character> set = new LinkedHashSet<Character>();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            set.add(str.charAt(i));
+        }
+        for(char c : set) {
+            sb.append(c);
+        }
+        System.out.println(sb.toString());
+    }
+
+    public static String removeDuplicate_BF(String input) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < input.length(); i++) {
+            char currentChar = input.charAt(i);
+            boolean isDuplicate = false;
+            // Check for duplicates in the remaining part of the string
+            for (int j = i + 1; j < input.length(); j++) {
+                if (currentChar == input.charAt(j)) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            // If not a duplicate, add it to the result
+            if (!isDuplicate) {
+                result.append(currentChar);
             }
         }
-
         return result.toString();
     }
-
-    private static char findReplacement(char c) {
-        if (Character.isLetter(c)) {
-            return Character.isLowerCase(c) ? 'a' : 'A';
-        } else if (Character.isDigit(c)) {
-            return (char)('1' + (c - '0') % 10);
-        } else {
-            return c;
-        }
-    }
-
-    public static void main(String[] args) {
-        String input1 = "Java1234";
-        String input2 = "Python1223";
-        String input3 = "aBuzZ9900";
-
-        System.out.println("Testcase 1: " + removeDuplicate(input1)); // Output: Javb1234
-        System.out.println("Testcase 2: " + removeDuplicate(input2)); // Output: Python1234
-        System.out.println("Testcase 3: " + removeDuplicate(input3)); // Output: aBuzC9012
-    }
 }
-

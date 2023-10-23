@@ -8,6 +8,7 @@ public class LeftRotateByOne {
         rotateByOne_BF(arr);
         rotateByOne_OP(arr);
     }
+
     static void rotateByOne_BF(int[] arr){
         int i = 0;
         int[] temp = new int[arr.length];
@@ -18,7 +19,7 @@ public class LeftRotateByOne {
         temp[temp.length-1] = arr[0];
         System.out.println(Arrays.toString(temp));
     }
-
+    
     static void rotateByOne_OP(int[] arr){
         int temp = arr[0];
         for (int i = 0; i < arr.length-1; i++) {
