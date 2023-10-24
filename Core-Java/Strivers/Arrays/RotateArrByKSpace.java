@@ -1,5 +1,4 @@
 package Strivers.Arrays;
-
 import java.util.Arrays;
 
 public class RotateArrByKSpace{
@@ -8,7 +7,6 @@ public class RotateArrByKSpace{
         int k = 3;
         rotate(arr, k);
     }
-
     public static void rotate(int[] nums, int k) {
         k %= nums.length; // Ensure k is within array bounds
         int n = nums.length;
