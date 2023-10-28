@@ -69,19 +69,15 @@ public class MoveZeros {
 
     public static void moveZeroes1(int[] nums) {
         int i = 0;
-        for (int num : nums)
-        {
-            if (num != 0)
-            {
+        for (int num : nums){
+            if (num != 0){
                 nums[i] = num;
                 i++;
             }
         }
-        while (i <= nums.length - 1)
-        {
+        while (i <= nums.length - 1){
             nums[i] = 0;
             i++;
         }
-
     }
 }
