@@ -4,8 +4,8 @@ public class ExpandString {
     public static void main(String[] args) {
         String input1 = "b3c6d15";
         String input2 = "a2b1c4d3";
-        String c ="9";
-        int ch = c.charAt(0) - '0';
+        String c = "9";
+        int ch = c.charAt(0) - '0'; // String to Number 
         System.out.println("number: " + ch);
 
         String output1 = expandString(input1);
@@ -25,7 +25,7 @@ public class ExpandString {
             // Check if the next character(s) represent a number
             int count = 0;
             while (i < input.length() && Character.isDigit(input.charAt(i))) {
-                count = count * 10 + (input.charAt(i) - '0'); //convert character to respective integer
+                count = count * 10 + (input.charAt(i) - '0'); // convert character to respective integer
                 i++;
             }
             // Append the character 'count' times
@@ -35,8 +35,6 @@ public class ExpandString {
         }
         return result.toString();
     }
-
-    
 }
 
 /*

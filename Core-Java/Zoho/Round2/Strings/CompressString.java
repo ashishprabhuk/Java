@@ -1,10 +1,10 @@
-package Strivers.Strings;
+package Zoho.Round2.Strings;
 
 import java.util.*;
 
-public class Countletters {
+public class CompressString {
     public static void main(String[] args) {
-        String str = "aabbccc";
+        String str = "abbccc"; // 1a2b3c
         count_1(str);
         count_2(str);
     }
@@ -30,7 +30,6 @@ public class Countletters {
         for (Map.Entry<Character, Integer> entry : counts.entrySet()) {
             // System.out.println(entry.getKey() + " : " + entry.getValue());
             System.out.print(entry.getValue()  + "" + entry.getKey());
-            
         }
     }
 }
