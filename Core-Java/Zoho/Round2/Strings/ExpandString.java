@@ -5,14 +5,11 @@ public class ExpandString {
         String input1 = "b3c6d15";
         String input2 = "a2b1c4d3";
         String c = "9";
-        int ch = c.charAt(0) - '0'; // String to Number 
+        int ch = c.charAt(0) - '0'; // Character to Number 
         System.out.println("number: " + ch);
 
-        String output1 = expandString(input1);
-        String output2 = expandString(input2);
-        
-        System.out.println("Output 1: " + output1);
-        System.out.println("Output 2: " + output2);
+        System.out.println(expandString(input1));
+        System.out.println(expandString(input2));
     }
     
     public static String expandString(String input) {

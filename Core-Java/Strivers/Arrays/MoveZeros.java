@@ -7,6 +7,7 @@ public class MoveZeros {
         int[] arr = {1 ,0 ,2 ,3 ,0 ,4 ,0 ,1};
         moveZeros_BF(arr);
         moveZeroes(arr);
+        moveZeroes1(arr);
         int[] arrZero = moveZeros_OP(arr);
         System.out.println(Arrays.toString(arrZero));
     }
@@ -79,5 +80,6 @@ public class MoveZeros {
             nums[i] = 0;
             i++;
         }
+        System.out.println(Arrays.toString(nums));
     }
 }
