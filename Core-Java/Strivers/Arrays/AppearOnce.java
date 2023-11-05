@@ -15,7 +15,7 @@ class AppearOnce {
         }
         return -1;
     } 
-    
+
 	static int findSingleOccurrence_BA(int[] arr){ //BA-better Approach
 		Map<Integer,Integer> map = new HashMap<>();
 		for(int i : arr){
@@ -27,9 +27,18 @@ class AppearOnce {
 		}
 		return -1;
 	}
+
+    public static int findSingleOccurrence_OP(int []arr) {
+        int xor = 0; // XOR all the elements:
+        for (int i = 0; i < arr.length; i++) {
+            xor = xor ^ arr[i];
+        }
+        return xor;
+    }
 	public static void main(String[] args){
 		int arr[] = {3,1,2,1,2};
 		System.out.println("Only One Occurrence: " + findSingleOccurrence_BF(arr));
 		System.out.println("Only One Occurrence: " + findSingleOccurrence_BA(arr));
+		System.out.println("Only One Occurrence: " + findSingleOccurrence_OP(arr));
 	}
 }
