@@ -27,21 +27,16 @@ public class RomanToDecimal {
         roman.put('D', 500);
         roman.put('M', 1000);
 
-        int decimalValue = 0;
-        int prevValue = 0;
-
-        for (int i = s.length() - 1; i >= 0; i--) {
-            char currentChar = s.charAt(i);
-            int currentValue = roman.get(currentChar);
-
-            if (currentValue < prevValue) {
-                decimalValue -= currentValue;
+        int ans = 0;
+        
+        for (int i = 0; i < s.length(); i++) {
+            if (i < s.length() - 1 && roman.get(s.charAt(i)) < roman.get(s.charAt(i + 1))) {
+                ans -= roman.get(s.charAt(i));
             } else {
-                decimalValue += currentValue;
+                ans += roman.get(s.charAt(i));
             }
-            prevValue = currentValue;
         }
-        return decimalValue;
+        return ans;
     }
 }
 

@@ -2,7 +2,7 @@ package Strivers.Arrays;
 
 public class LongSubArrSum {
     
-    public static int getLongestSubArr_BF(int []arr, int k) {
+    public static int getLongestSubArr_BF(int[] arr, int k) {
         int n = arr.length; // size of the array.
         int len = 0;
         for (int i = 0; i < n; i++) { // starting index
@@ -17,33 +17,11 @@ public class LongSubArrSum {
         return len;
     }
 
-    // public static int getLongestSubArr_OP(int []a, long k) {
-    //     int n = a.length; // size of the array.
-    //     int left = 0, right = 0; // 2 pointers
-    //     long sum = a[0];
-    //     int maxLen = 0;
-    //     while (right < n) {
-    //         // if sum > k, reduce the subarray from left
-    //         // until sum becomes less or equal to k:
-    //         while (left <= right && sum > k) {
-    //             sum -= a[left];
-    //             left++;
-    //         }
-    //         // if sum = k, update the maxLen i.e. answer:
-    //         if (sum == k) {
-    //             maxLen = Math.max(maxLen, right - left + 1);
-    //         }
-    //         // Move forward thw right pointer:
-    //         right++;
-    //         if (right < n) sum += a[right];
-    //     }
-    //     return maxLen;
-    // }
-    public static int getLongestSubArr_OP(int[] nums, long k) {
+    public static int getLongestSubArr_OP(int[] nums, int k) {
         int n = nums.length;
         int left = 0;
         int right = 0;
-        long sum = nums[0];
+        int sum = nums[0];
         int maxLen = 0;
     
         while (right < n) {
@@ -63,7 +41,6 @@ public class LongSubArrSum {
                 left++;
             }
         }
-    
         return maxLen;
     }
     
@@ -90,4 +67,9 @@ Example 2:
 Input Format: N = 5, k = 10, array[] = {2,3,5,1,9}
 Result: 3
 Explanation: The longest subarray with sum 10 is {2, 3, 5}. And its length is 3.
+
+Example 3:
+Input Format: N = 3, k = 1, array[] = {-1,1,1}
+Result: 3
+Explanation: The longest subarray with sum 1 is {1,1,1}. And its length is 3.
 */
