@@ -1,6 +1,8 @@
 package Zoho.Round2.Arrays;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class RemoveDuplicates {
     public static void main(String[] args) {
@@ -22,31 +24,21 @@ public class RemoveDuplicates {
         for (int num : uniqueArr) {
             System.out.print(num + " ");
         }
+        scanner.close();
     }
 
     public static int[] removeDuplicates(int[] arr) {
-        int[] uniqueArr = new int[arr.length];
-        int uniqueCount = 0;
-
-        for (int i = 0; i < arr.length; i++) {
-            boolean isDuplicate = false;
-
-            for (int j = 0; j < uniqueCount; j++) {
-                if (arr[i] == uniqueArr[j]) {
-                    isDuplicate = true;
-                    break;
-                }
-            }
-
-            if (!isDuplicate) {
-                uniqueArr[uniqueCount] = arr[i];
-                uniqueCount++;
-            }
+        Set<Integer> set = new HashSet<>();
+        for (int num : arr) {
+            set.add(num);
         }
 
-        int[] result = new int[uniqueCount];
-        System.arraycopy(uniqueArr, 0, result, 0, uniqueCount);
+        int[] uniqueArr = new int[set.size()];
+        int index = 0;
+        for (int num : set) {
+            uniqueArr[index++] = num;
+        }
 
-        return result;
+        return uniqueArr;
     }
 }
