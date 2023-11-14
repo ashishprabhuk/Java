@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class RevStrDelimiters {
 
-    public static void reverseStr(char[] chars) {
+    public static String reverseStr(String str) {
+        char[] chars = str.toCharArray();
+
         int start = 0;
         int end = chars.length - 1;
 
@@ -28,17 +30,13 @@ public class RevStrDelimiters {
             start++;
             end--;
         }
-        // return new String(chars);
+        return new String(chars);
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String input = "A man, in the boat says : I see 1-2-3 in the sky";
-        // String input = sc.nextLine();
-        char[] chars = input.toCharArray();
-        reverseStr(chars);
-        System.out.println(new String(chars));
-        // System.out.println(reverseStr(chars)); // for return types
-        sc.close();
+        String str = "A man, in the boat says : I see 1-2-3 in the sky";
+        reverseStr(str);
+        // System.out.println(new String(str));
+        System.out.println(reverseStr(str)); // for return types
     }
 }

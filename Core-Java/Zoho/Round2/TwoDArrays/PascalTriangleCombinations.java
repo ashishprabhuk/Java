@@ -1,9 +1,9 @@
-package Zoho.Round2.Arrays;
+package Zoho.Round2.TwoDArrays;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PascalTriangle {
+public class PascalTriangleCombinations {
     public static void main(String[] args) {
         int numRows = 5;
         List<List<Integer>> triangle = generatePascalTriangle(numRows);
