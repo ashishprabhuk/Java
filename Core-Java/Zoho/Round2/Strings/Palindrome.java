@@ -6,6 +6,7 @@ public class Palindrome { // my solution
         //that falls outside the range of letters and digits. 
         // (remove or replace non-alphanumeric characters in a string)
         s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        
         int start = 0;
         int end = s.length()-1;
         while(start<end){
