@@ -3,13 +3,13 @@ package Basics;
 public class CharacterConversions {
     public static void main(String[] args) {
         int n = 3;
-        System.out.println(NumToChar(n));
+        System.out.println(NumToChar(n));  // 3 -> 'C'
         
-        char ch1 = '7';
-        System.out.println(toNumChar(ch1));
-
-        char ch2 = 'D';
+        char ch2 = 'C';  // 'C' -> 3
         System.out.println(charToNum(ch2));
+        
+        char ch1 = '3';
+        System.out.println(toNumChar(ch1)); // '3' -> 3
     }
     static char NumToChar(int n){
         // n--;
