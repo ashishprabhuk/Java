@@ -2,7 +2,7 @@ package Zoho.Round2.Strings;
 
 import java.util.LinkedHashSet;
 
-public class removeDuplicates {
+public class RemoveDuplicates {
     public static void main(String[] args) {
         String str = "AshishPrabhu";
         removeDuplicate_OP(str);

@@ -1,6 +1,6 @@
 package Zoho.Round2.Strings;
 
-public class reverseConsonants {
+public class ReverseConsonants {
     public static void main(String[] args) {
         String str= "Ashish";
         System.out.println(removeConsonants(str));

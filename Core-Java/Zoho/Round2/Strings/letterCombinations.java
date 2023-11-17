@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class letterCombinations {
+public class LetterCombinations {
     public List<String> letterCombinations(String digits) {
         List<String> result = new ArrayList<>();
         if (digits == null || digits.length() == 0) {
@@ -56,7 +56,7 @@ public class letterCombinations {
     }
 
     public static void main(String[] args) {
-        letterCombinations lc = new letterCombinations();
+        LetterCombinations lc = new LetterCombinations();
         String digits = "23"; // Example input
         List<String> combinations = lc.letterCombinations(digits);
 

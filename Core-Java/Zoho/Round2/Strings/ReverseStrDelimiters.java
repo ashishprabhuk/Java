@@ -2,7 +2,7 @@ package Zoho.Round2.Strings;
 
 import java.util.Scanner;
 
-public class RevStrDelimiters {
+public class ReverseStrDelimiters {
 
     public static String reverseStr(String str) {
         char[] chars = str.toCharArray();
