@@ -37,10 +37,7 @@ public class HashMapBasics {
 
         // Now you can do something with the key and value
         System.out.println("Key: " + key + ", Value: " + value);
-        //This loop iterates through each entry in the map, and for each entry,
-        //it retrieves the key and value using getKey() and getValue() methods of the Map.Entry
+        //This loop iter 
+        }
     }
-    }
-    
-    
 }
