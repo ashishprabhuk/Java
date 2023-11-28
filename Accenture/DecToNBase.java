@@ -19,16 +19,13 @@ public class DecToNBase {
         if (n <= 1 || n > 36) {
             return "Invalid base";
         }
-
         StringBuilder result = new StringBuilder();
-
         while (num > 0) {
             int remainder = num % n;
             char digit = (char) (remainder + (remainder < 10 ? '0' : 'A' - 10));
             result.insert(0, digit);
             num /= n;
         }
-
         return result.toString();
     }
 }
