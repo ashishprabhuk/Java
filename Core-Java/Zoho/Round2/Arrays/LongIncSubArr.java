@@ -65,4 +65,4 @@ Explanation: The longest increasing subsequences are {3} and {2}
 Input: arr[] = {50, 3, 10, 7, 40, 80}
 Output: 4
 Explanation: The longest increasing subsequence is {3, 7, 40, 80}
- */
+*/

@@ -43,6 +43,9 @@ public class ArrayUnion {
         System.out.println("The union set of both arrays is : ");
         System.out.print(unionSet.toString() + " ");
         System.out.print(unionSet);
+        for (int n : unionSet) {
+            System.out.print(n+" ");
+        }
     }
 }
 

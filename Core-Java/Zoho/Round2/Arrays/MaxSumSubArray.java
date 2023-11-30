@@ -16,7 +16,7 @@ Elements : 3, 2, 9
 public class MaxSumSubArray {
     public static void main(String[] args) {
         // Define the input arr
-        int[] arr = { -2, 7, 5, -1, 3, 2, 9, 7 };
+        int[] arr = { -2, 7, 5, -1, 3, 2, 9, -7 };
         // Call the function to find the maximum sum subarray
         findMaxSumSubarray(arr);
     }
