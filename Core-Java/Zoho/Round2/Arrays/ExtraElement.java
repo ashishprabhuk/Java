@@ -5,44 +5,44 @@ import java.util.*;
 public class ExtraElement {
     public static void main(String[] args) {
         int[] array1 = {10, 20, 30, 5};
-        int[] array2 = {10, 7, 30, 20};
-        findExtraElement(array1, array2);
+        int[] array2 = {10, 30, 20};
+        System.out.println(findExtraElement(array1, array2));
+        findExtraElement_OP(array1, array2);
     }
 
-    static void findExtraElement(int[] array1, int[] array2) {
-        HashMap<Integer, Integer> countMap = new HashMap<>();
-
-        // Count elements in array1
+    public static int findExtraElement(int[] array1, int[] array2) {
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        // Increment count for each element in array1
         for (int num : array1) {
-            countMap.put(num, countMap.getOrDefault(num, 0) + 1);
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }
-
-        // Subtract elements in array2 from the count
+        // Decrement count for each element in array2
         for (int num : array2) {
-            if (countMap.containsKey(num)) {
-                countMap.put(num, countMap.get(num) - 1);
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) - 1);
+        }
+        // Find the element with count less than 0
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            if (entry.getValue() < 0) {
+                return entry.getKey();
             }
         }
-
-        // Find the extra element
-        for (Map.Entry<Integer, Integer> entry : countMap.entrySet()) {
-            if (entry.getValue() > 0) {
-                int extraElement = entry.getKey();
-                int index = findIndex(array1, extraElement);
-                System.out.println(extraElement + " is the extra element in array 1 at index " + index);
-                return;
-            }
-        }
-
-        System.out.println("No extra element found.");
+        // Return -1 or throw an exception if no extra element is found
+        return -1;
     }
 
-    static int findIndex(int[] array, int target) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == target) {
-                return i;
-            }
+    static void findExtraElement_OP(int[] array1, int[] array2) {
+        int result = 0;
+
+        // XOR all elements in array1
+        for (int num : array1) {
+            result ^= num;
         }
-        return -1; // If the element is not found
+
+        // XOR all elements in array2
+        for (int num : array2) {
+            result ^= num;
+        }
+
+        System.out.println(result + " is the extra element.");
     }
 }
