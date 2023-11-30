@@ -14,14 +14,14 @@ public class PangramCheck {
     }
 
     public static boolean checkPangram(String sentence) {
-        Set<Character> alphabetSet = new HashSet<Character>();
+        Set<Character> alphabet = new HashSet<Character>();
     
         for (char c : sentence.toCharArray()) {
             if (Character.isLetter(c)) {
-                alphabetSet.add(Character.toLowerCase(c));
+                alphabet.add(Character.toLowerCase(c));
             }
         }
-        return alphabetSet.size() == 26;
+        return alphabet.size() == 26;
     }
 }
 
