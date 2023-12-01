@@ -2,8 +2,8 @@ package Zoho.Round2.Strings;
 
 public class AllSubStrings {
     public static void main(String[] args) {
-        String input = "abc";
-        // String input = "Geeky";
+        // String input = "abc";
+        String input = "ashish";
         
         int len = input.length();
 

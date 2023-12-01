@@ -5,8 +5,8 @@ public class ExcelColumnTitle {
     public static String convertToTitle(int columnNumber) {
         StringBuilder result = new StringBuilder();
         while (columnNumber > 0) {
-            columnNumber--;  // Adjust to 0-based indexing
-            char currentChar = (char) ('A' + columnNumber % 26);
+            // columnNumber--;  // Adjust to 0-based indexing
+            char currentChar = (char) ('A' + (columnNumber-1) % 26);
             result.insert(0, currentChar);  // Insert character at the beginning of the result string
             columnNumber /= 26;
         }

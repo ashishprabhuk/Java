@@ -6,7 +6,7 @@ public class DistinctSubString {
         System.out.println(countGoodSubstrings(s1)); // Output: 1
 
         String s2 = "aababcabc";
-        System.out.println(countGoodSubstrings(s2)); // Output: 4
+        System.out.println(countGoodSubstrings1(s2)); // Output: 4
     }
 
     public static int countGoodSubstrings(String s) {
@@ -24,6 +24,25 @@ public class DistinctSubString {
         return s.charAt(index) != s.charAt(index + 1)
                 && s.charAt(index + 1) != s.charAt(index + 2)
                 && s.charAt(index) != s.charAt(index + 2);
+    }
+
+    public static int countGoodSubstrings1(String s) {
+        int count = 0;
+
+        // Iterate through the string
+        for (int i = 0; i <= s.length() - 3; i++) {
+            // Check for distinct characters in each substring of size three
+            if (areDistinct(s.charAt(i), s.charAt(i + 1), s.charAt(i + 2))) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    private static boolean areDistinct(char a, char b, char c) {
+        // Check if characters are distinct
+        return a != b && b != c && a != c;
     }
 }
 

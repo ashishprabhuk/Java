@@ -1,11 +1,15 @@
 package Zoho.Round2.Strings;
 
+import java.util.Arrays;
+
 public class AnagramCheck {
     public static void main(String[] args) {
         String str1 = "listen";
         String str2 = "silent";
         boolean isAnagram = areAnagrams(str1, str2);
+        boolean isAnagram1= areAnagrams1(str1, str2);
         System.out.println("Are the strings anagrams? " + isAnagram);
+        System.out.println("Are the strings anagrams? " + isAnagram1);
     }
 
     static boolean areAnagrams(String str1, String str2) {
@@ -31,5 +35,19 @@ public class AnagramCheck {
         }
         // If all character counts are zero, the strings are anagrams
         return true;
+    }
+
+    static boolean areAnagrams1(String str1, String str2) {
+        // Check if the lengths of the two strings are different; if so, they cannot be anagrams
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+        // Convert the strings to character arrays, sort them, and then compare
+        char[] charArray1 = str1.toCharArray();
+        char[] charArray2 = str2.toCharArray();
+        Arrays.sort(charArray1);
+        Arrays.sort(charArray2);
+        // Check if the sorted strings are equal
+        return Arrays.equals(charArray1, charArray2);
     }
 }
