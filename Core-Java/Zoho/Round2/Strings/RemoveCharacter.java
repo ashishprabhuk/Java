@@ -11,13 +11,11 @@ public class RemoveCharacter {
 
     static String removeCharacters(String s1, String s2) {
         StringBuilder result = new StringBuilder();
-
         for (char c : s1.toCharArray()) {
             if (s2.indexOf(c) == -1) {
                 result.append(c);
             }
         }
-
         return result.toString();
     }
 }

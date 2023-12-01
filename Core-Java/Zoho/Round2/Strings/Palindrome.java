@@ -45,6 +45,6 @@ public class Palindrome { // my solution
     }
     public static void main(String[] args) {
         System.out.println(isPalindrome_1("A man, a plan, a canal: Panama"));
-        System.out.println(isPalindrome_2("A man, a plan, a canal: Panama"));
+        System.out.println(isPalindrome_2("racecar"));
     }
 }

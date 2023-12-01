@@ -17,14 +17,12 @@ public class RemovePalinWords {
                 remainingWords.add(word);
             }
         }
-
         return String.join(" ", remainingWords);
     }
 
     public static boolean isPalindrome(String word) {
         int start = 0;
         int end = word.length() - 1;
-
         while (start < end) {
             if (word.charAt(start) != word.charAt(end)) {
                 return false;
@@ -32,7 +30,6 @@ public class RemovePalinWords {
             start++;
             end--;
         }
-
         return true;
     }
 }

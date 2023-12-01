@@ -20,7 +20,7 @@ public class PasswordStrength {
 
         boolean rule1 = password.matches(".*[a-z].*"); // At least one lowercase letter
         boolean rule2 = password.matches(".*[A-Z].*"); // At least one uppercase letter
-        boolean rule3 = password.matches(".*\\d.*");   // At least one digit
+        boolean rule3 = password.matches(".*[0-9].*");   // At least one digit
         boolean rule4 = password.matches(".*[!@#$%^&*?].*"); // At least one special character
 
         int satisfiedRules = 0;
