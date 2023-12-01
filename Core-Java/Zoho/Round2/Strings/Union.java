@@ -5,7 +5,7 @@ import java.util.*;
 public class Union {
     public static void main(String[] args) {
 		int[] arr1 = {1,2,3,4,5,10};
-		int[] arr2 = {2,3,4,5,6,7,8,9};
+		int[] arr2 = {2,3,4,5,6,7,8,9,21};
 		
         findUnion_Set(arr1,arr2);
 
@@ -29,7 +29,7 @@ public class Union {
             arr.add(arr1[i]);
         for(int i = 0; i<m; i++)
             arr.add(arr2[i]);
-        for (Integer i : arr) {
+        for (int i : arr) {
             System.out.print(i + " ");
         }
         // System.out.print(arr);

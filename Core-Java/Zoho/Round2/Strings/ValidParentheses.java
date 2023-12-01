@@ -5,8 +5,8 @@ import java.util.Stack;
 public class ValidParentheses {
     public static void main(String[] args) {
         // String s = "()";
-        // String s = "()[]{}";
-        String s = "(]";
+        String s = "()[]{}";
+        // String s = "(]";
         if(isValid(s))
             System.out.println("Valid");
         else
