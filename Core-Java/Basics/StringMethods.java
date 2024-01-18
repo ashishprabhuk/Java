@@ -85,12 +85,5 @@ public class StringMethods {
         String strNumber = String.valueOf(number);
         System.out.println("String representation of the number: " + strNumber);
         // Output: String representation of the number: 42
-
-
-
-
-    
-    
-    
     }
 }
