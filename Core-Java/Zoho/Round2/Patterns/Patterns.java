@@ -1,4 +1,4 @@
-package DSA.Patterns;
+package Zoho.Round2.Patterns;
 
 // import java.util.Scanner;
 
