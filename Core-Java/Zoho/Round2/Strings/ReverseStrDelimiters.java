@@ -1,12 +1,9 @@
 package Zoho.Round2.Strings;
 
-import java.util.Scanner;
-
 public class ReverseStrDelimiters {
 
-    public static String reverseStr(String str) {
+    public static String reverseStr_OP(String str) {
         char[] chars = str.toCharArray();
-
         int start = 0;
         int end = chars.length - 1;
 
@@ -33,10 +30,56 @@ public class ReverseStrDelimiters {
         return new String(chars);
     }
 
+//-----------------------------------------------------------------
+
+    static String reverseStr_BF(String str) {
+        StringBuilder letters = new StringBuilder();
+        StringBuilder nonLetters = new StringBuilder();
+        
+        // Separate letters and non-letters
+        for (char ch : str.toCharArray()) {
+            if (Character.isLetterOrDigit(ch)) {
+                letters.append(ch);
+            } else {
+                nonLetters.append(ch);
+            }
+        }
+
+        // Reverse the letters
+        String reversedLetters = reverse(letters.toString());
+
+        // Reconstruct the string
+        StringBuilder result = new StringBuilder();
+        int j = 0;
+        for (char ch : str.toCharArray()) {
+            if (Character.isLetterOrDigit(ch)) {
+                result.append(reversedLetters.charAt(j++));
+            } else {
+                result.append(ch);
+            }
+        }
+        return result.toString();
+    }
+
+//---------------------------------------------------------------------
+
+    static String reverse(String s) {
+        char[] chars = s.toCharArray();
+        int start = 0;
+        int end = chars.length - 1;
+
+        while (start < end) {
+            char temp = chars[start];
+            chars[start] = chars[end];
+            chars[end] = temp;
+            start++;
+            end--;
+        }
+        return new String(chars);
+    }
+
     public static void main(String[] args) {
         String str = "A man, in the boat says : I see 1-2-3 in the sky";
-        reverseStr(str);
-        // System.out.println(new String(str));
-        System.out.println(reverseStr(str)); // for return types
+        System.out.println(reverseStr_OP(str));
     }
 }
