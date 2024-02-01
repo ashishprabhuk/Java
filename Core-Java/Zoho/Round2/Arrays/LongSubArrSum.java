@@ -1,4 +1,4 @@
-package Strivers.Arrays;
+package Zoho.Round2.Arrays;
 
 public class LongSubArrSum {
     

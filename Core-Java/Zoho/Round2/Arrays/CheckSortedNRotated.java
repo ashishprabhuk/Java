@@ -1,4 +1,4 @@
-package Strivers.Arrays;
+package Zoho.Round2.Arrays;
 /*
 Given an array arr, return true if the array was originally sorted in non-decreasing order,
 then rotated some number of positions (including zero). Otherwise, return false.

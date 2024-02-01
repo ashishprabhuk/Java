@@ -1,4 +1,4 @@
-package Strivers.Arrays;
+package Zoho.Round2.Arrays;
 import java.util.Arrays;
 
 public class RotateArrByKSpace{
