@@ -2,50 +2,28 @@ package Zoho.Round2.Arrays;
 import java.util.*;
 
 class LongIncSubArr {
-
-    // Function to find the length of Longest Increasing Subsequence (LIS)
-    static void lis(int arr[], int n) {
-        // Create an ArrayList to store the LIS elements
-        ArrayList<Integer> lis = new ArrayList<>();
-        lis.add(arr[0]); // Initialize the LIS with the first element of the array
-
-        // Iterate through the array starting from the second element
-        for (int i = 1; i < n; i++) {
-            // If the current element is greater than the last element in LIS, append it
-            if (arr[i] > lis.get(lis.size() - 1)) {
-                lis.add(arr[i]);
-            } else {
-                // Otherwise, find the position to replace an element using binary search
-                int index = binarySearch(lis, arr[i]);
-                lis.set(index, arr[i]); // Replace the element at the found position
-            }
-        }
-        System.out.println(lis); // The size of the LIS represents the length of the LIS
-        System.out.println("Length of LIS is " + lis.size()); // The size of the LIS represents the length of the LIS
-    }
-
-    // Binary search to find the correct position for a new element in the LIS
-    static int binarySearch(ArrayList<Integer> lis, int key) {
-        int start = 0;
-        int end = lis.size() - 1;
-
-        while (start < end) {
-            int mid = start + (end - start) / 2;
-            if (lis.get(mid) >= key) {
-                end = mid;
-            } else {
-                start = mid + 1;
-            }
-        }
-        return start;
-    }
-
     public static void main(String args[]) {
-        int arr[] = {10, 22, 9, 33, 21, 50, 41, 60};
+        int arr[] = {3, 10, 2, 1, 20};
+        lis(arr);
+    }
+    public static void lis(int[] arr) {
         int n = arr.length;
-
-        // Function call to find the length of the LIS
-        lis(arr, n);
+        int[] lis = new int[n];
+    
+        for (int i = 0; i < n; i++) {
+            lis[i] = 1;
+        }
+        int max = 1;
+        
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                if (arr[i] > arr[j]) {
+                    lis[i] = Math.max(lis[i], lis[j] + 1);
+                }
+            }
+            max = Math.max(max, lis[i]);
+        }
+        System.out.println(max);
     }
 }
 

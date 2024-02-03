@@ -1,56 +1,76 @@
 package Zoho.Round2.Maths;
 import java.util.HashMap;
 import java.util.Map;
-
 public class CurrencyAtm {
-    private Map<Integer, Integer> notesCount;
+    private int[] notesCount; // Array to store note counts
 
-    // Constructor to initialize the ATM with available notes and their counts.
     public CurrencyAtm() {
-        notesCount = new HashMap<>();
-        notesCount.put(1000, 10); // Number of 1000 rupee notes
-        notesCount.put(500, 20);  // Number of 500 rupee notes
-        notesCount.put(100, 50);  // Number of 100 rupee notes
-        notesCount.put(50, 100);  // Number of 50 rupee notes
-        notesCount.put(20, 200);  // Number of 20 rupee notes
-        notesCount.put(10, 500);  // Number of 10 rupee notes
+        notesCount = new int[]{10, 20, 50, 100, 200, 500};
     }
 
-    // Method to withdraw a specified amount from the ATM.
     public boolean withdrawAmount(int amount) {
         int remainingAmount = amount;
 
-        int[] notes = {1000, 500, 100, 50, 20, 10}; // notes in  descending order.
-
-        // Iterate through available note denominations in descending order.
-        for (int note : notes) {
-            int count = notesCount.getOrDefault(note, 0); // Get the count of available notes.
-            int notesNeeded = remainingAmount / note;     // Calculate how many notes are needed for the amount.
-
-            if (notesNeeded > count) {
-                notesNeeded = count; // If there are fewer notes available than needed, take all available notes.
+        int[] notes = {1000, 500, 100, 50, 20, 10};
+        for (int i = 0; i < notes.length; i++) {
+            int notesNeeded = remainingAmount / notes[i];
+            if (notesNeeded > notesCount[i]) {
+                notesNeeded = notesCount[i]; // Use available notes if needed notes exceed count
             }
-
-            remainingAmount -= notesNeeded * note; // Deduct the amount covered by the withdrawn notes.
-            notesCount.put(note, count - notesNeeded); // Update the count of available notes.
-
-            // If the remainingAmount becomes zero, the withdrawal is successful.
+            remainingAmount -= notesNeeded * notes[i]; // Update remaining amount
+            notesCount[i] -= notesNeeded; // Update note count
         }
-
-        return remainingAmount == 0;
+        return remainingAmount == 0; // Return true if amount is fully withdrawn
     }
 
     public static void main(String[] args) {
         CurrencyAtm atm = new CurrencyAtm();
-
-        int amount = 2350; // The amount to withdraw.
+        int amount = 2350;
         boolean success = atm.withdrawAmount(amount);
-
-        // Check if the withdrawal was successful and print the result.
         if (success) {
             System.out.println("Amount withdrawn successfully!");
         } else {
-            System.out.println("No sufficient amount in ATM!");
+            System.out.println("Not enough currency notes in ATM!");
         }
     }
 }
+
+// public class CurrencyAtm {
+//     private Map<Integer, Integer> notesCount;
+
+//     public CurrencyAtm() {
+//         notesCount = new HashMap<>();
+//         notesCount.put(1000, 10); 
+//         notesCount.put(500, 20);  
+//         notesCount.put(100, 50);
+//         notesCount.put(50, 100);
+//         notesCount.put(20, 200);  
+//         notesCount.put(10, 500);  
+//     }
+//     public boolean withdrawAmount(int amount) {
+//         int remainingAmount = amount;
+
+//         int[] notes = {1000, 500, 100, 50, 20, 10}; 
+//         for (int note : notes) {
+//             int count = notesCount.getOrDefault(note, 0); 
+//             int notesNeeded = remainingAmount / note; 
+//             if (notesNeeded > count) {
+//                 notesNeeded = count;
+//             }
+//             remainingAmount -= notesNeeded * note; 
+//             notesCount.put(note, count - notesNeeded); 
+//         }
+//         return remainingAmount == 0;
+//     }
+
+//     public static void main(String[] args) {
+//         CurrencyAtm atm = new CurrencyAtm();
+//         int amount = 2350;
+//         boolean success = atm.withdrawAmount(amount);
+//         if (success) {
+//             System.out.println("Amount withdrawn successfully!");
+//         } else {
+//             System.out.println("No sufficient amount in ATM!");
+//         }
+//     }
+// }

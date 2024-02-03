@@ -5,25 +5,36 @@ public class ReverseWords {
         String input1 = "one two three";
         String input2 = "I love india";
 
-        System.out.println("Before : " + input1);
         String reversed1 = reverseString(input1);
-        System.out.println("Output : " + reversed1);
+        System.out.println("Output : " + reversed1); //three two one 
         
-        System.out.println("Before : " + input2);
-        String reversed2 = reverseString(input2);
-        System.out.println("Output : " + reversed2);
+        String reversed2 = revWords(input2);
+        System.out.println("Output : " + reversed2); //india love I
     }
     
-    public static String reverseString(String input) {
-        String[] words = input.split(" ");
+    static String reverseString(String str) {
+        String[] words = str.split(" ");
         return reverseWords(words, words.length - 1);
     }
     public static String reverseWords(String[] words, int index) {
-        if (index < 0) {
-            return ""; // Base case: no more words to reverse
-        }
-        // Recursively reverse the words and concatenate them
+        if (index < 0) return ""; // Base case: no more words to reverse
         return words[index] + " " + reverseWords(words, index - 1);
     }
+
+//-----------------------------------------------------------------
+
+    static String revWords(String str){
+        String[] ch = str.split(" ");
+        int s = 0;
+        int e = ch.length - 1;
+        while(s<e){
+            String t = ch[s];
+            ch[s] = ch[e];
+            ch[e]=t;
+            s++;
+            e--;
+        }
+        return String.join(" ", ch);
+	}
 }
 
