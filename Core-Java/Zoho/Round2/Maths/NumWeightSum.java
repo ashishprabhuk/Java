@@ -1,29 +1,12 @@
-package Zoho.Round2.Arrays;
+package Zoho.Round2.Maths;
 
-/*
- * Question
- *  Given a set of numbers like <10, 36, 54,89,12> we want to find sum of weights based on the following conditions
-    1. 5 if a perfect square
-    2. 4 if multiple of 4 and divisible by 6
-    3. 3 if even number
 
-And sort the numbers based on the weight and print it as follows
-
-<10,its_weight>,<36,its weight><89,its weight>
-
-Should display the numbers based on increasing order.
- */
 public class NumWeightSum {
     public static void main(String args[]) {
         int[] numArray = {10, 36, 54, 89, 12};
-
         int[] weights = calculateWeights(numArray);
-
         for (int i = 0; i < numArray.length; i++) {
-            System.out.print("<" + numArray[i] + "," + weights[i] + ">");
-            if (i < numArray.length - 1) {
-                System.out.print(",");
-            }
+            System.out.print("<" + numArray[i] + "," + weights[i] + "> ");
         }
     }
 
@@ -47,3 +30,17 @@ public class NumWeightSum {
         return weights;
     }
 }
+
+/*
+ * Question
+ *  Given a set of numbers like <10, 36, 54, 89, 12> we want to find sum of weights based on the following conditions
+    1. 5 if a perfect square
+    2. 4 if multiple of 4 and divisible by 6
+    3. 3 if even number
+
+And sort the numbers based on the weight and print it as follows
+
+<10,its_weight>,<36,its weight><89,its weight>
+
+Should display the numbers based on increasing order.
+ */

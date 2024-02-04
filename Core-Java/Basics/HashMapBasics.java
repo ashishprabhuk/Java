@@ -1,8 +1,6 @@
 package Basics;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class HashMapBasics {
     public static void main(String[] args) {
@@ -19,6 +17,7 @@ public class HashMapBasics {
             map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
         }
     }
+
     static void getOrDefault_2(int[] arr, Map<Integer,Integer> map){
         for(int i=0;i<arr.length;i++){
             if(map.containsKey(arr[i])){
@@ -34,10 +33,7 @@ public class HashMapBasics {
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
         int key = entry.getKey();
         int value = entry.getValue();
-
-        // Now you can do something with the key and value
         System.out.println("Key: " + key + ", Value: " + value);
-        //This loop iter 
         }
     }
 }

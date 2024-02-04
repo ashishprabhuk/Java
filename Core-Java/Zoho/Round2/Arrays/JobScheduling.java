@@ -1,74 +1,52 @@
 package Zoho.Round2.Arrays;
 import java.util.*;
 
-public class JobScheduling {
+class Job {
+    char id;
+    int deadline, profit;
 
-	// Each job has a unique-id,profit and deadline
-	char id;
-	int deadline, profit;
-
-	// Constructors
-	public JobScheduling() {}
-
-	public JobScheduling(char id, int deadline, int profit){
-		this.id = id;
-		this.deadline = deadline;
-		this.profit = profit;
-	}
-
-	// Function to schedule the jobs take 2 arguments
-	// arraylist and no of jobs to schedule
-	void printJobScheduling(ArrayList<JobScheduling> arr, int t)
-	{
-		// Length of array
-		int n = arr.size();
-	
-		// Sort all jobs according to decreasing order of profit
-		Collections.sort(arr,(a, b) -> b.profit - a.profit);
-
-		// To keep track of free time slots
-		boolean result[] = new boolean[t];
-
-		// To store result (Sequence of jobs)
-		char job[] = new char[t];
-
-		// Iterate through all given jobs
-		for (int i = 0; i < n; i++) {
-			// Find a free slot for this job (Note that we
-			// start from the last possible slot)
-			for (int j= Math.min(t - 1, arr.get(i).deadline - 1); j >= 0; j--) {
-				// Free slot found
-				if (result[j] == false) {
-					result[j] = true;
-					job[j] = arr.get(i).id;
-					break;
-				}
-			}
-		}
-
-		// Print the sequence
-		for (char jb : job){
-			System.out.print(jb + " ");
-		}
-		System.out.println();
-	}
-
-	// Driver's code
-	public static void main(String args[])
-	{
-		ArrayList<JobScheduling> arr = new ArrayList<JobScheduling>();
-		arr.add(new JobScheduling('a', 2, 100));
-		arr.add(new JobScheduling('b', 1, 19));
-		arr.add(new JobScheduling('c', 2, 27));
-		arr.add(new JobScheduling('d', 1, 25));
-		arr.add(new JobScheduling('e', 3, 15));
-
-		System.out.println("Following is maximum profit sequence of jobs");
-
-		JobScheduling job = new JobScheduling();
-
-		// Function call
-		job.printJobScheduling(arr, 3);
-	}
+    public Job(char id, int deadline, int profit) {
+        this.id = id;
+        this.deadline = deadline;
+        this.profit = profit;
+    }
 }
 
+public class JobScheduling {
+    public static void main(String[] args) {
+        List<Job> jobs1 = Arrays.asList(
+                new Job('a', 4, 20),
+                new Job('b', 1, 10),
+                new Job('c', 1, 40),
+                new Job('d', 1, 30)
+        );
+        List<Job> jobs2 = Arrays.asList(
+                new Job('a', 2, 100),
+                new Job('b', 1, 19),
+                new Job('c', 2, 27),
+                new Job('d', 1, 25),
+                new Job('e', 3, 15)
+        );
+
+        System.out.println("Max profit sequence of jobs: " + getMaxProfitSequence(jobs1));
+        System.out.println("Max profit sequence of jobs: " + getMaxProfitSequence(jobs2));
+    }
+
+    private static List<Character> getMaxProfitSequence(List<Job> jobs) {
+        jobs.sort((job1, job2) -> Integer.compare(job2.profit, job1.profit));
+
+        boolean[] slot = new boolean[jobs.size()];
+        List<Character> result = new ArrayList<>();
+
+        for (Job job : jobs) {
+            for (int i = Math.min(jobs.size(), job.deadline) - 1; i >= 0; i--) {
+                if (!slot[i]) {
+                    slot[i] = true;
+                    result.add(job.id);
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+}
