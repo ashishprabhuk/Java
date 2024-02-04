@@ -3,7 +3,8 @@ import java.util.*;
 
 class Job {
     char id;
-    int deadline, profit;
+    int deadline;
+    int profit;
 
     public Job(char id, int deadline, int profit) {
         this.id = id;
@@ -14,39 +15,35 @@ class Job {
 
 public class JobScheduling {
     public static void main(String[] args) {
-        List<Job> jobs1 = Arrays.asList(
-                new Job('a', 4, 20),
-                new Job('b', 1, 10),
-                new Job('c', 1, 40),
-                new Job('d', 1, 30)
-        );
-        List<Job> jobs2 = Arrays.asList(
-                new Job('a', 2, 100),
-                new Job('b', 1, 19),
-                new Job('c', 2, 27),
-                new Job('d', 1, 25),
-                new Job('e', 3, 15)
-        );
+        Job[] jobs = {
+            new Job('a', 2, 100),
+            new Job('b', 1, 19),
+            new Job('c', 2, 27),
+            new Job('d', 1, 25),
+            new Job('e', 3, 15)
+        };
 
-        System.out.println("Max profit sequence of jobs: " + getMaxProfitSequence(jobs1));
-        System.out.println("Max profit sequence of jobs: " + getMaxProfitSequence(jobs2));
-    }
+        Arrays.sort(jobs, (a, b) -> b.profit - a.profit);
 
-    private static List<Character> getMaxProfitSequence(List<Job> jobs) {
-        jobs.sort((job1, job2) -> Integer.compare(job2.profit, job1.profit));
+        int n = jobs.length;
+        int[] result = new int[n];
+        boolean[] slot = new boolean[n];
 
-        boolean[] slot = new boolean[jobs.size()];
-        List<Character> result = new ArrayList<>();
-
-        for (Job job : jobs) {
-            for (int i = Math.min(jobs.size(), job.deadline) - 1; i >= 0; i--) {
-                if (!slot[i]) {
-                    slot[i] = true;
-                    result.add(job.id);
+        for (int i = 0; i < n; i++) {
+            for (int j = Math.min(n, jobs[i].deadline) - 1; j >= 0; j--) {
+                if (!slot[j]) {
+                    result[j] = i;
+                    slot[j] = true;
                     break;
                 }
             }
         }
-        return result;
+
+        System.out.print("Maximum profit sequence of jobs: ");
+        for (int i = 0; i < n; i++) {
+            if (slot[i]) {
+                System.out.print(jobs[result[i]].id + " ");
+            }
+        }
     }
 }
