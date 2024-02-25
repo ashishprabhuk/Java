@@ -15,6 +15,8 @@ public class CommonWords {
         System.out.print(findCommonWords2(input1, input2, input3));
         System.out.println();
         findCommonWords3(input1, input2, input3);
+        System.out.println();
+        System.out.print(findCommonWords4(input1, input2, input3));
     }
 
     public static void findCommonWords(String input1, String input2, String input3){
@@ -93,4 +95,43 @@ public class CommonWords {
             }
         }
     }
+
+    public static String findCommonWords4(String str1, String str2, String str3) {
+        String[] words1 = str1.toLowerCase().split(" ");
+        String[] words2 = str2.toLowerCase().split(" ");
+        String[] words3 = str3.toLowerCase().split(" ");
+    
+        StringBuilder commonWords = new StringBuilder();
+    
+        // Iterate through each word in the third string
+        for (String word : words3) {
+          boolean foundInFirst = false;
+          boolean foundInSecond = false;
+    
+          // Check if the word exists in the first string
+          for (String word1 : words1) {
+            if (word.equals(word1)) {
+              foundInFirst = true;
+              break;
+            }
+          }
+    
+          // Check if the word exists in the second string (only if found in first)
+          if (foundInFirst) {
+            for (String word2 : words2) {
+              if (word.equals(word2)) {
+                foundInSecond = true;
+                break;
+              }
+            }
+          }
+    
+          // If found in both, add to common words
+          if (foundInFirst && foundInSecond) {
+            commonWords.append(word).append(" ");
+          }
+        }
+    
+        return commonWords.toString().trim();
+      }
 }
