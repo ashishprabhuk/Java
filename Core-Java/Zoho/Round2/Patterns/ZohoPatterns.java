@@ -44,15 +44,7 @@ public class ZohoPatterns {
         }
     }
 
-    public static void pattern_4() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Enter the Row size: ");
-        int row = sc.nextInt();
-
-        System.out.println("Enter the column size: ");
-        int col = sc.nextInt();
-
+    public static void pattern_4(int row, int col) {
         char[][] matrix = new char[row][col];
         char c = 'X'; // Start with 'X' character
 
@@ -102,7 +94,6 @@ public class ZohoPatterns {
             }
             System.out.println();
         }
-        sc.close();
     }
 
     static void pattern_5() {
@@ -121,62 +112,24 @@ public class ZohoPatterns {
         }
     }
 
-    public static void printFromMiddle(String word) {
-        int middleIndex = word.length() / 2;
+    static void printFromMiddle(String str) { 
+        int len = str.length();
+        for (int i = 0; i < len; i++) { 
+            for (int j = 0; j < len; j++) { 
+                if ((i == j) || (i + j == len - 1)) 
+                    System.out.print(str.charAt(j)); 
+                else
+                    System.out.print(" "); 
+            } 
+            System.out.println(); 
+        } 
+    } 
 
-        for (int i = middleIndex; i >= 0; i--) {
-            String substring = word.substring(middleIndex - i, middleIndex + i + 1);
-            System.out.println(substring);
-        }
-    }
-
-    public static void printPattern(String s) {
-        // Calculate the initial number of spaces to print before each line
-        int space = (s.length() - 1) * 2;
-
-        // Create an array to store the characters of the word in the desired order
-        char[] arr = new char[s.length()];
-
-        // Initialize a counter for the array index
-        int j = 0;
-
-        // Copy the second half of the word to the first half of the array
-        for (int i = s.length() / 2; i < s.length(); i++) {
-            arr[j] = s.charAt(i);
-            j++;
-        }
-
-        // Copy the first half of the word to the second half of the array
-        for (int i = 0; i < s.length() / 2; i++) {
-            arr[j] = s.charAt(i);
-            j++;
-        }
-
-        // Print each prefix of the array on a new line, preceded by a decreasing number
-        // of spaces
-        for (int i = 0; i < s.length(); i++) {
-            // Print spaces before each line
-            if (space > 0)
-                System.out.format("%1$" + space + "s", "");
-
-            // Print the first i+1 characters of the array
-            for (int k = 0; k < i + 1; k++) {
-                System.out.print(arr[k]);
-            }
-
-            // Move to the next line
-            System.out.print("\n");
-
-            // Decrease the number of spaces for the next line
-            space = space - 2;
-        }
-    }
-
-    public static void printPascalTriangle(int numRows) {
-        for (int i = 0; i < numRows; i++) {
+    public static void printPascalTriangle(int rows) {
+        for (int i = 0; i < rows; i++) {
             int num = 1;
-            for (int col = 1; col <= numRows - i; col++) { // A
-                System.out.print(" "); // ABA
+            for (int col = 1; col <= rows - i; col++) {
+                System.out.print(" "); 
             }
             for (int j = 0; j <= i; j++) {
                 System.out.print(num + " ");
@@ -190,11 +143,9 @@ public class ZohoPatterns {
         pattern_1(4);
         pattern_2(4);
         pattern_3("12345");
-        pattern_4();
+        pattern_4(5,5);
         pattern_5();
-        String word = "PROGRAM";
-        printFromMiddle(word);
-        printPattern("PROGRAM");
+        printFromMiddle("PROGRAM");
         printPascalTriangle(7);
     }
 }
