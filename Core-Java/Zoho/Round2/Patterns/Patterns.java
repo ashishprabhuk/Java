@@ -14,7 +14,6 @@ public class Patterns {
         }                                               // * * * * *
     }
 
-    
     static void pat2(int n){
         System.out.println("Pattern - 2 :-");
         for(int row = 1; row <= n; row++) {             // Pattern - 2 :-  
@@ -24,7 +23,6 @@ public class Patterns {
             System.out.println();                       // * * * *
         }                                               // * * * * *
     }
-
 
     static void pat3(int n){
         System.out.println("Pattern - 3 :-");         // Pattern - 3 :- 
@@ -36,7 +34,6 @@ public class Patterns {
         }                                              
     }
 
-
     static void pat4(int n){ //column no. is printed in each column
         System.out.println("Pattern - 4 :-");                                    
         for(int row = 1; row <= n; row++) {                 // Pattern - 4 :-  
@@ -46,7 +43,6 @@ public class Patterns {
             System.out.println();                           // 1 2 3 4    
         }                                                   // 1 2 3 4 5     
     }
-
 
     static void pat5(int n){ //column no. is printed in each column 
         System.out.println("Pattern - 5 :-");                 //pattern - 5 :-                  
@@ -59,7 +55,6 @@ public class Patterns {
         }                                                       //***                            
                                                                 //**
     }                                                           //*                 
-    
     
     static void pat6(int n){ //column no. is printed in each column 
         System.out.println("Pattern - 6 :-");                 //pattern - 5 :-                  
@@ -75,7 +70,6 @@ public class Patterns {
         }                                                                                                                                         
     } 
     
-
     static void pat7(int n){ //column no. is printed in each column 
         System.out.println("Pattern - 8 :-");                 //pattern - 7 :-                  
         for (int row = 1; row <= n; row++) {                    //1
@@ -86,17 +80,15 @@ public class Patterns {
         }                                                                                                                                         
     } 
 
-
     static void pat8(int n){ //column no. is printed in each column 
         System.out.println("Pattern - 7 :-");                 //pattern - 8 :-                  
         for (int row = 1; row <= n; row++) {                    //12345
-            for(int col = 1; col <= (n+1)-row ; col++){         //1234
+            for(int col = 1; col <= n-row+1 ; col++){           //1234
                 System.out.print((col + 1)-1);                  //123
             }                                                   //12
             System.out.println();                               //1                             
         }                                                                                                                                         
     } 
-
 
     static void pat9(int n){ //column no. is printed in each column 
         System.out.println("Pattern - 7 :-");                 
@@ -112,7 +104,6 @@ public class Patterns {
         }                                                                                                                                         
     }
 
-
     static void pat10(int n){                                   //patter -10 :-
         System.out.println("Pattern - 10:-");                 //*********
         for(int row = 1; row<=n; row++){                        // *******
@@ -126,7 +117,6 @@ public class Patterns {
             System.out.println();
         }
     }
-
 
     static void pat11(int n){   
         n -= 1;                                                  //patter -11 :-
@@ -145,43 +135,24 @@ public class Patterns {
         }
     }
 
+    static void pat12(int n) {
+		for(int i = 1; i<=n;i++) {                                      
+			for(int j = i;j<n;j++) {
+				System.out.print("  ");
+			}                                               //patter -12 :-
+			for(int j = 1;j<=i;j++) {                       //         1
+				System.out.print(i-j+1 + " ");              //       2 1 2 
+			}                                               //     3 2 1 2 3  
+			for(int j=2; j<=i; j++) {                       //   4 3 2 1 2 3 4
+				System.out.print(j + " ");                  // 5 4 3 2 1 2 3 4 5
+			}
+			System.out.println();
+		}
+	}
 
-    static void pat12(int n){                                    //patter -12 :-
-        System.out.println("Pattern - 12:-");                  //         1
-        for(int row = 1; row<=n; row++){                         //       2 1 2 
-            int col1;                                            //     3 2 1 2 3      
-            for(col1=1;col1<=n-row;col1++){                      //   4 3 2 1 2 3 4
-                System.out.print("  ");                        // 5 4 3 2 1 2 3 4 5
-            }
-            int col2;
-            for(col2 =1;col2<=n-col1+1;col2++){
-                int item = row-col2+1;
-                System.out.print(item+" ");
-            }
-            for(int col3=2;col3<=row;col3++){
-                System.out.print(col3+" ");
-            }
-            System.out.println();
-        }
-    }
-
-
-    static void pat13(int n){        //n=4                       
-        System.out.println("Pattern - 13:-");
-        for(int row = 1; row<=2*n-1; row++){                 
-            for(int col=1;col<=2*n-1;col++){
-                int i = (row>1 && col>1 && row<2*n-1 && col<2*n-1)?(row>2 && row<2*n-2 && col>2 && col<2*n-2)?(row>3 && row<2*n-3 && col>3 && col<2*n-3)?n-3:n-2:n-1:n;                      //   4 3 2 1 2 3 4
-                System.out.print(i+" ");                      
-            }
-            System.out.println();
-        }
-    }
-
-
-    static void pat13_new(int n){
+    static void pat13(int n){
     for(int row=0;row<2*n-1;row++){
         for(int col=0;col<2*n-1;col++){
-
             // Initialising the top, down, left and right indices of a cell.
             int top = row;
             int bottom = col; // Min of 4 directions and then we subtract from n
@@ -194,18 +165,16 @@ public class Patterns {
         }
     }
 
-
     static void pat14(int n){
-        for(int row=1; row<=n; row++) {
-            for(int col=1; col<=n;col++){
+        for(int row=0; row<n; row++) {
+            for(int col=0; col<n;col++){
                 // String space = " ";
-                String i = (row >1 && col >1 && row <= n-1 && col<=n-1) ? " ": "*";
+                String i = (row == 0 || col == 0 || row == n-1 || col == n-1) ? "*": " ";
                 System.out.print(i);
             }
             System.out.println();
         }
     }
-
 
     static void pat15(int n){
         int num = 1;                                        //patter - 15:-
@@ -220,7 +189,6 @@ public class Patterns {
             System.out.println();
         }
     }
-
 
     static void pat16(int n){
         int num = 1;                                        //patter - 15:-
@@ -278,7 +246,6 @@ public class Patterns {
         }
     }
 
-
     static void pat21(int n){                               //patter - 15:-
         for(int row=1; row<=n; row++){ 
             for(int col= 1; col<=n-row;col++){              //    A
@@ -296,7 +263,6 @@ public class Patterns {
         }
     }
 
-
     static void pat22(int n){                               
         for(int row=1; row<=n; row++){                      //patter - 15:-
             for(int col= 1; col<=row;col++){                // E
@@ -306,7 +272,6 @@ public class Patterns {
             System.out.println();                           // A B C D E                                       
         }
     }
-
 
     static void pat23(int n){                               
         for(int row=1; row<=n; row++){                      //patter - 23:-
@@ -362,6 +327,126 @@ public class Patterns {
         }
     }
 
+    static void spiralNum1(int n) {
+        for(int i = 1;i<=n;i++) {
+			for(int j = 1;j<=n;j++) {
+				int top = i;
+				int left = j;
+				int bottom = n-i+1;
+				int right = n-j+1;
+				System.out.print(Math.max(Math.max(top,left), Math.max(right, bottom)));
+			}
+			System.out.println();
+		}
+    }
+
+    static void spiralNum2(int n) {
+        for (int row = 0; row < 2 * n - 1; row++) {
+            for (int col = 0; col < 2 * n - 1; col++) {
+                int top = row;
+                int bottom = col;
+                int right = (2 * n - 2) - col;
+                int left = (2 * n - 2) - row;
+                System.out.print(n - Math.min(Math.min(top, bottom), Math.min(right, left)) + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static void middleNum(String str) {
+        int len = str.length();
+        for (int i = 0; i < len; i++) {
+            int j = len - 1 - i;
+            for (int k = 0; k < len; k++) {
+                if (k == i || k == j)
+                    System.out.print(str.charAt(k));
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void xoxo(int row, int col) {
+        char[][] matrix = new char[row][col];
+        char c = 'X';
+
+        int top = 0;
+        int left = 0;
+        int bottom = row - 1;
+        int right = col - 1;
+
+        while (left <= right && top <= bottom) {
+            for (int i = left; i <= right; i++) {
+                matrix[top][i] = c;
+            }
+            top++;
+            for (int i = top; i <= bottom; i++) {
+                matrix[i][right] = c;
+            }
+            right--;
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--) {
+                    matrix[bottom][i] = c;
+                }
+                bottom--;
+            }
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    matrix[i][left] = c;
+                }
+                left++;
+            }
+            c = (c == 'X') ? 'O' : 'X';
+        }
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.print(matrix[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+    static void numTriangle(int n) {
+        int num = 1;
+        for (int i = 1; i <= n; i++) {
+            int currentNum = num;
+            for (int j = 1; j <= n - i + 1; j++) {
+                System.out.print(currentNum + " ");
+                currentNum += (n - j + 1);
+            }
+            System.out.println();
+            num++;
+        }
+    }
+
+    static void middleWords(String str) { 
+        int len = str.length();
+        for (int i = 0; i < len; i++) { 
+            for (int j = 0; j < len; j++) { 
+                if ((i == j) || (i + j == len - 1)) 
+                    System.out.print(str.charAt(j)); 
+                else
+                    System.out.print(" "); 
+            } 
+            System.out.println(); 
+        } 
+    } 
+
+    public static void printPascalTriangle(int rows) {
+        for (int i = 0; i < rows; i++) {
+            int num = 1;
+            for (int col = 1; col <= rows - i; col++) {
+                System.out.print(" "); 
+            }
+            for (int j = 0; j <= i; j++) {
+                System.out.print(num + " ");
+                num = num * (i - j) / (j + 1);
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         // Scanner sc = new Scanner(System.in);
         // System.out.print("Enter N:");
@@ -381,7 +466,7 @@ public class Patterns {
         // pat12(4);
         // pat13(4);
         // System.out.println("------------------");
-        pat13_new(4);
+        // pat13(4);
         // pat14(4);
         // pat15(6);
         // pat16(5);
@@ -393,5 +478,12 @@ public class Patterns {
         // pat22(5);
         // pat23(5);
         // pat24(7);
+        // spiralNum1(5);
+        // spiralNum2(4);
+        xoxo(6,6);
+        // middleNum("12345");
+        // numTriangle(6);
+        // middleWords("PROGRAM");
+        // printPascalTriangle(7);
     }
 }

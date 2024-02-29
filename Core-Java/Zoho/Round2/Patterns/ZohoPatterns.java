@@ -1,10 +1,7 @@
 package Zoho.Round2.Patterns;
 
-
-import java.util.*;
-
 public class ZohoPatterns {
-    static void pattern_1(int n) {
+    static void spiralNum1(int n) {
         for (int row = 1; row <= n; row++) {
             for (int col = 1; col <= n; col++) {
                 int top = row;
@@ -17,7 +14,7 @@ public class ZohoPatterns {
         }
     }
 
-    static void pattern_2(int n) {
+    static void spiralNum2(int n) {
         for (int row = 0; row < 2 * n - 1; row++) {
             for (int col = 0; col < 2 * n - 1; col++) {
                 int top = row;
@@ -30,7 +27,7 @@ public class ZohoPatterns {
         }
     }
 
-    static void pattern_3(String str) {
+    static void middleNum(String str) {
         int len = str.length();
         for (int i = 0; i < len; i++) {
             int j = len - 1 - i;
@@ -44,9 +41,9 @@ public class ZohoPatterns {
         }
     }
 
-    public static void pattern_4(int row, int col) {
+    public static void xoxo(int row, int col) {
         char[][] matrix = new char[row][col];
-        char c = 'X'; // Start with 'X' character
+        char c = 'X';
 
         int left = 0;
         int right = col - 1;
@@ -54,40 +51,28 @@ public class ZohoPatterns {
         int bottom = row - 1;
 
         while (left <= right && top <= bottom) {
-            // Fill top row
             for (int i = left; i <= right; i++) {
                 matrix[top][i] = c;
             }
             top++;
-
-            // Fill right column
             for (int i = top; i <= bottom; i++) {
                 matrix[i][right] = c;
             }
             right--;
-
-            // Check if there are more rows or columns to fill
             if (top <= bottom) {
-                // Fill bottom row
                 for (int i = right; i >= left; i--) {
                     matrix[bottom][i] = c;
                 }
                 bottom--;
             }
-
             if (left <= right) {
-                // Fill left column
                 for (int i = bottom; i >= top; i--) {
                     matrix[i][left] = c;
                 }
                 left++;
             }
-
-            // Toggle 'X' and 'O'
             c = (c == 'X') ? 'O' : 'X';
         }
-
-        // Print the matrix
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 System.out.print(matrix[i][j]);
@@ -96,11 +81,8 @@ public class ZohoPatterns {
         }
     }
 
-    static void pattern_5() {
-
-        int n = 6;
+    static void numTriangle(int n) {
         int num = 1;
-
         for (int i = 1; i <= n; i++) {
             int currentNum = num;
             for (int j = 1; j <= n - i + 1; j++) {
@@ -112,7 +94,7 @@ public class ZohoPatterns {
         }
     }
 
-    static void printFromMiddle(String str) { 
+    static void middleWords(String str) { 
         int len = str.length();
         for (int i = 0; i < len; i++) { 
             for (int j = 0; j < len; j++) { 
@@ -140,12 +122,12 @@ public class ZohoPatterns {
     }
 
     public static void main(String[] args) {
-        pattern_1(4);
-        pattern_2(4);
-        pattern_3("12345");
-        pattern_4(5,5);
-        pattern_5();
-        printFromMiddle("PROGRAM");
+        spiralNum1(5);
+        spiralNum2(4);
+        middleNum("12345");
+        xoxo(5,5);
+        numTriangle(6);
+        middleWords("PROGRAM");
         printPascalTriangle(7);
     }
 }
