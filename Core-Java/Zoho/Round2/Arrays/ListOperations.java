@@ -3,61 +3,126 @@ import java.util.*;
 
 public class ListOperations {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int[] arr1 = {1,2,3,4,5};
+        int[] arr2 = {5,3,2,7};
+        findUnion(arr1, arr2);
+        findIntersection(arr1, arr2);
+        findExcept(arr1, arr2);
 
-        List<Integer> list1 = new ArrayList<>();
-        List<Integer> list2 = new ArrayList<>();
-
-        // Input for list1
-        System.out.print("Enter the number of elements for List 1: ");
-        int n1 = scanner.nextInt();
-        System.out.println("Enter elements for List 1:");
-        for (int i = 0; i < n1; i++) {
-            int element = scanner.nextInt();
-            list1.add(element);
+        printUnion(arr1, arr2);
+        System.out.println();
+        printIntersection(arr1, arr2);
+    }
+    static void findUnion(int[] arr1, int[] arr2){
+        Set<Integer> union = new HashSet<>();
+        for (Integer element : arr1) {
+            union.add(element);
         }
-
-        // Input for list2
-        System.out.print("Enter the number of elements for List 2: ");
-        int n2 = scanner.nextInt();
-        System.out.println("Enter elements for List 2:");
-        for (int i = 0; i < n2; i++) {
-            int element = scanner.nextInt();
-            list2.add(element);
+        for (Integer element : arr2) {
+            union.add(element);
         }
+        System.out.println("Union of arrays: " + union);
+    }
+    static void findIntersection(int[] arr1, int[] arr2){
+        Set<Integer> set1 = new HashSet<>();
+        Set<Integer> set2 = new HashSet<>();
 
-        // Union of two lists (eliminate duplicates)
-        Set<Integer> unionSet = new HashSet<>();
-        unionSet.addAll(list1);
-        unionSet.addAll(list2);
-        List<Integer> union = new ArrayList<>(unionSet);
-
-        // Intersection of two lists
-        Set<Integer> set1 = new HashSet<>(list1);
-        Set<Integer> set2 = new HashSet<>(list2);
-        set1.retainAll(set2);
-        List<Integer> intersection = new ArrayList<>(set1);
-
-        // Except operation (list1 with even elements removed and list2 with odd elements removed)
+        for (Integer element : arr1) {
+            set1.add(element);
+        }
+        for (Integer element : arr2) {
+            set2.add(element);
+        }
+        Set<Integer> intersection = new HashSet<>();
+        for (Integer element : set1) {
+            if (set2.contains(element)) {
+                intersection.add(element);
+            }
+        }
+        System.out.println("Intersection of arrays: " + intersection);
+    }
+    static void findExcept(int[] arr1, int[] arr2){
         List<Integer> except = new ArrayList<>();
-        for (Integer element : list1) {
-            if (element % 2 != 0) {
-                except.add(element);
+        for (int num : arr1) {
+            if (num % 2 != 0) {
+                except.add(num);
             }
         }
-        for (Integer element : list2) {
-            if (element % 2 == 0) {
-                except.add(element);
+        for (int num : arr2) {
+            if (num % 2 == 0) {
+                except.add(num);
             }
         }
-
-        // Print the results
-        System.out.println("Union: " + union);
-        System.out.println("Intersection: " + intersection);
         System.out.println("Except: " + except);
+    }
 
-        // Close the scanner
-        scanner.close();
+    static void printUnion(int[] arr1, int[] arr2) {
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        int i = 0;
+        int j = 0;
+        int n = arr1.length;
+        int m = arr2.length;
+        int prev = Integer.MIN_VALUE; // Initialize prev to a value not present in the arrays
+        while (i < n && j < m) {
+            if (arr1[i] < arr2[j]) {
+                if (arr1[i] != prev) {
+                    System.out.print(arr1[i] + " ");
+                    prev = arr1[i];
+                }
+                i++;
+            } else if (arr1[i] > arr2[j]) {
+                if (arr2[j] != prev) {
+                    System.out.print(arr2[j] + " ");
+                    prev = arr2[j];
+                }
+                j++;
+            } else {
+                if (arr1[i] != prev) {
+                    System.out.print(arr1[i] + " ");
+                    prev = arr1[i];
+                }
+                i++;
+                j++;
+            }
+        }
+        while (i < n) {
+            if (arr1[i] != prev) {
+                System.out.print(arr1[i] + " ");
+                prev = arr1[i];
+            }
+            i++;
+        }
+        while (j < m) {
+            if (arr2[j] != prev) {
+                System.out.print(arr2[j] + " ");
+                prev = arr2[j];
+            }
+            j++;
+        }
+    }
+    static void printIntersection(int[] arr1, int[] arr2) {
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        int i = 0;
+        int j = 0;
+        int n = arr1.length;
+        int m = arr2.length;
+        int prev = Integer.MIN_VALUE;
+        while(i<n && j<m) {
+            if(arr1[i]<arr2[j]) {
+                i++;
+            }else if(arr1[i]>arr2[j]) {
+                j++;
+            }else {
+                if(arr1[i] != prev) {    				
+                    System.out.print(arr1[i]);
+                }
+                prev = arr1[i];
+                i++;
+                j++;
+            }
+        }
     }
 }
 
@@ -75,5 +140,5 @@ List 2: 1, 5,8,9,2
 Output
 Union: 1, 3,4,5,6,8,9,2
 Intersection: 1,5,8,9
-Except: 1, 3, 5,9,8,2
+Except: 1, 3, 5,9, 8, 2
 */

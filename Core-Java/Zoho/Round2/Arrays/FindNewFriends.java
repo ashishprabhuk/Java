@@ -24,19 +24,18 @@ public class FindNewFriends {
 
     // Method to read input and find distinct friends' names
     public static Set<String> readAndFindDistinctFriends(int numUsers) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         Set<String> distinctFriends = new HashSet<>();
         
         System.out.println("Enter the mutual list:");
         
-        // Read the input data and populate the set
         for (int i = 0; i < numUsers; i++) {
-            String[] userFriends = scanner.nextLine().split(" ");
+            String[] userFriends = sc.nextLine().split(" ");
             for (int j = 2; j < userFriends.length; j++) {
                 distinctFriends.add(userFriends[j]);
             }
         }
-        
+        sc.close();
         return distinctFriends;
     }
 }

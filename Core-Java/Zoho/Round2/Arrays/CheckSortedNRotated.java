@@ -29,10 +29,9 @@ You can rotate the array by x = 0 positions (i.e. no rotation) to make arr.
 
 public class CheckSortedNRotated {
     public static void main(String[] args) {
-        int[] arr = {3,4,5,1,2,4};
+        int[] arr = {3,4,5,1,2};
         System.out.println(isSortRotated(arr));
     }
-
     private static boolean isSortRotated(int[] arr) { // optimal
         int count = 0;
         for(int i = 0;i<arr.length-1;i++){
@@ -44,6 +43,14 @@ public class CheckSortedNRotated {
             return false;
         }else if(arr[0]<arr[arr.length-1] && count!=0){
             return false;
+        }
+        return true;
+    }
+    static boolean check(int[] nums) {
+        int count = 0 ;
+        for(int i = 0 ; i < nums.length ; i++){
+            if(nums[i]>nums[(i+1)%nums.length])count++;
+            if(count>1) return false;
         }
         return true;
     }

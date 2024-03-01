@@ -4,7 +4,7 @@ import java.util.*;
 
 public class CombinationSum {
     public static void main(String[] args) {
-        int[] array = { 8, 3, 4, 7, 9 ,2, 5};
+        int[] array = { 8, 3, 3, 1, 7, 9 ,2, 5};
         int target = 7;
         findCombinations(array, target);
     }
@@ -13,6 +13,7 @@ public class CombinationSum {
         int n = array.length;
 
         // Iterate over all 2^n possible combinations
+        //1 << n is equivalent to 2^n
         for (int i = 0; i < (1 << n); i++) {  // left shifting(<<) value will increase
             List<Integer> combination = new ArrayList<>(); // create list for every new combinations...
             int sum = 0;

@@ -3,29 +3,9 @@ import java.util.*;
 
 public class ArrayUnion {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter size of first array: ");
-        int size1 = scanner.nextInt();
-        int[] arr1 = new int[size1];
-
-        System.out.print("Enter the elements of the first array: ");
-        for (int i = 0; i < size1; i++) {
-            arr1[i] = scanner.nextInt();
-        }
-
-        System.out.print("Enter size of second array: ");
-        int size2 = scanner.nextInt();
-        int[] arr2 = new int[size2];
-
-        System.out.print("Enter the elements of the second array: ");
-        for (int i = 0; i < size2; i++) {
-            arr2[i] = scanner.nextInt();
-        }
-
+        int[] arr1 = {1,2,3,4,5,3};
+        int[] arr2 = {1,2,5,7};
         findAndPrintUnion(arr1, arr2);
-
-        scanner.close();
     }
 
     public static void findAndPrintUnion(int[] arr1, int[] arr2) {
@@ -47,7 +27,46 @@ public class ArrayUnion {
             System.out.print(n+" ");
         }
     }
+    public static int[] findUnion(int[] arr1, int[] arr2) {
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        int m = arr1.length;
+        int n = arr2.length;
+        
+        int i = 0, j = 0, k = 0;
+        int[] unionArray = new int[m + n];
+
+        while (i < m && j < n) {
+            if (arr1[i] < arr2[j]) {
+                unionArray[k++] = arr1[i++];
+            } else if (arr1[i] > arr2[j]) {
+                unionArray[k++] = arr2[j++];
+            } else { // If both elements are equal
+                unionArray[k++] = arr1[i++];
+                j++;
+            }
+        }
+
+        while (i < m) {
+            unionArray[k++] = arr1[i++];
+        }
+
+        while (j < n) {
+            unionArray[k++] = arr2[j++];
+        }
+
+        // Create a new array with correct size and copy elements
+        int[] result = new int[k];
+        for (i = 0; i < k; i++) {
+            result[i] = unionArray[i];
+        }
+        return result;
+    }
+    
 }
+
+
 
 /*  
  * Given two arrays. Find its union.

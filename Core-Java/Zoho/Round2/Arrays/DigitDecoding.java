@@ -24,12 +24,10 @@ public class DigitDecoding {
             if (oneDigit >= 1 && oneDigit <= 9) {
                 dp[i] += dp[i - 1];
             }
-
             if (twoDigits >= 10 && twoDigits <= 26) {
                 dp[i] += dp[i - 2];
             }
         }
-
         return dp[n];
     }
 }

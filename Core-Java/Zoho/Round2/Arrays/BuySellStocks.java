@@ -11,13 +11,13 @@ public class BuySellStocks {
     }
     public static int maxProfit_BF(int[] prices) {
         if (prices == null || prices.length <= 1) {
-            return 0; // No profit can be made with less than two prices
+            return 0;
         }
         int minPrice = prices[0];
         int maxProfit = 0;
         for (int i = 1; i < prices.length; i++) {
-            minPrice = Math.min(minPrice, prices[i]); // Update the minimum price if the current price is lower
-            maxProfit = Math.max(maxProfit, prices[i] - minPrice); // Update the maximum profit if selling at the current price yields a higher profit
+            minPrice = Math.min(minPrice, prices[i]); 
+            maxProfit = Math.max(maxProfit, prices[i] - minPrice);
         }
         return maxProfit;
     }
