@@ -3,18 +3,17 @@ package Zoho.Round2.Arrays;
 public class LongSubArrSum {
     
     public static int getLongestSubArr_BF(int[] arr, int k) {
-            int maxLength = 0;
+            int maxLen = 0;
             for (int i = 0; i < arr.length; i++) {
-                int currentSum = 0;
+                int sum = 0;
                 for (int j = i; j < arr.length; j++) {
-                    currentSum += arr[j];
-                    if (currentSum == k) {
-                        int currentLength = j - i + 1;
-                        maxLength = Math.max(maxLength, currentLength);
+                    sum += arr[j];
+                    if (sum == k) {
+                        maxLen = Math.max(maxLen, j - i + 1);
                     }
                 }
             }
-            return maxLength;
+            return maxLen;
         }
 
         public static int getLongestSubArr_OP(int[] arr, int k) {

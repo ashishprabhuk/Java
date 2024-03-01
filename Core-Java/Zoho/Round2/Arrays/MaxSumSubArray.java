@@ -60,29 +60,3 @@ public class MaxSumSubArray {
         System.out.println("Elements : " + Arrays.toString(subArray));
     }
 }
-
-/*
-The `findMaxSumSubarray` method is used to find the maximum sum subarray in an input array. Here's an explanation of how it works:
-
-1. The method takes an integer array `arr` as input.
-
-2. It initializes the variables `maxSum` and `currentSum` to 0. `maxSum` will store the maximum sum found so far, and `currentSum` will store the sum of the current subarray being considered.
-
-3. It also initializes the variables `start`, `end`, and `index` to 0. `start` and `end` will store the indices of the maximum sum subarray, and `index` will store the temporary start index of the current subarray being considered.
-
-4. The method then iterates over each element in the `arr` array using a for loop.
-
-5. Inside the loop, it checks if the current element is negative. If it is, it means that the current subarray's sum will be smaller if we include this negative element. So, it resets the `currentSum` to 0 and moves the `index` to the next element.
-
-6. If the current element is not negative, it adds it to the `currentSum`.
-
-7. After adding the current element to the `currentSum`, it checks if the `currentSum` is greater than the `maxSum`. If it is, it updates the `maxSum`, `start`, and `end` variables with the current values of `currentSum`, `index`, and `i`, respectively.
-
-8. This process continues until all elements in the `arr` array have been processed.
-
-9. After the loop ends, the method uses the `Arrays.copyOfRange` method to extract the subarray that resulted in the maximum sum. It creates a new array `subArray` containing the elements from the `start` index to the `end` index + 1.
-
-10. Finally, the method prints the maximum sum and the elements of the subarray as output.
-
-That's how the `findMaxSumSubarray` method works to find the maximum sum subarray in the input array.
-*/

@@ -12,72 +12,40 @@ OUTPUT :
 */
 public class MaxKDigitNum {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Input the array size
-        System.out.print("Enter the array size: ");
-        int size = scanner.nextInt();
-
-        // Create an array to store elements
-        int[] arr = new int[size];
-
-        // Input the elements of the array
-        System.out.print("Enter the elements: ");
-        for (int i = 0; i < size; i++) {
-            arr[i] = scanner.nextInt();
-        }
-
-        // Input the number of digits (k)
-        System.out.print("Enter number of digits: ");
-        int k = scanner.nextInt();
-
-        // Call the findMaxKDigitNumber function to compute the result
+        int[] arr = {1, 4, 89, 73, 9, 7};
+        int k = 5;
         String maxKDigitNumber = findMaxKDigitNumber(arr, k);
-
-        // Output the result
-        System.out.println("OUTPUT:");
         System.out.println(maxKDigitNumber);
-        scanner.close();
     }
 
     public static String findMaxKDigitNumber(int[] arr, int k) {
-        // Sort the array in ascending order
         Arrays.sort(arr);
-
-        // Create a StringBuilder to build the result
         StringBuilder maxKDigitNumber = new StringBuilder();
 
         for (int i = arr.length - 1; i >= 0; i--) {
             int num = arr[i];
-
             // Check if the current number is within k digits
             if (num < Math.pow(10, k)) {
-                maxKDigitNumber.insert(0, num); // Append the number to the result
+                maxKDigitNumber.insert(0, num);
                 k -= countDigits(num); // Reduce k by the number of digits in the current number
             }
-
             // If k becomes zero, we have found the maximum k-digit number
             if (k == 0) {
                 break;
             }
         }
-
-        // Convert the StringBuilder to a String and return
         return maxKDigitNumber.toString();
     }
 
-    // Helper function to count the number of digits in a number
     public static int countDigits(int num) {
         if (num == 0) {
             return 1; // 0 has one digit
         }
-
         int count = 0;
         while (num != 0) {
             num /= 10; // Divide by 10 to remove the last digit
             count++;
         }
-
         return count;
     }
 }
