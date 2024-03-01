@@ -3,27 +3,28 @@ import java.util.*;
 
 class LongIncSubArr {
     public static void main(String args[]) {
-        int arr[] = {3, 10, 2, 1, 20};
-        lis(arr);
+        int arr[] = {50, 3, 10, 7, 40, 80};
+        System.out.println(max(arr));
     }
-    public static void lis(int[] arr) {
+
+    static int max(int[] arr) {
         int n = arr.length;
         int[] lis = new int[n];
-    
+        int maxL = 1;
+        // Initialize LIS values for all indices as 1
         for (int i = 0; i < n; i++) {
             lis[i] = 1;
         }
-        int max = 1;
-        
+        // Compute optimized LIS values in bottom-up manner
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < i; j++) {
-                if (arr[i] > arr[j]) {
-                    lis[i] = Math.max(lis[i], lis[j] + 1);
+                if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
+                    lis[i] = lis[j] + 1;
                 }
             }
-            max = Math.max(max, lis[i]);
+            maxL = Math.max(maxL, lis[i]);
         }
-        System.out.println(max);
+        return maxL;
     }
 }
 
