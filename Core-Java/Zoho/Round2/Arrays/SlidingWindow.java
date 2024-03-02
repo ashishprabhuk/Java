@@ -5,18 +5,13 @@ public class SlidingWindow {
     public static void printMaxInSlidingWindow(int[] arr, int k) {
         int n = arr.length;
 
-        // Iterate through the array
         for (int i = 0; i <= n - k; i++) {
             int max = arr[i];
-
-            // Find the maximum element in the current window
             for (int j = 1; j < k; j++) {
                 if (arr[i + j] > max) {
                     max = arr[i + j];
                 }
             }
-
-            // Print the maximum element in the current window
             System.out.print(max + " ");
         }
     }

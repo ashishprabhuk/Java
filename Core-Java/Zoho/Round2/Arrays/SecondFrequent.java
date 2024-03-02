@@ -4,8 +4,9 @@ import java.util.*;
 
 public class SecondFrequent {
     public static void main(String[] args) {
-        int[] series = {1, 1, 2, 3, 1, 2, 4};
-        int result = findSecondFrequentNumber(series);
+        int[] series = {1, 2, 3, 1, 2, 4, 1};
+        // int result = findSecondFrequentNumber(series);
+        int result = findSecondFrequentNumberOP(series);
         System.out.println("Second most frequently occurring number: " + result);
     }
 
@@ -42,4 +43,30 @@ public class SecondFrequent {
 
         return -1; // If there is no second most frequent number
     }
+    static int findSecondFrequentNumberOP(int[] series) {
+        int freq = Integer.MIN_VALUE;
+        int freq2 = Integer.MIN_VALUE;
+        int mostCount = 0;
+        int mostCount2 = 0;
+
+        for (int i = 0; i < series.length; i++) {
+            int count = 1;
+            for (int j = i + 1; j < series.length; j++) {
+                if (series[i] == series[j]) {
+                    count++;
+                }
+            }
+            if (count > mostCount) {
+                mostCount2 = mostCount;
+                mostCount = count;
+                freq2 = freq;
+                freq = series[i];
+            } else if (count > mostCount2 && count != mostCount) {
+                mostCount2 = count;
+                freq2 = series[i];  
+            }
+        }
+        return freq2;
+    }
+    
 }

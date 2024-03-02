@@ -7,63 +7,60 @@ import java.util.Arrays;
 */
 
 public class MergeSort {
+    public static void main(String[] args) {
+        int[] array = {5, 2, 8, 3, 1, 9, 4, 7, 6};
+        mergeSort(array);
+        System.out.println(Arrays.toString(array));
+    }
 
-    // Merge two sorted arrays into a single sorted array
-    static int[] merge(int[] arr1, int[] arr2){
-        int[] combined = new int[arr1.length + arr2.length];
-        int index = 0;
+    public static void mergeSort(int[] array) {
+        if (array.length <= 1) {
+            return;
+        }
+        int mid = array.length / 2;
+
+        int[] left = new int[mid];
+        int[] right = new int[array.length - mid];
+
+        for (int i = 0; i < mid; i++) {
+            left[i] = array[i];
+        }
+        for (int i = mid; i < array.length; i++) {
+            right[i - mid] = array[i];
+        }
+        mergeSort(left);
+        mergeSort(right);
+        merge(array, left, right);
+    }
+
+    public static void merge(int[] array, int[] left, int[] right) {
         int i = 0;
         int j = 0;
+        int k = 0;
 
-        while (i < arr1.length && j < arr2.length) {
-            if (arr1[i] < arr2[j]) {
-                combined[index] = arr1[i];
-                index++;
+        while (i < left.length && j < right.length) {
+            if (left[i] <= right[j]) {
+                array[k] = left[i];
                 i++;
             } else {
-                combined[index] = arr2[j];
-                index++;
+                array[k] = right[j];
                 j++;
             }
+            k++;
         }
-
-        // Copy any remaining elements from arr1
-        while (i < arr1.length) {
-            combined[index] = arr1[i];
-            index++;
+        while (i < left.length) {
+            array[k] = left[i];
             i++;
+            k++;
         }
-
-        // Copy any remaining elements from arr2
-        while (j < arr2.length) {
-            combined[index] = arr2[j];
-            index++;
+        while (j < right.length) {
+            array[k] = right[j];
             j++;
+            k++;
         }
-
-        return combined;
-    }
-
-    // Recursively split and merge the array
-    static int[] mergeSort(int[] arr){
-        if (arr.length == 1) return arr; // Base case: Already sorted if there's 1 element
-        int mid = arr.length / 2;
-        
-        // Split the array into left and right halves, then recursively sort them
-        int[] left = mergeSort(Arrays.copyOfRange(arr, 0, mid));
-        int[] right = mergeSort(Arrays.copyOfRange(arr, mid, arr.length));
-        
-        // Merge the sorted halves
-        return merge(left, right);
-    }
-
-    public static void main(String[] args) {
-        int[] originalArr = {2,1,4,3,69,0,29};
-        int[] sortedArr = mergeSort(originalArr);
-        System.out.println("\nOriginal Array: " + Arrays.toString(originalArr));
-        System.out.println("\nSorted Array: " + Arrays.toString(sortedArr));
     }
 }
+
 /*
 * Advantages of Merge Sort:
  *  Merge sort has a worst-case time complexity of O(N logN),

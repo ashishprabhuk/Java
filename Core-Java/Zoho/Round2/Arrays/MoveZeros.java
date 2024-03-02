@@ -8,10 +8,7 @@ public class MoveZeros {
         moveZeros_BF(arr);
         moveZeroes(arr);
         moveZeroes1(arr);
-        int[] arrZero = moveZeros_OP(arr);
-        System.out.println(Arrays.toString(arrZero));
     }
-
 
     private static void moveZeros_BF(int[] arr) {
         List<Integer > temp = new ArrayList<>();
@@ -27,30 +24,6 @@ public class MoveZeros {
             arr[i] = 0;
         }
         System.out.println(Arrays.toString(arr));
-    }
-
-    public static int[] moveZeros_OP(int[] arr) {
-        int n = arr.length;
-        int j = -1; //place the pointer j:
-        for (int i = 0; i < n; i++) {
-            if (arr[i] == 0) {
-                j = i;
-                break;
-            }
-        }
-        //no non-zero elements:
-        if (j == -1) return arr;
-
-        //Move the pointers i and j and swap accordingly:
-        for (int i = j + 1; i < n; i++) {
-            if (arr[i] != 0) { //swap arr[i] & arr[j]:
-                int tmp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tmp;
-                j++;
-            }
-        }
-        return arr;
     }
 
     public static void moveZeroes(int[] arr) {

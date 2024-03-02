@@ -17,7 +17,6 @@ public class SortOddEven{
     
     public static void sortOddEven(int[] arr) {
         int n = arr.length;
-        
         // Sort odd positions in descending order
         for (int i = 0; i < n; i += 2) {
             for (int j = i + 2; j < n; j += 2) {
@@ -28,7 +27,6 @@ public class SortOddEven{
                 }
             }
         }
-        
         // Sort even positions in ascending order
         for (int i = 1; i < n; i += 2) {
             for (int j = i + 2; j < n; j += 2) {

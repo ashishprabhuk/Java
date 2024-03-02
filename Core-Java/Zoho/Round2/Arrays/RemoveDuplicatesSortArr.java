@@ -1,14 +1,13 @@
 package Zoho.Round2.Arrays;
 
 public class RemoveDuplicatesSortArr {
-    public static  int removeDuplicates(int[] arr) {
-        if (arr.length == 0) {
+    static int removeDuplicates(int[] arr) { // OP
+        if(arr.length == 0 || arr.length == 1){
             return 0;
         }
-
-        int i = 0;
-        for(int j = 0; j<arr.length; j++){
-            if(arr[i] != arr[j]){
+        int  i = 0;
+        for (int j = 1; j < arr.length; j++) {
+            if(arr[i] != arr[j]) {
                 i++;
                 arr[i] = arr[j];
             }
@@ -24,7 +23,6 @@ public class RemoveDuplicatesSortArr {
         for (int i = 0; i < n; i++) {
             System.out.print(arr[i] + " ");
         }
-        // System.out.println(Arrays.toString(arr));
     }
 }
 

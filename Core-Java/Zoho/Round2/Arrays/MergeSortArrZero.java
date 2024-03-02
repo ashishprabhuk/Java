@@ -3,48 +3,33 @@ package Zoho.Round2.Arrays;
 import java.util.Arrays;
 
 public class MergeSortArrZero {
-    public static void merge1(int[] nums1, int m, int[] nums2, int n) {
+    public static void merge1(int[] arr1, int m, int[] arr2, int n) {
         int i = m - 1;
         int j = n - 1;
         int k = m + n - 1;
 
         while (i >= 0 && j >= 0) {
-            if (nums1[i] > nums2[j]) {
-                nums1[k--] = nums1[i--];
+            if (arr1[i] > arr2[j]) {
+                arr1[k--] = arr1[i--];
             } else {
-                nums1[k--] = nums2[j--];
+                arr1[k--] = arr2[j--];
             }
         }
-        // If there are remaining elements in nums2, copy them to nums1
+        while(i >= 0){
+            arr1[k--] = arr1[i--];
+        }
         while (j >= 0) {
-            nums1[k--] = nums2[j--];
+            arr1[k--] = arr2[j--];
         }
-    }
-
-    public static void merge(int[] nums1, int m, int[] nums2, int n) {
-        for(int i = 0;i<n;i++){
-            nums1[m++] = nums2[i];
-        }
-        Arrays.sort(nums1);
     }
 
     public static void main(String[] args) {
-        int[] nums1 = {1, 2, 3, 0, 0, 0};
+        int[] arr1 = {1, 2, 3, 0, 0, 0};
         int m1 = 3;
-        int[] nums2 = {2, 5, 6};
+        int[] arr2 = {2, 5, 6};
         int n1 = 3;
-
-        // merge(nums1, m1, nums2, n1);
-        // printArray(nums1);  // Output: [1, 2, 2, 3, 5, 6]
-        merge1(nums1, m1, nums2, n1);
-        printArray(nums1);  // Output: [1, 2, 2, 3, 5, 6]
-    }
-
-    private static void printArray(int[] arr) {
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
-        System.out.println();
+        merge1(arr1, m1, arr2, n1);
+        System.out.println(Arrays.toString(arr1));
     }
 }
 

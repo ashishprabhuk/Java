@@ -1,30 +1,16 @@
 package Zoho.Round2.Arrays;
 
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class RemoveDuplicates {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter the array size: ");
-        int size = scanner.nextInt();
-
-        int[] arr = new int[size];
-
-        System.out.print("Enter the elements: ");
-        for (int i = 0; i < size; i++) {
-            arr[i] = scanner.nextInt();
-        }
-
+        int[] arr = {1,1,2,2,2,3};
         int[] uniqueArr = removeDuplicates(arr);
-
-        System.out.println("Output:");
-        for (int num : uniqueArr) {
-            System.out.print(num + " ");
+        System.out.println(Arrays.toString(uniqueArr));
+        int n = removeDuplicatesOP(arr);
+        for(int i = 0; i< n; i++){
+            System.out.print(arr[i] + " ");
         }
-        scanner.close();
     }
 
     public static int[] removeDuplicates(int[] arr) {
@@ -32,7 +18,6 @@ public class RemoveDuplicates {
         for (int num : arr) {
             set.add(num);
         }
-
         int[] uniqueArr = new int[set.size()];
         int index = 0;
         for (int num : set) {
@@ -40,5 +25,19 @@ public class RemoveDuplicates {
         }
 
         return uniqueArr;
+    }
+    public static int removeDuplicatesOP(int arr[]){
+        int n = arr.length;
+        if (n == 0 || n == 1) {
+            return n;
+        } 
+        int j = 0;
+        for (int i = 0; i < n - 1; i++) {
+            if (arr[i] != arr[i + 1]) {
+                arr[j++] = arr[i];
+            }
+        }
+        arr[j++] = arr[n - 1];
+        return j;
     }
 }

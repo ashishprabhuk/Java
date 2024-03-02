@@ -7,20 +7,19 @@ public class RotateArrByKSpace{
         int k = 3;
         rotate(arr, k);
     }
-    public static void rotate(int[] nums, int k) {
-        k %= nums.length; // Ensure k is within array bounds
-        int n = nums.length;
-        reverseNum(nums,0,n-1); // Reverse entire array
-        reverseNum(nums,0,k-1); // Reverse first k elements
-        reverseNum(nums,k,n-1); // Reverse remaining elements
-        System.out.println(Arrays.toString(nums));
+    public static void rotate(int[] arr, int k) {
+        k %= arr.length; // Ensure k is within array bounds
+        int n = arr.length;
+        reverseNum(arr,0,n-1); // Reverse entire array
+        reverseNum(arr,0,k-1); // Reverse first k elements
+        reverseNum(arr,k,n-1); // Reverse remaining elements
+        System.out.println(Arrays.toString(arr));
     }
-    public static void reverseNum(int[] nums, int start, int end) {
+    public static void reverseNum(int[] arr, int start, int end) {
         while(start < end) {
-            // int temp = nums[start];
-            // nums[start] = nums[end];
-            // nums[end] = temp;
-            nums[start]=nums[start]+nums[end]-(nums[end]=nums[start]);
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
             start++;
             end--;
         }

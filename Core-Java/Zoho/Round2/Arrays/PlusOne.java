@@ -3,11 +3,10 @@ import java.util.*;
 
 public class PlusOne {
     public static void main(String[] args) {
-        // int[] arr = {2,1,4,3};
-        int[] arr = {9};
+        int[] arr = {2,1,4,3};
+        // int[] arr = {9};
         int[] array = plusOne(arr);
         System.out.println(Arrays.toString(array));
-
     }
 
     static int[] plusOne(int[] arr){

@@ -1,46 +1,60 @@
 package Zoho.Round2.Arrays;
-import java.util.*;
 
 public class SortByFactors {
-    public static void main(String[] args) {
-        // Integer[] arr1 = { 8, 2, 3, 12, 16 };
-        Integer[] arr1 = {5, 11, 10, 20, 9, 16, 23};
-        
-        // Sort the array using a custom comparator
-        Arrays.sort(arr1, new FactorComparator());
-        
-        // Print the sorted array
-        System.out.println(Arrays.toString(arr1));
-    }
-    
-    // Custom Comparator to compare numbers based on factors
-    static class FactorComparator implements Comparator<Integer> {
-        @Override
-        public int compare(Integer num1, Integer num2) {
-            int factorCount1 = countFactors(num1);
-            int factorCount2 = countFactors(num2);
-            
-            // First, compare by factor count
-            if (factorCount1 != factorCount2) {
-                return factorCount2 - factorCount1; // Sort by descending factor count
-            }
-            
-            // If factor counts are equal, compare the numbers themselves
-            return num2 - num1; // Sort in descending order
+
+    public static int countFactors(int num) {
+        int factorsCount = 0;
+        // traverse i = 1 to num for checking valid factor
+        for (int fact = 1; fact <= num; ++fact) {
+            // True, if "fact" is a valid factor of "num"
+            if (num % fact == 0)
+                ++factorsCount;
         }
-        
-        // Function to count the number of factors of a given number
-        private int countFactors(int num) {
-            int count = 0;
-            for (int i = 1; i <= num; i++) {
-                if (num % i == 0) {
-                    count++;
+        // return the total number of factors of number "num"
+        return factorsCount;
+    }
+
+    public static void swap(int array[], int pos1, int pos2) {
+        int tempVar = array[pos1];
+        array[pos1] = array[pos2];
+        array[pos2] = tempVar;
+    }
+
+    public static void sort(int arr[], int n) {
+        // create counter array for storing the number of factors
+        // this is used for mapping the number with its factor-counts
+        int[] counter = new int[n];
+        for (int idx = 0; idx < n; ++idx)
+            counter[idx] = countFactors(arr[idx]);
+
+        // sort the "array" using the concept of "bubble sort"
+        for (int pass = 0; pass < n; ++pass) {
+            for (int idx = 0; idx < n - pass - 1; ++idx) {
+                // if order is not correct, swap the elements
+                if ((counter[idx] > counter[idx + 1]) || (counter[idx] == counter[idx + 1] && arr[idx] > arr[idx + 1])) {
+                    swap(arr, idx, idx + 1);
+                    swap(counter, idx, idx + 1);
                 }
             }
-            return count;
         }
     }
+
+    public static void main(String[] args) {
+        int[] arr = {8, 2, 3, 12, 16};
+        int N = arr.length;
+
+        sort(arr, N);
+
+        // display the array after sorting
+        System.out.print("Array after Sorting by Factor: ");
+        for (int idx = arr.length-1; idx >=0; idx--) {
+            System.out.print(arr[idx] + " ");
+        }
+        System.out.println();
+    }
 }
+
+
 
 /*
 To find the factors of the numbers given in an
@@ -48,6 +62,5 @@ array and to sort the numbers in descending order
 according to the factors present in it.
 Input:
 Given array : 8, 2, 3, 12, 16
-Output:
-12, 16, 8, 2, 3
+Output: 12, 16, 8, 2, 3
  */
