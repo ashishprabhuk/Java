@@ -1,5 +1,4 @@
 package Zoho.Round2.Arrays;
-import java.util.*;
 
 class LongIncSubArr {
     public static void main(String args[]) {
