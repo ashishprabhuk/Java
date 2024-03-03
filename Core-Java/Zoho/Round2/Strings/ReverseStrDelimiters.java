@@ -30,38 +30,29 @@ public class ReverseStrDelimiters {
         return new String(chars);
     }
 
-//-----------------------------------------------------------------
-
-    static String reverseStr_BF(String str) {
-        StringBuilder letters = new StringBuilder();
-        StringBuilder nonLetters = new StringBuilder();
-        
-        // Separate letters and non-letters
-        for (char ch : str.toCharArray()) {
-            if (Character.isLetterOrDigit(ch)) {
-                letters.append(ch);
-            } else {
-                nonLetters.append(ch);
+    public static String reverseStr_OP2(String str) {
+        char[] chars = str.toCharArray();
+        int start = 0;
+        int end = chars.length - 1;
+        while (start < end) {
+            while (start < end && !isLetterOrDigit(chars[start])) {
+                start++;
             }
-        }
-
-        // Reverse the letters
-        String reversedLetters = reverse(letters.toString());
-
-        // Reconstruct the string
-        StringBuilder result = new StringBuilder();
-        int j = 0;
-        for (char ch : str.toCharArray()) {
-            if (Character.isLetterOrDigit(ch)) {
-                result.append(reversedLetters.charAt(j++));
-            } else {
-                result.append(ch);
+            while (start < end && !isLetterOrDigit(chars[end])) {
+                end--;
             }
+            char temp = chars[start];
+            chars[start] = chars[end];
+            chars[end] = temp;
+            start++;
+            end--;
         }
-        return result.toString();
+        return new String(chars);
     }
-
-//---------------------------------------------------------------------
+    private static boolean isLetterOrDigit(char c) {
+        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9');
+    }
+    
 
     static String reverse(String s) {
         char[] chars = s.toCharArray();
@@ -80,6 +71,6 @@ public class ReverseStrDelimiters {
 
     public static void main(String[] args) {
         String str = "A man, in the boat says : I see 1-2-3 in the sky";
-        System.out.println(reverseStr_OP(str));
+        System.out.println(reverseStr_OP2(str));
     }
 }

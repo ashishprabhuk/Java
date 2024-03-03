@@ -1,30 +1,19 @@
 package Zoho.Round2.Strings;
 
-import java.util.*;
-
 public class StrPermutation {
     public static void main(String[] args) {
         String str = "ABC";
-        List<String> results = combinations(str);
-        for (String result : results) {
-            System.out.println(result);
-        }
+        combinations("", str);
     }
 
-    public static List<String> combinations(String str) {
-        List<String> results = new ArrayList<>();
-        generate("", str, results);
-        return results;
-    }
-
-    private static void generate(String current, String remaining, List<String> results) {
-        results.add(current);
-
+    public static void combinations(String current, String remaining) {
+        System.out.println(current);
         for (int i = 0; i < remaining.length(); i++) {
-            generate(current + remaining.charAt(i), remaining.substring(0, i) + remaining.substring(i + 1), results);
+            combinations(current + remaining.charAt(i), remaining.substring(0, i) + remaining.substring(i + 1));
         }
     }
 }
+
 
 /*
 Write a program to print all permutations of a

@@ -3,30 +3,28 @@ package Zoho.Round2.Strings;
 public class StringPermutation {
     public static void main(String[] args) {
         String str = "ABC";
-        int n = str.length();
-        permute(str, 0, n - 1);
+        permute(str.toCharArray(), 0, str.length() - 1);
     }
 
-    static void permute(String str, int left, int right) {
-        if (left == right)
-            System.out.println(str);
+    static void permute(char[] str, int start, int end) {
+        if (start == end)
+            System.out.println(new String(str));
         else {
-            for (int i = left; i <= right; i++) {
-                str = swap(str, left, i);
-                permute(str, left + 1, right);
-                str = swap(str, left, i);
+            for (int i = start; i <= end; i++) {
+                swap(str, start, i);
+                permute(str, start + 1, end);
+                swap(str, start, i);
             }
         }
     }
-    static String swap(String str, int i, int j) {
-        char temp;
-        char[] charArray = str.toCharArray();
-        temp = charArray[i];
-        charArray[i] = charArray[j];
-        charArray[j] = temp;
-        return String.valueOf(charArray);
+
+    static void swap(char[] str, int i, int j) {
+        char temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
     }
 }
+
 
 /*
 Print all distinct permutations of a string having duplicates.

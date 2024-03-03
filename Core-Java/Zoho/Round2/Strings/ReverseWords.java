@@ -21,8 +21,6 @@ public class ReverseWords {
         return words[index] + " " + reverseWords(words, index - 1);
     }
 
-//-----------------------------------------------------------------
-
     static String revWords(String str){
         String[] ch = str.split(" ");
         int s = 0;

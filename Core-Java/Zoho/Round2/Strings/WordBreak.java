@@ -29,16 +29,31 @@ public class WordBreak {
         int n = s.length();
         boolean[] dp = new boolean[n + 1];
         dp[0] = true;
-
+    
         for (int i = 1; i <= n; i++) {
-            for (int j = 0; j < i; j++) {
+            for (int j = i - 1; j >= 0; j--) {
                 if (dp[j] && dictionary.contains(s.substring(j, i))) {
                     dp[i] = true;
                     break;
                 }
             }
         }
-
         return dp[n];
     }
 }
+
+/*
+Given an input string and a dictionary of words,
+find out if the input string can be segmented into a
+space-separated sequence of dictionary words. See
+following examples for more details.
+Consider the following dictionary
+{ i, like, sam, sung, samsung, mobile, ice, cream, icecream, man, go, mango}
+Input: ilike
+Output: Yes
+The string can be segmented as "i like".
+Input: ilikesamsung
+Output: Yes
+The string can be segmented as "i like samsung"
+or "i like sam sung".<>
+ */

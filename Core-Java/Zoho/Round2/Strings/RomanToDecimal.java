@@ -14,7 +14,33 @@ public class RomanToDecimal {
         System.out.println(romanToDecimal(romanNumeral2));
         System.out.println(romanToDecimal(romanNumeral3));
         System.out.println(romanToDecimal(romanNumeral4));
-        System.out.println(romanToDecimal(romanNumeral5));
+        System.out.println(romanToDecimal1(romanNumeral5));
+    }
+    public static int romanToDecimal1(String s) {
+        HashMap<Character, Integer> roman = new HashMap<>();
+        roman.put('I', 1);
+        roman.put('V', 5);
+        roman.put('X', 10);
+        roman.put('L', 50);
+        roman.put('C', 100);
+        roman.put('D', 500);
+        roman.put('M', 1000);
+
+        int ans = 0;
+
+        int prevValue = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char currentChar = s.charAt(i);
+            int currentValue = roman.get(currentChar);
+            if (prevValue < currentValue) {
+                ans -= prevValue;
+            } else {
+                ans += prevValue;
+            }
+            prevValue = currentValue;
+        }
+        ans += prevValue; // Add the value of the last symbol
+        return ans;
     }
 
     public static int romanToDecimal(String s) {
