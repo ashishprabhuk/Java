@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class AnagramCheck {
     public static void main(String[] args) {
-        String str1 = "listen";
-        String str2 = "silent";
+        String str1 = "eat";
+        String str2 = "tea";
         boolean isAnagram = areAnagrams(str1, str2);
         boolean isAnagram1= areAnagrams1(str1, str2);
         System.out.println("Are the strings anagrams? " + isAnagram);
@@ -13,27 +13,19 @@ public class AnagramCheck {
     }
 
     static boolean areAnagrams(String str1, String str2) {
-        // Check if the lengths of the two strings are different; if so, they cannot be anagrams
+        char[] ch1  = str1.toCharArray();
+        char[] ch2  = str2.toCharArray();
         if (str1.length() != str2.length()) {
             return false;
         }
-        // Create an array to count the occurrences of each character in str1
-        int[] charCount = new int[256];
-        // Increment the count for each character in str1
-        for (char c : str1.toCharArray()) {
-            charCount[c]++;
-        }
-        // Decrement the count for each character in str2
-        for (char c : str2.toCharArray()) {
-            charCount[c]--;
-        }
-        // Check if all character counts are zero; if not, they are not anagrams
-        for (int count : charCount) {
-            if (count != 0) {
-                return false;
-            }
-        }
-        // If all character counts are zero, the strings are anagrams
+        int[] count = new int[256];
+        for (int i = 0; i < str1.length(); i++) {
+			count[ch1[i]]++;
+			count[ch2[i]]--;
+		}
+		for (int i = 0; i < 256; i++)
+			if (count[i] != 0)
+				return false;
         return true;
     }
 
