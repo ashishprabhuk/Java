@@ -16,17 +16,13 @@ public class NumberToLetters {
         if (digits.isEmpty()) {
             System.out.println(current);
         } else {
-            // Get the first digit
             int num1 = Character.getNumericValue(digits.charAt(0));
             char letter1 = (char) ('A' + num1 - 1);
-            // Generate a combination with the first digit
             generateCombinations(digits.substring(1), current + letter1);
-            // Check if there are at least two digits and the first two digits form a valid letter
             if (digits.length() >= 2) {
-                int num2 = Integer.parseInt(digits.substring(0, 2));
+                int num2 = Integer.valueOf(digits.substring(0, 2));
                 if (num2 >= 10 && num2 <= 26) {
                     char letter2 = (char) ('A' + num2 - 1);
-                    // Generate a combination with the first two digits
                     generateCombinations(digits.substring(2), current + letter2);
                 }
             }

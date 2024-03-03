@@ -23,6 +23,24 @@ public class PangramCheck {
         }
         return alphabet.size() == 26;
     }
+    public static boolean checkPangram1(String sentence) {
+        int[] alphabetCount = new int[26];
+        
+        sentence = sentence.toLowerCase();
+        
+        for (int i = 0; i < sentence.length(); i++) {
+            char c = sentence.charAt(i);
+            if (c >= 'a' && c <= 'z') { 
+                alphabetCount[c - 'a']++;
+            }
+        }
+        for (int count : alphabetCount) {
+            if (count == 0) {
+                return false; 
+            }
+        }
+        return true;
+    }
 }
 
 /*

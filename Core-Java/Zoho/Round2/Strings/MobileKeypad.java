@@ -1,29 +1,22 @@
 package Zoho.Round2.Strings;
 
 public class MobileKeypad {
-
-	// Function which computes the sequence
 	static String mobileKeys(String arr[], String input){
 		input = input.toUpperCase();
 		String output = "";
-		// length of input string
 		int n = input.length();
 		for (int i = 0; i < n; i++) {
-			// Checking for space
 			if (input.charAt(i) == ' '){
 				output = output + "0";
 			}else {
-				// Calculating index for each character
 				int position = input.charAt(i) - 'A';
 				output = output + arr[position];
 			}
 		}
 		return output;
 	}
-	// Driver Code
 	public static void main(String[] args)
 	{
-		// storing the sequence in array
 		String str[]
 			= { "2", "22", "222", "3", "33", "333",
 				"4", "44", "444", "5", "55", "555",

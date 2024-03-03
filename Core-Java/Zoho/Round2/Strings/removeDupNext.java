@@ -3,17 +3,16 @@ package Zoho.Round2.Strings;
 public class removeDupNext {
     public static String removeDuplicate(String input) {
         StringBuilder result = new StringBuilder();
-        char[] chars = input.toCharArray();
         int[] count = new int[256]; // Assuming ASCII characters
 
-        for (char c : chars) {
+        for (char c : input.toCharArray()) {
             if (count[c] == 0) {
-                count[c]++;
                 result.append(c);
+                count[c]++;
             } else {
                 char replacement = findReplacement(c);
-                count[replacement]++;
                 result.append(replacement);
+                count[replacement]++;
             }
         }
 
@@ -26,7 +25,7 @@ public class removeDupNext {
         } else if (Character.isDigit(c)) {
             return (char)('1' + (c - '0') % 10);
         } else {
-            return c;
+            return c; // For non-letter and non-digit characters, keep them unchanged
         }
     }
 
@@ -40,4 +39,3 @@ public class removeDupNext {
         System.out.println("Testcase 3: " + removeDuplicate(input3)); // Output: aBuzC9012
     }
 }
-

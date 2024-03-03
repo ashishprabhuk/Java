@@ -34,7 +34,6 @@ public class RemoveUnbalancedParentheses {
             }
             result.append(ch);
         }
-        // Remove any unbalanced open parentheses by not appending them to the result
         while (!stack.isEmpty()) {
             result.deleteCharAt(stack.pop());
         }

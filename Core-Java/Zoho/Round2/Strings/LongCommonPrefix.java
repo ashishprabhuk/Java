@@ -4,21 +4,23 @@ import java.util.Arrays;
 
 public class LongCommonPrefix {
     public static String longestCommonPrefix(String[] str) {
-        StringBuilder ans = new StringBuilder();
-        Arrays.sort(str);
-        String first = str[0];
-        String last = str[str.length-1];
-        for (int i=0; i<Math.min(first.length(), last.length()); i++) {
-            if (first.charAt(i) != last.charAt(i)) {
-                return ans.toString();
-            }
-            ans.append(first.charAt(i));
+        if (str == null || str.length == 0) {
+            return "";
         }
-        return ans.toString();
+        String prefix = str[0]; 
+        for (int i = 1; i < str.length; i++) {
+            while (str[i].indexOf(prefix) != 0) {
+                prefix = prefix.substring(0, prefix.length() - 1); // Shorten the prefix
+                if (prefix.isEmpty()) {
+                    return "";
+                }
+            }
+        }
+        return prefix;
     }
     public static void main(String[] args) {
-        // String[] str = {"flower","flow","flight"};
-        String[] str = {"dog","racecar","car"};
+        String[] str = {"flower","flow","flight"};
+        // String[] str = {"dog","racecar","car"};
         System.out.println(longestCommonPrefix(str));
     }
 }

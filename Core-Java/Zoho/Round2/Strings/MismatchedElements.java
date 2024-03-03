@@ -7,41 +7,37 @@ public class MismatchedElements {
         // Define two character arrays
         char[] arr1 = {'a','b','c','d','e','f','g','h','i'};
         char[] arr2 = {'a','b','d','e','e','g','g','i','i'};
-
-        // Call the findMismatchedElements function to find mismatched elements
-        ArrayList<Character> mismatchedElements = findMismatchedElements(arr1, arr2);
-
-        System.out.print("Mismatched Elements: [");
-        for (int i = 0; i < mismatchedElements.size(); i++) {
-            System.out.print(mismatchedElements.get(i));
-            if (i < mismatchedElements.size() - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println("]");
-
+        findMismatchedElements1(arr1, arr2);
     }
 
-    public static ArrayList<Character> findMismatchedElements(char[] arr1, char[] arr2) {
-        // Initialize an ArrayList to store mismatched elements
-        ArrayList<Character> mismatched = new ArrayList<>();
-        
-        // Initialize a HashSet to store elements from arr2 for efficient lookup
-        HashSet<Character> set = new HashSet<>();
+    public static void findMismatchedElements1(char[] arr1, char[] arr2) {
+        int i = 0, j = 0;
 
-        // Add elements from arr2 to the HashSet set
-        for (char c : arr2) {
-            set.add(c);
-        }
-        // Iterate through arr1 to find mismatched elements
-        for (char c : arr1) {
-            // If the current character from arr1 is not in arr2 (not in the HashSet set)
-            if (!set.contains(c)) {
-                // Add the mismatched element to the ArrayList mismatched
-                mismatched.add(c);
+        // Iterate through both arrays to find mismatched elements
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] < arr2[j]) {
+                System.out.println("Mismatched Element: " + arr1[i]);
+                i++;
+            } else if (arr1[i] > arr2[j]) {
+                System.out.println("Mismatched Element: " + arr2[j]);
+                j++;
+            } else {
+                // If elements are equal, move to the next elements in both arrays
+                i++;
+                j++;
             }
         }
-        // Return the ArrayList containing mismatched elements
-        return mismatched;
+
+        // Print remaining elements from arr1, if any
+        while (i < arr1.length) {
+            System.out.println("Mismatched Element: " + arr1[i]);
+            i++;
+        }
+
+        // Print remaining elements from arr2, if any
+        while (j < arr2.length) {
+            System.out.println("Mismatched Element: " + arr2[j]);
+            j++;
+        }
     }
 }

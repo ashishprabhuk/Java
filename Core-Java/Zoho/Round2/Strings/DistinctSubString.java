@@ -2,46 +2,22 @@ package Zoho.Round2.Strings;
 
 public class DistinctSubString {
     public static void main(String[] args) {
-        String s1 = "abcda";
-        System.out.println(countGoodSubstrings(s1)); // Output: 1
-
-        String s2 = "aababcabc";
-        System.out.println(countGoodSubstrings1(s2)); // Output: 4
-    }
-
-    public static int countGoodSubstrings(String s) {
-        int count = 0;
-        for (int i = 0; i <= s.length() - 3; i++) {
-            if (isGoodSubstring(s, i)) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    private static boolean isGoodSubstring(String s, int index) {
-        // Check if the substring has distinct characters
-        return s.charAt(index) != s.charAt(index + 1)
-                && s.charAt(index + 1) != s.charAt(index + 2)
-                && s.charAt(index) != s.charAt(index + 2);
+        String str = "abcd";
+        String str2 = "xyzzaz";
+        System.out.println(countGoodSubstrings1(str2)); // Output: 4
     }
 
     public static int countGoodSubstrings1(String s) {
         int count = 0;
-
-        // Iterate through the string
         for (int i = 0; i <= s.length() - 3; i++) {
             // Check for distinct characters in each substring of size three
             if (areDistinct(s.charAt(i), s.charAt(i + 1), s.charAt(i + 2))) {
                 count++;
             }
         }
-
         return count;
     }
-
     private static boolean areDistinct(char a, char b, char c) {
-        // Check if characters are distinct
         return a != b && b != c && a != c;
     }
 }

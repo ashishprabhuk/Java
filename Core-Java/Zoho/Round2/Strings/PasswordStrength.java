@@ -1,5 +1,6 @@
 package Zoho.Round2.Strings;
-import java.util.*;
+
+import java.util.Scanner;
 
 public class PasswordStrength {
     public static void main(String[] args) {
@@ -18,10 +19,23 @@ public class PasswordStrength {
             return "Weak";
         }
 
-        boolean rule1 = password.matches(".*[a-z].*"); // At least one lowercase letter
-        boolean rule2 = password.matches(".*[A-Z].*"); // At least one uppercase letter
-        boolean rule3 = password.matches(".*[0-9].*");   // At least one digit
-        boolean rule4 = password.matches(".*[!@#$%^&*?].*"); // At least one special character
+        boolean rule1 = false; // At least one lowercase letter
+        boolean rule2 = false; // At least one uppercase letter
+        boolean rule3 = false; // At least one digit
+        boolean rule4 = false; // At least one special character
+
+        for (int i = 0; i < password.length(); i++) {
+            char c = password.charAt(i);
+            if (c >= 'a' && c <= 'z') {
+                rule1 = true;
+            } else if (c >= 'A' && c <= 'Z') {
+                rule2 = true;
+            } else if (c >= '0' && c <= '9') {
+                rule3 = true;
+            } else if (isSpecialCharacter(c)) {
+                rule4 = true;
+            }
+        }
 
         int satisfiedRules = 0;
         if (rule1) satisfiedRules++;
@@ -35,13 +49,15 @@ public class PasswordStrength {
             return "Medium";
         } else if (satisfiedRules == 3) {
             return "Good";
-        } else if (satisfiedRules == 4) {
+        } else { // satisfiedRules == 4
             return "Strong";
-        } else {
-            return "Weak";
         }
     }
+    private static boolean isSpecialCharacter(char c) {
+        return "!@#$%^&*?".indexOf(c) != -1;
+    }
 }
+
 
 
 /*

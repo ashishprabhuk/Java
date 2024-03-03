@@ -1,5 +1,7 @@
 package Zoho.Round2.Strings;
 
+import java.util.Arrays;
+
 public class NumOfStrInSubString {
     public static int numOfStrings(String[] strs, String word) {
         int count = 0;
@@ -9,9 +11,36 @@ public class NumOfStrInSubString {
         return count;
     }
     public static void main(String[] args) {
-        String[] strs = {"a","abc","bc","d"};
-        String word = "abc";
+        String[] strs = {"a","b", "ab","c"};
+        String word = "aaaaabbbbbc";
         System.out.println(numOfStrings(strs, word));
+        System.out.println(numOfStrings1(strs, word));
+    }
+
+    public static int numOfStrings1(String[] strs, String word) {
+        Arrays.sort(strs); 
+        int count = 0;
+        for (String str : strs) {
+            if (isSubstring(str, word)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private static boolean isSubstring(String str, String word) {
+        int start = 0, end = word.length() - 1;
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (word.substring(mid).startsWith(str)) {
+                return true;
+            } else if (str.compareTo(word.substring(mid)) < 0) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+        }
+        return false;
     }
 }
 

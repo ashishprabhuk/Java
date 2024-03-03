@@ -115,8 +115,6 @@ public class CommonWords {
               break;
             }
           }
-    
-          // Check if the word exists in the second string (only if found in first)
           if (foundInFirst) {
             for (String word2 : words2) {
               if (word.equals(word2)) {
@@ -125,13 +123,10 @@ public class CommonWords {
               }
             }
           }
-    
-          // If found in both, add to common words
           if (foundInFirst && foundInSecond) {
             commonWords.append(word).append(" ");
           }
         }
-    
         return commonWords.toString().trim();
       }
 }

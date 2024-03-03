@@ -11,7 +11,6 @@ public class LetterCombinations {
             return result;
         }
 
-        // Create a mapping of digits to their corresponding letters on a phone keypad
         Map<Character, String> digitToLetters = new HashMap<>();
         digitToLetters.put('2', "abc");
         digitToLetters.put('3', "def");
@@ -22,12 +21,9 @@ public class LetterCombinations {
         digitToLetters.put('8', "tuv");
         digitToLetters.put('9', "wxyz");
 
-        // Initialize a StringBuilder to build the current combination
         StringBuilder currentCombination = new StringBuilder();
 
-        // Start DFS/backtracking
         generateCombinations(digits, 0, digitToLetters, currentCombination, result);
-
         return result;
     }
 
@@ -57,7 +53,7 @@ public class LetterCombinations {
 
     public static void main(String[] args) {
         LetterCombinations lc = new LetterCombinations();
-        String digits = "23"; // Example input
+        String digits = "33"; // Example input
         List<String> combinations = lc.letterCombinations(digits);
 
         for (String combination : combinations) {

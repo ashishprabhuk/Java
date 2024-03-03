@@ -10,13 +10,14 @@ public class CharacterCounter {
     public static int countCharactersWithEscape(String input) {
         int count = 0;
         boolean escape = false;
-
         for (int i = 0; i < input.length(); i++) {
             char currentChar = input.charAt(i);
-            if (currentChar == '$' && !escape) {
-                escape = !escape; // Increment count if '$' is not in escape mode
+            // if (currentChar == '$' && !escape) {
+            if (currentChar == '$') {
+                // escape = !escape;
+                continue; 
             } else {
-                count++;   // Increment count for all other characters
+                count++;  
             }
         }
         return count;

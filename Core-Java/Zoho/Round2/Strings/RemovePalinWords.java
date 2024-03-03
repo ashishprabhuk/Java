@@ -1,5 +1,7 @@
 package Zoho.Round2.Strings;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RemovePalinWords {
     public static void main(String[] args) {
@@ -12,9 +14,9 @@ public class RemovePalinWords {
         String[] words = sentence.split(" ");
         List<String> remainingWords = new ArrayList<>();
 
-        for (String word : words) {
-            if (!isPalindrome(word)) {
-                remainingWords.add(word);
+        for (int i = 0; i < words.length; i++) {
+            if (!isPalindrome(words[i])) {
+                remainingWords.add(words[i]);
             }
         }
         return String.join(" ", remainingWords);
@@ -33,6 +35,7 @@ public class RemovePalinWords {
         return true;
     }
 }
+
 
 
 

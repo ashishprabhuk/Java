@@ -3,18 +3,19 @@ package Zoho.Round2.Strings;
 public class ExcelColumnTitle {
 
     public static String convertToTitle(int columnNumber) {
-        StringBuilder result = new StringBuilder();
+        String result = "";
         while (columnNumber > 0) {
-            // columnNumber--;  // Adjust to 0-based indexing
-            char currentChar = (char) ('A' + (columnNumber-1) % 26);
-            result.insert(0, currentChar);  // Insert character at the beginning of the result string
+            columnNumber--; // Adjust to 0-based indexing
+            char currentChar = (char) ('A' + columnNumber % 26);
+            result = currentChar + result; // Append character to the beginning of the result string
             columnNumber /= 26;
         }
-        return result.toString();
+        return result;
     }
 
     public static void main(String[] args) {
         // Test cases
+        System.out.println('A' + 25);
         System.out.println(convertToTitle(1));    // Output: "A"
         System.out.println(convertToTitle(28));   // Output: "AB"
         System.out.println(convertToTitle(701));  // Output: "ZY"
