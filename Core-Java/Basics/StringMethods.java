@@ -39,8 +39,10 @@ public class StringMethods {
         System.out.println("Ends with 'World': " + endsWithWorld); // Output: Ends with 'World': true
 
         // replace(char oldChar, char newChar) and replace(CharSequence target, CharSequence replacement)
-        String replaced1 = str.replace('a', 'x');
-        String replaced2 = str.replace("Java", "World");
+        String st1 = "ashishprabhu";
+        String st2 = "ashishprabhu";
+        String replaced1 = st1.replace('a', 'x');
+        String replaced2 = st2.replace("ashish", "apk");
         System.out.println("After replace (char): " + replaced1); // Output: After replace (char): Hello, World!
         System.out.println("After replace (String): " + replaced2); // Output: After replace (String): Hello, World!
 
@@ -69,10 +71,15 @@ public class StringMethods {
         // Output: Does the string contain 'Java'? true
 
 
-        String s1 = "apple";
-        String s2 = "banana";
-        int output = s1.compareTo(s2);
-        System.out.println("Comparison output: " + output);
+        String s1="hello";  
+        String s2="hello";  
+        String s3="meklo";  
+        String s4="hemlo";  
+        String s5="flag";  
+        System.out.println(s1.compareTo(s2));//0 because both are equal  
+        System.out.println(s1.compareTo(s3));//-5 because "h" is 5 times lower than "m"  
+        System.out.println(s1.compareTo(s4));//-1 because "l" is 1 times lower than "m"  
+        System.out.println(s1.compareTo(s5));//2 because "h" is 2 times greater than "f"  
         // Output: Comparison result: -1 (lexicographically earlier)
 
 
@@ -81,9 +88,16 @@ public class StringMethods {
         System.out.println("Split string: " + Arrays.toString(fruits));
         // Output: Split string: [apple, orange, banana]
 
-        int number = 42;
+        String strJoin = String.join("","ashish", "prabhu", "k"); 
+        System.out.println(strJoin); //ashishprabhuk
+        String strJoin1 = String.join(" ", "Wake up", "Eat", "Sleep", "Wake up"); 
+        System.out.println(strJoin1); //Wake up Eat Sleep Wake up
+        String strJoin2 = String.join("-> ", "Wake up", "Eat", "Sleep", "Wake up"); 
+        System.out.println(strJoin2); //Wake up-> Eat-> Sleep-> Wake up
+
+        int number = 21;
         String strNumber = String.valueOf(number);
         System.out.println("String representation of the number: " + strNumber);
-        // Output: String representation of the number: 42
+        // Output: String representation of the number: 21
     }
 }

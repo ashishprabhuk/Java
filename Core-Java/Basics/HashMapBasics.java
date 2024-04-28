@@ -31,9 +31,9 @@ public class HashMapBasics {
 
     static void entries(Map<Integer, Integer> map){
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-        int key = entry.getKey();
-        int value = entry.getValue();
-        System.out.println("Key: " + key + ", Value: " + value);
+            int key = entry.getKey();
+            int value = entry.getValue();
+            System.out.println("Key: " + key + ", Value: " + value);
         }
     }
 }
