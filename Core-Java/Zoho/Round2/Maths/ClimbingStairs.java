@@ -13,7 +13,6 @@ public class ClimbingStairs {
         for (int i = 3; i <= n; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
-
         return dp[n];
     }
 
@@ -22,7 +21,7 @@ public class ClimbingStairs {
         System.out.println(climbStairs(n1));  // Output: 2
 
         int n2 = 3;
-        System.out.println(climbStairs(n2));  // Output: 3
+        System.out.println(climbStairs(4));  // Output: 5
     }
 }
 

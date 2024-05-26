@@ -3,11 +3,11 @@ package Zoho.Round2.Strings;
 public class SecondFreqChar {
 	static char getSecondMostFreq(String str){
 		int[] count = new int[256];
-		int i;
-		for (i=0; i< str.length(); i++)
+		
+		for (int i=0; i< str.length(); i++)
 			(count[str.charAt(i)])++;
 		int first = 0, second = 0;
-		for (i = 0; i < 256; i++){
+		for (int i = 0; i < 256; i++){
 			if (count[i] > count[first]){
 				second = first;
 				first = i;
