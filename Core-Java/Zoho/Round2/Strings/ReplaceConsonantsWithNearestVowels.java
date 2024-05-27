@@ -9,7 +9,7 @@ public class ReplaceConsonantsWithNearestVowels {
 
     static String replacingConsonants(String s){
         //an array of size 26 that stores nearest vowel for every character. 
-        String str = "aaaeeeeiiiiioooooouuuuuuuu";
+        String str = "aaaeeeeiiiiioooooouuuuuuuu"; //length->26
         char[] ch = s.toCharArray();
         for (int i = 0; i < s.length(); i++) {
             int index = ch[i]-'a'; 
