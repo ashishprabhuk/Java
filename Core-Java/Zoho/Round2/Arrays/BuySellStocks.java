@@ -7,7 +7,6 @@ public class BuySellStocks {
         int[] prices = {7, 6, 4, 3, 1};
         System.out.println("Output: " + maxProfit_BF(prices));
         System.out.println("Output: " + maxProfit_OP(prices));
-
     }
     public static int maxProfit_BF(int[] prices) {
         if (prices == null || prices.length <= 1) {

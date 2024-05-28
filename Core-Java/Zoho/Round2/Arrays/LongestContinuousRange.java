@@ -1,41 +1,43 @@
 package Zoho.Round2.Arrays;
-
 import java.util.*;
 
 public class LongestContinuousRange {
-    public static void findLongestContinuousRange(int[] arr) {
+    public static List<List<Integer>> findContinuousRanges(int[] arr) {
+        // most optimal solution.
         Arrays.sort(arr);
-
-        int maxLength = 0;     
-        int currentLength = 1; 
-        int start = 0;         
-        int end = 0;           
-
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] == arr[i - 1] + 1) {
-                currentLength++;
-            } else {
-                currentLength = 1;
+        List<List<Integer>> ranges = new ArrayList<>();
+        int start = 0;
+        int end = 0;
+        int max = 0;
+        while (end < arr.length) {
+            start = end;
+            while (end < arr.length - 1 && arr[end + 1] == arr[end] + 1) {
+                end++;
             }
-            // Update the longest range if the current range is longer
-            if (currentLength > maxLength) {
-                maxLength = currentLength;
-                end = i; 
+            List<Integer> range = new ArrayList<>();
+            for (int i = start; i <= end; i++) {
+                range.add(arr[i]);
             }
+            if(max<range.size()){
+                max = Math.max(range.size(),max);
+                ranges.clear();
+                ranges.add(range);
+            }else if(max == range.size()) 
+                ranges.add(range);
+            end++;
         }
-        start = end - maxLength + 1;
-
-        System.out.println("Longest Continuous Range:");
-        for (int i = start; i <= end; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        return ranges;
     }
+
     public static void main(String[] args) {
-        int[] arr = {1, 3, 10, 7, 9, 4, 6, 8}; // 1,3,4,6,7,8,9,10
-        findLongestContinuousRange(arr);       // 0 1 2 3 4 5 6 7
+        int[] arr = {1, 2, 3, 4, 6, 7, 8, 9,11,12,13};
+        List<List<Integer>> ranges = findContinuousRanges(arr);
+
+        for (List<Integer> range : ranges) {
+            System.out.println(range);
+        }
     }
 }
-
 
 /*
  * 

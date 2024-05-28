@@ -6,8 +6,7 @@ public class Large2ndSmall2nd {
     public static void main(String[] args) {
         int[] arr = {12,3,46,7,4,9,8};
         System.out.println("Optimized Solution");
-        System.out.println(SecondSmall(arr));
-        System.out.println(SecondLarge(arr));
+        SecondLargeSmall(arr);
 
         int[] items = SecondLargestBF(arr);
         System.out.println("Brute force");
@@ -15,7 +14,6 @@ public class Large2ndSmall2nd {
             System.out.println(i);
         }
     }
-
     private static int[] SecondLargestBF(int[] arr) {
         int[] items = new int[2];
         Arrays.sort(arr);
@@ -24,36 +22,36 @@ public class Large2ndSmall2nd {
         return items;
     }
     
-    private static int SecondSmall(int[] arr){
-        int small = Integer.MAX_VALUE;
-        int secondSmall = Integer.MAX_VALUE;
-        if(arr.length<2){
-            return -1;
+    static void SecondLargeSmall(int[] arr) {
+        if (arr.length < 2) {
+            System.out.println("Array should have at least two elements.");
+            return;
         }
-        for(int i=0; i<arr.length; i++){
-            if(arr[i]<small){
-                secondSmall = small;
-                small = arr[i];
-            }else if(arr[i]<secondSmall && arr[i] != small){
-                secondSmall = arr[i];
+
+        int max = Integer.MIN_VALUE;
+        int secMax = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        int secMin = Integer.MAX_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                secMax = max;
+                max = arr[i];
+            } else if (arr[i] > secMax && arr[i] != max) {
+                secMax = arr[i];
+            }
+
+            if (arr[i] < min) {
+                secMin = min;
+                min = arr[i];
+            } else if (arr[i] < secMin && arr[i] != min) {
+                secMin = arr[i];
             }
         }
-        return secondSmall;
-    }
-    private static int SecondLarge(int[] arr){
-        int large = Integer.MIN_VALUE;
-        int secondLarge = Integer.MIN_VALUE;
-        if(arr.length<2){
-            return -1;
-        }
-        for(int i=0; i<arr.length; i++){
-            if(arr[i]>large){
-                secondLarge = large;
-                large = arr[i];
-            }else if(arr[i]>secondLarge && arr[i] != large){
-                secondLarge = arr[i];
-            }
-        }
-        return secondLarge;
+
+        System.out.println("Maximum: " + max);
+        System.out.println("Second Maximum: " + secMax);
+        System.out.println("Minimum: " + min);
+        System.out.println("Second Minimum: " + secMin);
     }
 }

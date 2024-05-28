@@ -22,14 +22,14 @@ public class FiboNumbers {
         */
         for (int num : arr) {
             if (isPerfectSquare(5 * num * num + 4) || isPerfectSquare(5 * num * num - 4)) {
-                result.add(num);
+                result.add(num); // 5*1*1+4
             }
         }
         return result;
     }
 
-    static boolean isPerfectSquare(int x) {
-        int sqrt = (int) Math.sqrt(x);
+    static boolean isPerfectSquare(int x) { 
+        int sqrt = (int) Math.sqrt(x); // 
         return sqrt * sqrt == x;
     }
 }

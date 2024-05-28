@@ -36,9 +36,14 @@ class AppearOnce {
         return xor;
     }
 	public static void main(String[] args){
-		int arr[] = {3,1,2,1,2};
+		int arr[] = {3,1,2,1,2}; // => 3
 		System.out.println("Only One Occurrence: " + findSingleOccurrence_BF(arr));
 		System.out.println("Only One Occurrence: " + findSingleOccurrence_BA(arr));
 		System.out.println("Only One Occurrence: " + findSingleOccurrence_OP(arr));
 	}
 }
+
+ 0 0 = 0 
+ 1 1 = 0
+ 0 1 = 1
+ 1 0 = 1

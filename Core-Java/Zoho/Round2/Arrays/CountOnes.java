@@ -22,7 +22,7 @@ public class CountOnes {
     }
 
     public static void main(String args[]) {
-        int arr[] = { 1, 1, 0, 0, 0};
+        int arr[] = { 1, 1, 0, 0, 1, 1, 1};
         System.out.println("Count of 1's in given array is " + totalOnes(arr));
     }
 }

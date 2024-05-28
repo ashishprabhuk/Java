@@ -1,36 +1,75 @@
 package Zoho.Round2.Arrays;
 
-import java.util.*;
+// import java.util.*;
+
+// public class CombinationSum {
+//     public static void main(String[] args) {
+//         int[] array = { 8, 3, 3, 1, 7, 9 ,2, 5};
+//         int target = 7;
+//         findCombinations(array, target);
+//     }
+
+//     public static void findCombinations(int[] array, int target) {
+//         int n = array.length;
+
+//         // Iterate over all 2^n possible combinations
+//         //1 << n is equivalent to 2^n
+//         for (int i = 0; i < (1 << n); i++) {  // left shifting(<<) value will increase
+//             List<Integer> combination = new ArrayList<>(); // create list for every new combinations...
+//             int sum = 0;
+
+//             // Check each bit of i
+//             for (int j = 0; j < n; j++) {
+//                 // If the j-th bit of i is 1, include array[j] in the combination
+//                 if ((i & (1 << j)) != 0) {
+//                     combination.add(array[j]);
+//                     sum += array[j];
+//                 }
+//             }
+
+//             // If the sum of the combination is equal to the target, print the combination
+//             if (sum == target) {
+//                 System.out.println(combination);
+//             }
+//         }
+//     }
+// }
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CombinationSum {
-    public static void main(String[] args) {
-        int[] array = { 8, 3, 3, 1, 7, 9 ,2, 5};
-        int target = 7;
-        findCombinations(array, target);
+    public static List<List<Integer>> findCombinations(int[] arr, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        backtrack(result, new ArrayList<>(), arr, target, 0);
+        return result;
     }
 
-    public static void findCombinations(int[] array, int target) {
-        int n = array.length;
-
-        // Iterate over all 2^n possible combinations
-        //1 << n is equivalent to 2^n
-        for (int i = 0; i < (1 << n); i++) {  // left shifting(<<) value will increase
-            List<Integer> combination = new ArrayList<>(); // create list for every new combinations...
-            int sum = 0;
-
-            // Check each bit of i
-            for (int j = 0; j < n; j++) {
-                // If the j-th bit of i is 1, include array[j] in the combination
-                if ((i & (1 << j)) != 0) {
-                    combination.add(array[j]);
-                    sum += array[j];
-                }
+    private static void backtrack(List<List<Integer>> result, List<Integer> temp, int[] arr, int remain, int start) {
+        if (remain < 0) {
+            // If the remaining sum becomes negative, we've gone too far, so we return
+            return;
+        } else if (remain == 0) {
+            // If the remaining sum is zero, we've found a valid combination
+            result.add(new ArrayList<>(temp));
+        } else {
+            // Iterate through the remaining elements in the array
+            for (int i = start; i < arr.length; i++) {
+                temp.add(arr[i]);
+                // Explore the remaining possibilities by adding the current element to the temporary combination
+                backtrack(result, temp, arr, remain - arr[i], i + 1);
+                temp.remove(temp.size() - 1);
             }
+        }
+    }
 
-            // If the sum of the combination is equal to the target, print the combination
-            if (sum == target) {
-                System.out.println(combination);
-            }
+    public static void main(String[] args) {
+        int[] arr = {8, 3, 4, 7, 9};
+        int target = 7;
+        List<List<Integer>> combinations = findCombinations(arr, target);
+        System.out.println("Combinations for target sum " + target + ":");
+        for (List<Integer> combination : combinations) {
+            System.out.println(combination);
         }
     }
 }
@@ -48,7 +87,8 @@ Given unsorted array find all combination of the
 element
 for a given sum. Order should be maintained.
 Input :
-8 3 4 7 9 N=7
+arr = 8 3 4 7 9 
+N=7
 Output
 {3 4 } {7}
 */

@@ -1,19 +1,28 @@
 package Zoho.Round2.Arrays;
 
+import java.util.*;
+
 public class GreaterThanPrev {
     public static void main(String[] args) {
-        int[] array = {-4, -3, -4, 5, 9, 7, 8};
-        printElements(array);
+        int[] array = {2, -3, -4, 5, 9, 7, 8};
+        printElements(array, 3);
     }
 
-    static void printElements(int[] arr) {
+    static void printElements(int[] arr, int k) {
         int n = arr.length;
-        // Traverse array from index 1 to n-1
-        // and check if the current element is greater than the previous one
-        for (int i = 1; i < n; i++) {
-            if (arr[i] > arr[i - 1]) {
-                System.out.print(arr[i] + " ");
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i <= n - k; i++) { // 4 5 31 6 23 1
+            int max = arr[i];
+            for (int j = 1; j < k; j++) { 
+                if (arr[i + j] > max) {
+                    max = arr[i + j];
+                }
             }
+            set.add(max);
+            // System.out.println(max + " ");
+        }
+        for (int num : set) {
+            System.out.print(num + " ");
         }
     }
 }
