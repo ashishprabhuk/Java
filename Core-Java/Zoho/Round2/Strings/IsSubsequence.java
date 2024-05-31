@@ -22,12 +22,29 @@ public class IsSubsequence {
         }
         return false;
     }
+
+    static boolean isSubSeq(String str1, String str2){
+        int i =0, j = 0;
+        while(i<str1.length() && j<str2.length()){
+            if(str1.charAt(i)==str2.charAt(j)){
+                i++;
+                j++;
+            }else{
+                j++;
+            }
+        }
+        if(i==str1.length()){
+            return true;
+        }
+        return false;
+	}
     
     public static void main(String[] args) {
         String s = "abc";
         String t = "ahbgdc";
         System.out.println(isSubsequence_1(s, t));
         System.out.println(isSubsequence_2(s, t));
+        System.out.println(isSubSeq(s, t));
     }
 }
 
@@ -36,7 +53,10 @@ Is Subsequence
 
 Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
 
-A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
+A subsequence of a string is a new string that is formed from the original string
+ by deleting some (can be none) of the characters without disturbing 
+ the relative positions of the remaining characters. 
+ (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
 
 Example 1:
 Input: s = "abc", t = "ahbgdc"
@@ -45,4 +65,31 @@ Output: true
 Example 2:
 Input: s = "axc", t = "ahbgdc"
 Output: false
+
+
+
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+		sequence("Hello$World$");
+	}
+	static void sequence(String str1, String str2){
+	    int i =0, j = 0;
+	    while(i<str1.length() && j<str2.length()){
+	        if(str1.charAt(i)==str2.charAt(j)){
+	            i++;
+	            j++;
+	        }else{
+	            j++;
+	        }
+	    }
+	    if(i==Str1.length()){
+	        return true;
+	    }
+	    return false;
+	}
+}
+
 */

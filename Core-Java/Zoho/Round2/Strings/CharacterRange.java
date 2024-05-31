@@ -10,19 +10,30 @@ public class CharacterRange {
 
     static String findCharacterRange(String firstString, String secondString) {
         if (firstString.isEmpty() || secondString.isEmpty()) {
-            return ""; 
+            return "";
         }
+
+        int[] charCount = new int[26]; // Count of each character in secondString
+        for (char c : secondString.toCharArray()) {
+            charCount[c - 'a']++;
+        }
+
         int minIndex = Integer.MAX_VALUE;
         int maxIndex = Integer.MIN_VALUE;
-        for (char c : secondString.toCharArray()) {
-            int index = firstString.indexOf(c);
-            if (index != -1) {
-                minIndex = Math.min(minIndex, index);
-                maxIndex = Math.max(maxIndex, index);
-            } else {
-                return "";
+        int count = 0; // Count of characters from secondString found in the range
+
+        for (int i = 0; i < firstString.length(); i++) {
+            char c = firstString.charAt(i);
+            if (charCount[c - 'a'] > 0) {
+                charCount[c - 'a']--; // Decrement count for found character
+                count++;
+                minIndex = Math.min(minIndex, i);
+                maxIndex = Math.max(maxIndex, i);
+            } else if (count == secondString.length()) {
+                break;
             }
         }
-        return firstString.substring(minIndex, maxIndex + 1);
+
+        return count == secondString.length() ? firstString.substring(minIndex, maxIndex + 1) : "";
     }
 }

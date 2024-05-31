@@ -10,7 +10,6 @@ public class SortByFactors {
             if (num % fact == 0)
                 ++factorsCount;
         }
-        // return the total number of factors of number "num"
         return factorsCount;
     }
 
@@ -45,7 +44,6 @@ public class SortByFactors {
 
         sort(arr, N);
 
-        // display the array after sorting
         System.out.print("Array after Sorting by Factor: ");
         for (int idx = arr.length-1; idx >=0; idx--) {
             System.out.print(arr[idx] + " ");

@@ -1,6 +1,7 @@
 package DataStructures.Hashing.HashMap;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /*It is used to store key-value pairs, where each key is unique, 
 and the values associated with those keys can be retrieved quickly. 
@@ -13,9 +14,9 @@ public class HashMapExample {
         HashMap<String, Integer> scores = new HashMap<>();
 
         // Add key-value pairs to the HashMap
-        scores.put("Alice", 95);
         scores.put("Bob", 88);
         scores.put("Charlie", 76);
+        scores.put("Alice", 95);
 
         // Retrieve values using keys
         int aliceScore = scores.get("Alice");

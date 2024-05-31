@@ -2,7 +2,7 @@ package Algorithms.Sorts;
 import java.util.Arrays;
 
 /*
- *  iterating through the array and comparing each element to the elements before it. 
+ * iterating through the array and comparing each element to the elements before it. 
  * If an element is less than the element before it, it is swapped with the element before it. 
  * This process is continued until the array is sorted.
  * it is faster than other sorting algorithms, such as quicksort and merge sort.O(n^2)

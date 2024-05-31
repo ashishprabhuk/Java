@@ -56,5 +56,5 @@ class RadixSort {
 /*
 to sort numbers based on
 digits starting from most significant numbers. Eg:
-input-100 1 11 21 2 3. Output-1 100 11 2 21 3
+input-{100, 1, 11, 21, 2, 3}. Output-{1, 100, 11, 2, 21, 3}
  */

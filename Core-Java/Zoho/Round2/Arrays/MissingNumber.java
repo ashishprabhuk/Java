@@ -1,9 +1,11 @@
 package Zoho.Round2.Arrays;
 
+import java.util.Arrays;
+
 class MissingNumber {
 	static int missingNumber_OP1(int[] arr){
 		int n = arr.length-1;
-		int sum1 = (arr[n]*(arr[n]+1))/2; //Summation of first n numbers:
+		int sum1 = arr[n]*(arr[n]+1)/2; //Summation of first n numbers:
 		int sum2=0;
 		for(int i = 0; i < arr.length; i++){ //Summation of all array elements:
             sum2 += arr[i];
@@ -29,6 +31,16 @@ class MissingNumber {
         xor1 = xor1 ^ n; //XOR up to [1...n]
         return (xor1 ^ xor2);
     }
+    static int missingNumber(int[] nums) { //binary search
+    Arrays.sort(nums);
+    int left = 0, right = nums.length, mid= (left + right)/2;
+    while(left<right){
+        mid = (left + right)/2;
+        if(nums[mid]>mid) right = mid;
+        else left = mid+1;
+    }
+    return left;
+}
     
 	public static void main(String[] args){
 		int arr[] = {1,2,3,4,6,7,8,9};

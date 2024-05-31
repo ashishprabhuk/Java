@@ -37,7 +37,6 @@ public class RotateArrByKSpace{
             arr[i] = arr[i + 1];
         }
         arr[n - 1] = temp;
-    
         rotateArray(arr, n, k - 1);
     }
 }

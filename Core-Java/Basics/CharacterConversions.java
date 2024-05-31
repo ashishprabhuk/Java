@@ -19,7 +19,7 @@ public class CharacterConversions {
     }
 
     static char NumToChar(int n){
-        char ch = (char)('A' + (n-1) % 26);
+        char ch = (char)('A' + (n-1) % 26); //65 + (27-1) % 26 => 65 + 26 % 26 => 65 + 0 => 65 => 'A' 
         return ch;
     }
     

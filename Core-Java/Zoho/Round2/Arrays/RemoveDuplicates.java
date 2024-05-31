@@ -1,10 +1,9 @@
 package Zoho.Round2.Arrays;
-
 import java.util.*;
 
 public class RemoveDuplicates {
     public static void main(String[] args) {
-        int[] arr = {1,1,2,2,2,3};
+        int[] arr = {3,5,2,1,0,0,3};
         int[] uniqueArr = removeDuplicates(arr);
         System.out.println(Arrays.toString(uniqueArr));
         int n = removeDuplicatesOP(arr);
@@ -37,7 +36,7 @@ public class RemoveDuplicates {
                 arr[j++] = arr[i];
             }
         }
-        arr[j++] = arr[n - 1];
+        // arr[j++] = arr[n - 1];
         return j;
     }
 }

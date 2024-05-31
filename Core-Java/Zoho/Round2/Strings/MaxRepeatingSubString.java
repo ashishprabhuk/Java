@@ -1,27 +1,48 @@
 package Zoho.Round2.Strings;
 
 public class MaxRepeatingSubString {
-    public static int maxRepeating(String s, String word) {
+    public static int maxRepeating(String seq, String word) {
         int count = 0;
         String str = word;
-        while(s.contains(word)==true){
+        while(seq.contains(word)==true){
             count++;
-            word = word+str;
+            word = word+str; //ab+ab = abab
+        }
+        return count;
+    }
+
+    static int maxRepeating_OP(String seq, String word){
+        int count = 0;
+        int i = 0;
+        while(i<seq.length()){
+            int j = 0;
+            while(j<word.length() && i<seq.length() && seq.charAt(i)==word.charAt(j)){ // - a
+                i++;
+                j++;
+            }
+            if(j==word.length()){ // ab=2
+                count++; //
+            }else{
+                i++;
+            }
         }
         return count;
     }
 
     public static void main(String[] args){
-        String sequence = "abababc";
+        String sequence = "ababcab";
         String word = "ab";
-        System.out.println(maxRepeating(sequence, word));
+        System.out.println(maxRepeating(sequence, word)); // for continues word
+        System.out.println(maxRepeating_OP(sequence, word)); // for unordered word
     }
 }
 
 /*
 Maximum Repeating Substring
 
-For a string sequence, a string word is k-repeating if word concatenated k times is a substring of sequence. The word's maximum k-repeating value is the highest value k where word is k-repeating in sequence. If word is not a substring of sequence, word's maximum k-repeating value is 0.
+For a string sequence, a string word is k-repeating if word concatenated k times is a substring of sequence. 
+The word's maximum k-repeating value is the highest value k where word is k-repeating in sequence.
+If word is not a substring of sequence, word's maximum k-repeating value is 0.
 
 Given strings sequence and word, return the maximum k-repeating value of word in sequence.
 

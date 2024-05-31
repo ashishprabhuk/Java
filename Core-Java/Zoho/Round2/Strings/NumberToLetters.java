@@ -1,6 +1,10 @@
 package Zoho.Round2.Strings;
 
 public class NumberToLetters {
+    private static final String[] LETTER_MAP = {
+        "0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"
+    };
+
     public static void main(String[] args) {
         String input1 = "11112";
         String input2 = "163";
@@ -34,9 +38,12 @@ public class NumberToLetters {
 /*
 Given a string of integers find out all the
 possible words that can made out of it in
-continuous order. Eg: 11112
-ans: AAAAB
+continuous order. 
+Eg: 11112
+Ans: 
+AAAAB
 AKAB
 AAKB
-AAAL etc.
+AAAL 
+etc.
  */

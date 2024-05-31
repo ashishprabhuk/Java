@@ -6,7 +6,6 @@ public class MismatchedCharacters {
     public static void main(String[] args) {
         String str1 = "a b c d e f g h i";
         String str2 = "a b d e e g g i i";
-
         findMismatchedCharacters(str1, str2);
     }
 

@@ -2,9 +2,9 @@ package Zoho.Round2.Strings;
 
 public class DistinctSubString {
     public static void main(String[] args) {
-        String str = "abcd";
+        String str = "aababcabc";
         String str2 = "xyzzaz";
-        System.out.println(countGoodSubstrings1(str2)); // Output: 4
+        System.out.println(countGoodSubstrings1(str)); // Output: 4
     }
 
     public static int countGoodSubstrings1(String s) {

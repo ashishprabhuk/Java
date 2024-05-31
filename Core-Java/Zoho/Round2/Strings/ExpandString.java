@@ -2,7 +2,7 @@ package Zoho.Round2.Strings;
 
 public class ExpandString {
     public static void main(String[] args) {
-        String input1 = "b3c6d15";
+        String input1 = "b3c6d15"; //bbbccccccddddddddddddddd
         String input2 = "a2b1c4d3";
         String c = "9";
         int ch = c.charAt(0) - '0'; // Character to Number 
@@ -19,7 +19,7 @@ public class ExpandString {
             i++;
             int count = 0;
             while (i < input.length() && Character.isDigit(input.charAt(i))) {
-                count = count * 10 + (input.charAt(i) - '0'); 
+                count = count * 10 + (input.charAt(i) - '0'); // '5' - '0'
                 i++;
             }
             for (int j = 0; j < count; j++) {

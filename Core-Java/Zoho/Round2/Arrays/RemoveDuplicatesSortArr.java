@@ -5,14 +5,14 @@ public class RemoveDuplicatesSortArr {
         if(arr.length == 0 || arr.length == 1){
             return 0;
         }
-        int  i = 0;
-        for (int j = 1; j < arr.length; j++) {
-            if(arr[i] != arr[j]) {
-                i++;
-                arr[i] = arr[j];
+        int  j = 0;
+        for (int i = 1; i < arr.length; i++) {
+            if(arr[j] != arr[i]) {
+                j++;
+                arr[j] = arr[i];
             }
         }
-        return ++i;
+        return ++j;
     }
 
     public static void main(String[] args) {

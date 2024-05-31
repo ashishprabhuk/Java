@@ -4,7 +4,7 @@ import java.util.*;
 
 public class CommonWords {
     public static void main(String[] args) {
-        String input1 = "I walk everyday in the morning.";
+        String input1 = "I walk everyday in the morning."; 
         String input2 = "I run everyday in the evening.";
         String input3 = "I swim everyday in the night.";
 

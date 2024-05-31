@@ -9,12 +9,9 @@ public class CharacterCounter {
 
     public static int countCharactersWithEscape(String input) {
         int count = 0;
-        boolean escape = false;
         for (int i = 0; i < input.length(); i++) {
             char currentChar = input.charAt(i);
-            // if (currentChar == '$' && !escape) {
             if (currentChar == '$') {
-                // escape = !escape;
                 continue; 
             } else {
                 count++;  
@@ -22,6 +19,17 @@ public class CharacterCounter {
         }
         return count;
     }
+    static void sequence(String str){
+	    int count = 0;
+	    for(int i = 0; i<str.length();i++){
+	        if(str.charAt(i)=='$' &&  (i==0||i==str.length()-1)){
+	            continue;
+	        }else{
+	            count++;
+	        }
+	    }
+	    System.out.println(count);
+	}
 }
 
 

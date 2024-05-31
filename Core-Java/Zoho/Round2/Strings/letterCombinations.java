@@ -53,7 +53,7 @@ public class LetterCombinations {
 
     public static void main(String[] args) {
         LetterCombinations lc = new LetterCombinations();
-        String digits = "33"; // Example input
+        String digits = "333"; // Example input
         List<String> combinations = lc.letterCombinations(digits);
 
         for (String combination : combinations) {

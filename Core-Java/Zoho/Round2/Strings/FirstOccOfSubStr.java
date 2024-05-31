@@ -2,7 +2,7 @@ package Zoho.Round2.Strings;
 
 public class FirstOccOfSubStr {
     public static void main(String[] args) {
-        String str = "ButSad";
+        String str = "SadButSad";
         String sub = "Sad";
         System.out.println("First Occurred at: " + FirstOccurrenceOfSubStrBF(str, sub));
         System.out.println("First Occurred at: " + firstOccurrenceOfSubStr(str, sub));

@@ -5,7 +5,7 @@ public class ExcelColumnNumber {
         int result = 0;
         for (int i = 0; i < columnTitle.length(); i++) {
             char c = columnTitle.charAt(i);
-            result = result * 26 + (c - 'A' + 1);
+            result = result * 26 + (c - 'A' + 1); // AA => A->  1 * 26 + ('A' - 'A' + 1);
         }
         return result;
     }
@@ -13,7 +13,7 @@ public class ExcelColumnNumber {
     public static void main(String[] args) {
         System.out.println(titleToNumber("A"));   // Output: 1
         System.out.println(titleToNumber("AB"));  // Output: 28
-        System.out.println(titleToNumber("ZY"));  // Output: 701
+        System.out.println(titleToNumber("ZZ"));  // Output: 701
     }
 }
 /*

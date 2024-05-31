@@ -24,7 +24,7 @@ public class MobileKeypad {
 				"7777", "8", "88", "888", "9", "99",
 				"999", "9999" };
 
-		String input = "ashish prabhu";
+		String input = "GEEKSFORGEEKS";
 		System.out.println(mobileKeys(str, input));
 	}
 }
