@@ -3,8 +3,8 @@ package Zoho.Round2.Strings;
 public class SubStringIndex {
     public static void main(String[] args) {
         String string1 = "test123string";
-        String string2 = "123";
-        int result = findSubstringIndexOP(string1, string2);
+        String string2 = "1234";
+        int result = findIndex(string1, string2);
         if (result != -1) {
             System.out.println("Present at index : " + result);
         } else {
@@ -15,22 +15,22 @@ public class SubStringIndex {
     public static int findSubstringIndexBF(String string1, String string2) {
         return string1.indexOf(string2);
     }
-    public static int findSubstringIndexOP(String string1, String string2) {
-        int n = string1.length();
-        int m = string2.length();
-        for (int i = 0; i <= n - m; i++) {
-            int j;
-            for (j = 0; j < m; j++) {
-                if (string1.charAt(i + j) != string2.charAt(j)) {
-                    break;
-                }
-            }
-            if (j == m) {
-                return i; 
+    static int findIndex(String str1, String str2){ // naane poten
+        int n = str1.length();
+        int m = str2.length();
+        int i = 0, j = 0; 
+        int index = -1;
+        while(i<n && j<m){
+            if(str1.charAt(i) != str2.charAt(j)){ 
+                i++;
+            }else if(str1.charAt(i) == str2.charAt(j)){
+                i++;
+                j++;
+                if(j==m) index = i - j;
             }
         }
-        return -1; 
-    }
+        return index;
+	}
 }
 
 /*

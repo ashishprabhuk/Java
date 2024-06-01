@@ -27,8 +27,6 @@ public class ValidParentheses {
             else if (stack.isEmpty() || stack.pop() != c) 
                 return false;
         }
-        // if the stack is empty, all opening brackets have been matched with their corresponding closing brackets,
-        // so the string is valid, otherwise, there are unmatched opening brackets, so return false
         return stack.isEmpty();
     }
 }

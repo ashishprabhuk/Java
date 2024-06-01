@@ -27,11 +27,11 @@ public class RomanToDecimal {
         roman.put('M', 1000);
 
         int ans = 0;
-
         int prevValue = 0;
+
         for (int i = 0; i < s.length(); i++) {
-            char currentChar = s.charAt(i);
-            int currentValue = roman.get(currentChar);
+            int currentValue = roman.get(s.charAt(i));
+            // System.out.println("Current Value: " + currentValue + " Prev Value: " + prevValue + " Ans: " + ans);
             if (prevValue < currentValue) {
                 ans -= prevValue;
             } else {
@@ -39,7 +39,7 @@ public class RomanToDecimal {
             }
             prevValue = currentValue;
         }
-        ans += prevValue; // Add the value of the last symbol
+        ans += prevValue;
         return ans;
     }
 
@@ -64,6 +64,13 @@ public class RomanToDecimal {
         }
         return ans;
     }
+
+    /*
+    LVIII
+    i = 0
+    L = 
+    
+     */
 }
 
 /*

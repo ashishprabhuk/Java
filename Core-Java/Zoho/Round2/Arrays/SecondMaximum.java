@@ -6,8 +6,8 @@ public class SecondMaximum {
     public static void main(String[] args) {
         int[] arr = {2, 5, 1, 6, 2, 6, 7, 10};
 
-        int max = Integer.MIN_VALUE;
-        int secondMax = Integer.MIN_VALUE;
+        int max = 0;
+        int secondMax = 0;
 
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > max) {
@@ -18,7 +18,7 @@ public class SecondMaximum {
             }
         }
 
-        if (secondMax == Integer.MIN_VALUE) {
+        if (secondMax == 0) {
             System.out.println("No second maximum");
         } else {
             System.out.println("Second maximum: " + secondMax);

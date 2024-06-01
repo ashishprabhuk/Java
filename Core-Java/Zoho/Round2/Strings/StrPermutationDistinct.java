@@ -1,6 +1,6 @@
 package Zoho.Round2.Strings;
 
-public class StringPermutation {
+public class StrPermutationDistinct {
     public static void main(String[] args) {
         String str = "ABC";
         permute(str.toCharArray(), 0, str.length() - 1);

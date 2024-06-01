@@ -12,12 +12,12 @@ public class ScrambledWords {
         StringBuilder result = new StringBuilder();
 
         for (String word : words) {
-            result.append(scrambleWord(word)).append(" ");
+            result.append(scramble(word)).append(" ");
         }
         return result.toString().trim();
     }
 
-    private static String scrambleWord(String word) {
+    private static String scramble(String word) {
         if (word.length() <= 2) {
             return word;
         }

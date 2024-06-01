@@ -24,7 +24,6 @@ public class SecondFrequent {
         // Find the most frequent and second most frequent numbers
         for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
             int frequency = entry.getValue();
-            int number = entry.getKey();
 
             if (frequency > mostFrequent) {
                 secondMostFrequent = mostFrequent;
@@ -32,6 +31,7 @@ public class SecondFrequent {
             } else if (frequency > secondMostFrequent && frequency != mostFrequent) {
                 secondMostFrequent = frequency;
             }
+
         }
 
         // Find the number corresponding to the second most frequent count
@@ -40,8 +40,7 @@ public class SecondFrequent {
                 return entry.getKey();
             }
         }
-
-        return -1; // If there is no second most frequent number
+        return -1;
     }
     static int findSecondFrequentNumberOP(int[] series) {
         int freq = Integer.MIN_VALUE;
@@ -66,7 +65,8 @@ public class SecondFrequent {
                 freq2 = series[i];  
             }
         }
+        System.out.println("Most frequent number: " + freq + " with count: " + mostCount);
+        System.out.println("Second most frequent number: " + freq2 + " with count: " + mostCount2);
         return freq2;
     }
-    
 }

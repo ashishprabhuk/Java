@@ -8,9 +8,11 @@ public class VersionComparison {
         int minLength = Math.min(parts1.length, parts2.length);
 
         for (int i = 0; i < minLength; i++) {
-            int num1 = Integer.parseInt(parts1[i]);
-            int num2 = Integer.parseInt(parts2[i]);
+            int num1 = Integer.valueOf(parts1[i]);
+            int num2 = Integer.valueOf(parts2[i]);
 
+            String str = String.valueOf(num1);
+            System.out.println(str);
             if (num1 < num2) {
                 return -1;
             } else if (num1 > num2) {

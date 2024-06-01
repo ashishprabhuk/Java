@@ -1,5 +1,7 @@
 package Zoho.Round2.Strings;
 
+import java.util.Arrays;
+
 public class SecondFreqChar {
 	static char getSecondMostFreq(String str){
 		int[] count = new int[256];
@@ -7,6 +9,7 @@ public class SecondFreqChar {
 		for(char c : ch){
 			count[c]++;
 		}
+		System.out.println(Arrays.toString(count));
 		
 		int first = 0, second = 0;
 		for (int i = 0; i < 256; i++){
