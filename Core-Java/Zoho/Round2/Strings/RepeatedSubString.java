@@ -11,6 +11,7 @@ public class RepeatedSubString {
     public static boolean repeatedSubstring_1(String s) {
         String doubled = s + s;
         String sub = doubled.substring(1, doubled.length() - 1);
+        System.out.println(sub);
         return sub.contains(s);
     }
 

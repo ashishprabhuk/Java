@@ -1,0 +1,122 @@
+In Java, the `String` class provides several methods that can take regular expressions (regex) as parameters to perform various operations such as searching, splitting, and replacing parts of the string. Here is a list of these methods along with examples of how to use them with regex:
+
+1. **`matches`**:
+   - This method checks if the entire string matches the given regex.
+
+   ```java
+   String str = "hello123";
+   boolean isMatch = str.matches("\\w+\\d+"); // true
+   ```
+
+2. **`split`**:
+   - This method splits the string around matches of the given regex.
+
+   ```java
+   String str = "one,two,three";
+   String[] parts = str.split(","); // ["one", "two", "three"]
+   ```
+
+3. **`replaceAll`**:
+   - This method replaces each substring of the string that matches the given regex with the given replacement.
+
+   ```java
+   String str = "hello123";
+   String result = str.replaceAll("\\d", "#"); // "hello###"
+   ```
+
+4. **`replaceFirst`**:
+   - This method replaces the first substring of the string that matches the given regex with the given replacement.
+
+   ```java
+   String str = "hello123hello";
+   String result = str.replaceFirst("\\d", "#"); // "hello#23hello"
+   ```
+
+5. **`split` (with limit)**:
+   - This method splits the string around matches of the given regex with a limit on the number of resulting substrings.
+
+   ```java
+   String str = "one,two,three,four";
+   String[] parts = str.split(",", 3); // ["one", "two", "three,four"]
+   ```
+
+6. **`replace` (with char sequence)**:
+   - Although not specifically using regex, `replace` can replace a character sequence.
+
+   ```java
+   String str = "hello123";
+   String result = str.replace("hello", "hi"); // "hi123"
+   ```
+
+### Examples of Common Regex Patterns:
+
+- **Digits only**: `"\\d+"`
+  ```java
+  String str = "12345";
+  boolean isDigits = str.matches("\\d+"); // true
+  ```
+
+- **Alphanumeric characters**: `"\\w+"`
+  ```java
+  String str = "hello123";
+  boolean isAlphanumeric = str.matches("\\w+"); // true
+  ```
+
+- **Whitespace characters**: `"\\s+"`
+  ```java
+  String str = "hello world";
+  String[] parts = str.split("\\s+"); // ["hello", "world"]
+  ```
+
+- **Specific characters (e.g., comma)**: `","`
+  ```java
+  String str = "one,two,three";
+  String[] parts = str.split(","); // ["one", "two", "three"]
+  ```
+
+- **Match any character (except line terminators)**: `"."`
+  ```java
+  String str = "abc";
+  boolean matches = str.matches("."); // false (matches only a single character)
+  ```
+
+- **Word boundaries**: `"\\b"`
+  ```java
+  String str = "word boundary";
+  String result = str.replaceAll("\\bboundary\\b", "B"); // "word B"
+  ```
+
+### Using `Pattern` and `Matcher` for Advanced Regex Operations:
+
+For more advanced regex operations, you can use the `Pattern` and `Matcher` classes:
+
+- **Finding occurrences**:
+  ```java
+  String str = "hello123hello";
+  Pattern pattern = Pattern.compile("\\d");
+  Matcher matcher = pattern.matcher(str);
+  while (matcher.find()) {
+      System.out.println("Found: " + matcher.group() + " at position " + matcher.start());
+  }
+  ```
+
+- **Replacing with condition**:
+  ```java
+  String str = "hello123hello";
+  Pattern pattern = Pattern.compile("\\d");
+  Matcher matcher = pattern.matcher(str);
+  String result = matcher.replaceAll("#");
+  ```
+
+- **Extracting groups**:
+  ```java
+  String str = "hello123";
+  Pattern pattern = Pattern.compile("(\\w+)(\\d+)");
+  Matcher matcher = pattern.matcher(str);
+  if (matcher.find()) {
+      System.out.println("Word part: " + matcher.group(1)); // hello
+      System.out.println("Digit part: " + matcher.group(2)); // 123
+  }
+  ```
+
+These methods and techniques cover a wide range of operations you can perform on strings using regex in Java.

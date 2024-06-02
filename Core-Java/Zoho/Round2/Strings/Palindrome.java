@@ -6,7 +6,7 @@ public class Palindrome { // my solution
         //that falls outside the range of letters and digits. 
         // (remove or replace non-alphanumeric characters in a string)
         s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-        
+        System.out.println(s);
         int start = 0;
         int end = s.length()-1;
         while(start<end){
@@ -19,7 +19,7 @@ public class Palindrome { // my solution
         return true;
     }
         
-    static boolean isPalindrome_2(String s) { // normal solution
+    static boolean isPalindrome_2(String s) {
         if (s.isEmpty()) {
             return true;
         }
@@ -29,7 +29,6 @@ public class Palindrome { // my solution
             char currFirst = s.charAt(start);
             char currLast = s.charAt(last);
             if (!Character.isLetterOrDigit(currFirst )) { 
-                //isLetterOrDigit(char ch) - used to determine if the specified character is a letter or digit.
                 start++;
             } else if(!Character.isLetterOrDigit(currLast)) {
                 last--;
@@ -44,7 +43,7 @@ public class Palindrome { // my solution
         return true;
     }
     public static void main(String[] args) {
-        System.out.println(isPalindrome_1("A man, a plan, a canal: Panama"));
+        System.out.println(isPalindrome_1("A! man, a pl#an, a c@anal: Pan*am^%a"));
         System.out.println(isPalindrome_2("racecar"));
     }
 }

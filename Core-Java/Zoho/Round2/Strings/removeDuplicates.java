@@ -8,8 +8,8 @@ public class RemoveDuplicates {
     public static void main(String[] args) {
         String str = "AshishPrabhu";
         removeDuplicate_OP(str);
-        System.out.println(removeDuplicate_BF(str));
-        System.out.println(removeDuplicates(str));
+        System.out.println(removeDuplicates1(str));
+        System.out.println(removeDuplicates2(str));
     }
     
     private static void removeDuplicate_OP(String str) { 
@@ -24,30 +24,24 @@ public class RemoveDuplicates {
         System.out.println(sb.toString());
     }
 
-    public static String removeDuplicate_BF(String input) {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < input.length(); i++) {
-            char currentChar = input.charAt(i);
-            boolean isDuplicate = false;
-            for (int j = i + 1; j < input.length(); j++) {
-                if (currentChar == input.charAt(j)) {
-                    isDuplicate = true;
-                    break;
-                }
-            }
-            if (!isDuplicate) {
-                result.append(currentChar);
+    public static String removeDuplicates1(String str) {
+        boolean[] seen = new boolean[256]; // Boolean array to track seen characters (ASCII assumption)
+        StringBuilder result = new StringBuilder(); // Using StringBuilder for efficient string construction
+
+        for (char c : str.toCharArray()) {
+            if (!seen[c]) {
+                seen[c] = true;
+                result.append(c);
             }
         }
         return result.toString();
     }
 
-    static String removeDuplicates(String str){
+    static String removeDuplicates2(String str){
         char[] s = str.toCharArray();
-        int n = str.length();
         Map<Character,Integer> exists = new HashMap<>();
         String st = "";
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i < str.length(); i++){
             if(!exists.containsKey(s[i])){
                 st += s[i];
                 exists.put(s[i], 1);

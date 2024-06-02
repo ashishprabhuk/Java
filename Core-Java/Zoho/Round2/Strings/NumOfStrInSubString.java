@@ -3,24 +3,24 @@ package Zoho.Round2.Strings;
 import java.util.Arrays;
 
 public class NumOfStrInSubString {
-    public static int numOfStrings(String[] strs, String word) {
+    public static int numOfStrings(String[] arr, String word) {
         int count = 0;
-        for(int i =0 ;i<strs.length;i++){
-            if(word.contains(strs[i])) count++;
+        for(int i =0 ;i<arr.length;i++){
+            if(word.contains(arr[i])) count++;
         }
         return count;
     }
     public static void main(String[] args) {
-        String[] strs = {"a","b", "ab","c"};
+        String[] arr = {"a","b", "ab","c"};
         String word = "aaaaabbbbbc";
-        System.out.println(numOfStrings(strs, word));
-        System.out.println(numOfStrings1(strs, word));
+        System.out.println(numOfStrings(arr, word));
+        System.out.println(numOfStrings1(arr, word));
     }
 
-    public static int numOfStrings1(String[] strs, String word) {
-        Arrays.sort(strs); 
+    public static int numOfStrings1(String[] arr, String word) {
+        Arrays.sort(arr); 
         int count = 0;
-        for (String str : strs) {
+        for (String str : arr) {
             if (isSubstring(str, word)) {
                 count++;
             }

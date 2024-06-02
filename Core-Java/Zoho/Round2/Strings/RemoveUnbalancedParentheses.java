@@ -18,18 +18,15 @@ public class RemoveUnbalancedParentheses {
     public static String removeUnbalancedParentheses(String str) {
         StringBuilder result = new StringBuilder();
         Stack<Integer> stack = new Stack<>();
-
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
-
             if (ch == '(') {
                 stack.push(i);
             } else if (ch == ')') {
                 if (!stack.isEmpty()) {
                     stack.pop();
                 } else {
-                    // Remove unbalanced closing parenthesis by not appending it to the result
-                    continue;
+                    continue; // Remove unbalanced closing parenthesis by not appending it to the result
                 }
             }
             result.append(ch);

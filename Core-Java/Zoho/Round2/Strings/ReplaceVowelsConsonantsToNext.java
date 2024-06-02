@@ -7,32 +7,26 @@ public class ReplaceVowelsConsonantsToNext{
         String output1 = replaceChars_BF(input);
         System.out.println("Output: " + output1);
 
-        String output2 = replaceChars_OP(input);
+        String output2 = replaceChars(input);
         System.out.println("Output: " + output2);
     }
 
-    public static String replaceChars_OP(String input) {
+    public static String replaceChars(String input) {
+        String consonants = "bcdfghjklmnpqrstvwxyz";
+        String vowels = "aeiou";
         char[] charArray = input.toCharArray();
+    
         for (int i = 0; i < charArray.length; i++) {
-            charArray[i] = getNextChar_OP(charArray[i]);
+            char c = charArray[i];
+            int index;
+            if ((index = consonants.indexOf(Character.toLowerCase(c))) != -1) {
+                charArray[i] = consonants.charAt((index + 1) % consonants.length()); // index + 1 % consonants.length() => to get the next character
+            } else if ((index = vowels.indexOf(Character.toLowerCase(c))) != -1) {
+                charArray[i] = vowels.charAt((index + 1) % vowels.length());
+            }
         }
         return new String(charArray);
     }
-    public static char getNextChar_OP(char c) {
-        String consonants = "bcdfghjklmnpqrstvwxyz";
-        String vowels = "aeiou";
-
-        int index;
-        if ((index = consonants.indexOf(Character.toLowerCase(c))) != -1) {
-            return consonants.charAt((index + 1) % consonants.length());
-        } else if ((index = vowels.indexOf(Character.toLowerCase(c))) != -1) {
-            return vowels.charAt((index + 1) % vowels.length());
-        } else {
-            return c;
-        }
-    }
-
-//-------------------------------------------------------------------------
 
     public static String replaceChars_BF(String input) {
         char[] charArray = input.toCharArray();

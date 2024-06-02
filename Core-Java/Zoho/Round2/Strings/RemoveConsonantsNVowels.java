@@ -8,10 +8,9 @@ public class RemoveConsonantsNVowels {
 
     public static String remove(String str) {
         String result = "";
-
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
-            if (isVowel(c)) {
+            if (isVowel2(c)) {
                 result += c;
             }
         }
@@ -21,6 +20,9 @@ public class RemoveConsonantsNVowels {
     private static boolean isVowel(char c) {
         return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
             c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
+    }
+    static boolean isVowel2(char c){
+        return "aeiuoAEIOU".indexOf(c) != -1;
     }
 
     static String removeVow(String str){

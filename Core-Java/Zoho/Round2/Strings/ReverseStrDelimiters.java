@@ -4,48 +4,41 @@ public class ReverseStrDelimiters {
 
     public static String reverseStr_OP(String str) {
         char[] chars = str.toCharArray();
-        int start = 0;
-        int end = chars.length - 1;
+        int i = 0;
+        int j = chars.length - 1;
 
-        while (start < end) {
-            // Find the next non-alphabet character from the start
-            while (start < end && !Character.isLetterOrDigit(chars[start])) {
-                start++;
+        while (i < j) {
+            if (i < j && !Character.isLetterOrDigit(chars[i])) {
+                i++;
             }
-
-            // Find the next non-alphabet character from the end
-            while (start < end && !Character.isLetterOrDigit(chars[end])) {
-                end--;
+            if (i < j && !Character.isLetterOrDigit(chars[j])) {
+                j--;
             }
-
-            // Swap the characters at start and end positions
-            char temp = chars[start];
-            chars[start] = chars[end];
-            chars[end] = temp;
-
-            // Move to the next positions
-            start++;
-            end--;
+            char temp = chars[i];
+            chars[i] = chars[j];
+            chars[j] = temp;
+            i++;
+            j--;
         }
         return new String(chars);
     }
 
     public static String reverseStr_OP2(String str) {
         char[] chars = str.toCharArray();
-        int start = 0;
-        int end = chars.length - 1;
-        while (start < end) {
-            while (start < end && !isLetterOrDigit(chars[start])) {
-                start++;
+        int i = 0;
+        int j = chars.length - 1;
+        while (i < j) {
+            while (i < j && !isLetterOrDigit(chars[i])) {
+                i++;
             }
-            while (start < end && !isLetterOrDigit(chars[end])) {
-                end--;
+            while (i < j && !isLetterOrDigit(chars[j])) {
+                j--;
             }
-            char temp = chars[start];
-            chars[start] = chars[end];
-            chars[end] = temp;
-            start++;
-            end--;
+            char temp = chars[i];
+            chars[i] = chars[j];
+            chars[j] = temp;
+            i++;
+            j--;
         }
         return new String(chars);
     }
@@ -56,15 +49,15 @@ public class ReverseStrDelimiters {
 
     static String reverse(String s) {
         char[] chars = s.toCharArray();
-        int start = 0;
-        int end = chars.length - 1;
+        int i = 0;
+        int j = chars.length - 1;
 
-        while (start < end) {
-            char temp = chars[start];
-            chars[start] = chars[end];
-            chars[end] = temp;
-            start++;
-            end--;
+        while (i < j) {
+            char temp = chars[i];
+            chars[i] = chars[j];
+            chars[j] = temp;
+            i++;
+            j--;
         }
         return new String(chars);
     }

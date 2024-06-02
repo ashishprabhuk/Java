@@ -7,7 +7,7 @@ public class NumberToWords {
     private static final String[] TENS = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
 
     public static void main(String[] args) {
-        int number = 333;
+        int number = 317;
         System.out.println(convertToWords(number));
     }
 
@@ -17,19 +17,19 @@ public class NumberToWords {
         }
         String words = ""; 
         if (number >= 100) { 
-            words += UNITS[number / 100] + " Hundred "; 
-            number %= 100; 
+            words += UNITS[number / 100] + " Hundred "; // 333/100 = 3 => three hundred
+            number %= 100; // 333%100 = 33
             if (number != 0) {
                 words += "and ";
             }
         }
         if (number >= 20) { 
-            words += TENS[number / 10]; 
+            words += TENS[number / 10];  // 33/10 = 3 => thirty
             if (number % 10 != 0) {
-                words += " " + UNITS[number % 10];
+                words += " " + UNITS[number % 10]; // units[33%10] = units[3] = three
             }
         } else if (number >= 10) {
-            words += TEENS[number - 10]; 
+            words += TEENS[number - 10]; // 17-10 = 7 => seventeen
         } else if (number > 0) {
             words += UNITS[number]; 
         }

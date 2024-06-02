@@ -19,45 +19,57 @@ public class PasswordStrength {
             return "Weak";
         }
 
-        boolean rule1 = false; // At least one lowercase letter
-        boolean rule2 = false; // At least one uppercase letter
-        boolean rule3 = false; // At least one digit
-        boolean rule4 = false; // At least one special character
+        boolean hasLower = false;
+        boolean hasUpper = false;
+        boolean hasDigit = false;
+        boolean hasSpecial = false;
+        int ruleCount = 0;
 
         for (int i = 0; i < password.length(); i++) {
             char c = password.charAt(i);
             if (c >= 'a' && c <= 'z') {
-                rule1 = true;
+                if (!hasLower) {
+                    hasLower = true;
+                    ruleCount++;
+                }
             } else if (c >= 'A' && c <= 'Z') {
-                rule2 = true;
+                if (!hasUpper) {
+                    hasUpper = true;
+                    ruleCount++;
+                }
             } else if (c >= '0' && c <= '9') {
-                rule3 = true;
+                if (!hasDigit) {
+                    hasDigit = true;
+                    ruleCount++;
+                }
             } else if (isSpecialCharacter(c)) {
-                rule4 = true;
+                if (!hasSpecial) {
+                    hasSpecial = true;
+                    ruleCount++;
+                }
+            }
+            // Early termination if all rules are satisfied
+            if (ruleCount == 4) {
+                return "Strong";
             }
         }
 
-        int satisfiedRules = 0;
-        if (rule1) satisfiedRules++;
-        if (rule2) satisfiedRules++;
-        if (rule3) satisfiedRules++;
-        if (rule4) satisfiedRules++;
-
-        if (satisfiedRules == 1 || satisfiedRules == 0) {
-            return "Weak";
-        } else if (satisfiedRules == 2) {
-            return "Medium";
-        } else if (satisfiedRules == 3) {
-            return "Good";
-        } else { // satisfiedRules == 4
-            return "Strong";
+        switch (ruleCount) {
+            case 1:
+                return "Weak";
+            case 2:
+                return "Medium";
+            case 3:
+                return "Good";
+            default:
+                return "Weak";
         }
     }
+
     private static boolean isSpecialCharacter(char c) {
         return "!@#$%^&*?".indexOf(c) != -1;
     }
 }
-
 
 
 /*
