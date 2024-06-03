@@ -1,7 +1,5 @@
 package Zoho.Round2.Strings;
 
-import java.util.Arrays;
-
 public class MismatchedCharacters {
     public static void main(String[] args) {
         String str1 = "a b c d e f g h i";
@@ -14,7 +12,6 @@ public class MismatchedCharacters {
             System.out.println("Input strings have different lengths.");
             return;
         }
-        
         for (int i = 0; i < str1.length(); i++) {
             if (str1.charAt(i) != str2.charAt(i)) {
                 System.out.println(str1.charAt(i) + " , " + str2.charAt(i));
