@@ -35,7 +35,7 @@ public class SudokuChecker {
             }
         }
 
-        return true; // Sudoku is valid
+        return true;
     }
 
     public static void main(String[] args) {
