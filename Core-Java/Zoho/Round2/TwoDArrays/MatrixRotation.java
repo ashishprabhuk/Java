@@ -1,18 +1,15 @@
 package Zoho.Round2.TwoDArrays;
 
 public class MatrixRotation {
-    static int numRows = 3;
-    static int numCols = 3;
-
-    // Function to rotate a matrix
-    static void rotateMatrix(int m, int n, int mat[][]) {
-        int numRows = 3;
-        int numCols = 3;
+    static void rotateMatrix(int numRows, int numCols, int mat[][]) {
+        int m = numRows, n = numCols;
         int row = 0, col = 0;
         int prev, curr;
 
         while (row < m && col < n) {
-            // Store the first element of the next row
+            if (row + 1 == m || col + 1 == n)
+                break;
+
             prev = mat[row + 1][col];
 
             // Move elements of the first row to the right
@@ -65,6 +62,7 @@ public class MatrixRotation {
         int matrix[][]={{1, 2, 3},
                         {4, 5, 6},
                         {7, 8, 9}};
+        int numRows = 3, numCols = 3;
         rotateMatrix(numRows, numCols, matrix);
     }
 }

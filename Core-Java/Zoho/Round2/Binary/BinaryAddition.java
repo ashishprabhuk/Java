@@ -45,7 +45,6 @@ public class BinaryAddition {
             result.append(sum % 2);
             carry = sum / 2;
         }
-
         return result.reverse().toString();
     }
 }
@@ -56,16 +55,17 @@ Given two binary numbers add the two
 numbers in binary form without converting them
 to decimal value. (ZOHO)
 
-
 Given two binary strings a and b, return their sum as a binary string.
 
 Example 1:
-
 Input: a = "11", b = "1"
 Output: "100"
+011
+001
+---
+100
 
 Example 2:
-
 Input: a = "1010", b = "1011"
 Output: "10101"
 

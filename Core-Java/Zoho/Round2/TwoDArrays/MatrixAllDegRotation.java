@@ -80,43 +80,36 @@ public class MatrixAllDegRotation {
     
     public static int[][] rotate90(int[][] matrix, int n) {
         int[][] rotatedMatrix = new int[n][n];
-        
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 rotatedMatrix[i][j] = matrix[n - 1 - j][i];
             }
         }
-        
         return rotatedMatrix;
     }
     
     public static int[][] rotate180(int[][] matrix, int n) {
         int[][] rotatedMatrix = new int[n][n];
-        
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 rotatedMatrix[i][j] = matrix[n - 1 - i][n - 1 - j];
             }
         }
-        
         return rotatedMatrix;
     }
     
     public static int[][] rotate270(int[][] matrix, int n) {
         int[][] rotatedMatrix = new int[n][n];
-        
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 rotatedMatrix[i][j] = matrix[j][n - 1 - i];
             }
         }
-        
         return rotatedMatrix;
     }
     
     public static boolean isEqual(int[][] matrixA, int[][] matrixB) {
         int n = matrixA.length;
-        
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (matrixA[i][j] != matrixB[i][j]) {
@@ -124,31 +117,26 @@ public class MatrixAllDegRotation {
                 }
             }
         }
-        
         return true;
     }
 
     public static int[][] mirrorVertical(int[][] matrix, int n) {
         int[][] mirroredMatrix = new int[n][n];
-        
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 mirroredMatrix[i][j] = matrix[i][n - 1 - j];
             }
         }
-        
         return mirroredMatrix;
     }
     
     public static int[][] mirrorHorizontal(int[][] matrix, int n) {
         int[][] mirroredMatrix = new int[n][n];
-        
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 mirroredMatrix[i][j] = matrix[n - 1 - i][j];
             }
         }
-        
         return mirroredMatrix;
     }
     

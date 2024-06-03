@@ -1,63 +1,40 @@
 package Zoho.Round2.TwoDArrays;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PascalTriangleCombinations {
     public static void main(String[] args) {
         int numRows = 5;
-        List<List<Integer>> triangle = generatePascalTriangle(numRows);
-        List<List<Integer>> possibleTriangles = findPossibleTriangles(triangle);
-
-        System.out.println("Possible Triangles:");
-        for (List<Integer> triangleRow : possibleTriangles) {
-            System.out.println(triangleRow);
-        }
+        int[][] triangle = generatePascalTriangle(numRows);
+        findPossibleTriangles(triangle, numRows);
     }
 
-    public static List<List<Integer>> generatePascalTriangle(int numRows) {
-        List<List<Integer>> triangle = new ArrayList<>();
-
+    public static int[][] generatePascalTriangle(int numRows) {
+        int[][] triangle = new int[numRows][numRows];
         for (int i = 0; i < numRows; i++) {
-            List<Integer> row = new ArrayList<>();
-            row.add(1);
-
-            if (i > 0) {
-                List<Integer> prevRow = triangle.get(i - 1);
-
-                for (int j = 1; j < i; j++) {
-                    int num = prevRow.get(j - 1) + prevRow.get(j);
-                    row.add(num);
-                }
-
-                row.add(1);
+            int value = 1;
+            for (int j = 0; j <= i; j++) {
+                triangle[i][j] = value;
+                value = value * (i - j) / (j + 1);
             }
-
-            triangle.add(row);
         }
-
+        // Print the triangle
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print(triangle[i][j] + " ");
+            }
+            System.out.println();
+        }
         return triangle;
     }
 
-    public static List<List<Integer>> findPossibleTriangles(List<List<Integer>> triangle) {
-        List<List<Integer>> possibleTriangles = new ArrayList<>();
-
-        for (int i = 0; i < triangle.size() - 1; i++) {
-            List<Integer> row = triangle.get(i);
-
-            for (int j = 0; j < row.size(); j++) {
-                int num = row.get(j);
-
+    public static void findPossibleTriangles(int[][] triangle, int numRows) {
+        System.out.println("Possible Triangles:");
+        for (int i = 0; i < numRows - 1; i++) {
+            for (int j = 0; j <= i; j++) {
+                int num = triangle[i][j];
                 if (num > 0 && num <= 9) {
-                    List<Integer> triangleRow = new ArrayList<>();
-                    triangleRow.add(num);
-                    triangleRow.add(triangle.get(i + 1).get(j));
-                    triangleRow.add(triangle.get(i + 1).get(j + 1));
-                    possibleTriangles.add(triangleRow);
+                    System.out.println(num + " " + triangle[i + 1][j] + " " + triangle[i + 1][j + 1]);
                 }
             }
         }
-
-        return possibleTriangles;
     }
 }

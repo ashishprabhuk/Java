@@ -21,14 +21,12 @@ public class UniqueMatrix {
                 matrix[i][j] = scanner.nextInt();
             }
         }
-
         System.out.println("Unique Matrix:");
-        printUniqueMatrix(matrix);
+        printUniqueMatrix(matrix, rows, columns);
     }
 
     public static void printUniqueMatrix(int[][] matrix) {
         HashSet<String> uniqueRows = new HashSet<>();
-
         for (int[] row : matrix) {
             StringBuilder rowString = new StringBuilder();
             for (int num : row) {
@@ -38,6 +36,33 @@ public class UniqueMatrix {
                 System.out.println(rowString.toString().trim());
             }
         }
+    }
+
+    public static void printUniqueMatrix(int[][] matrix, int rows, int columns) {
+        for (int i = 0; i < rows; i++) {
+            boolean isUnique = true;
+            for (int j = 0; j < i; j++) {
+                if (areRowsEqual(matrix[i], matrix[j], columns)) {
+                    isUnique = false;
+                    break;
+                }
+            }
+            if (isUnique) {
+                for (int j = 0; j < columns; j++) {
+                    System.out.print(matrix[i][j] + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    public static boolean areRowsEqual(int[] row1, int[] row2, int columns) {
+        for (int i = 0; i < columns; i++) {
+            if (row1[i] != row2[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 

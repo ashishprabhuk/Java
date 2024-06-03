@@ -1,6 +1,6 @@
 package Zoho.Round2.Maths;
 
-import java.awt.Point; // !important package for point
+import java.awt.Point; // @important package for point
 
 public class DistanceCalculator {
     public static void main(String[] args) {

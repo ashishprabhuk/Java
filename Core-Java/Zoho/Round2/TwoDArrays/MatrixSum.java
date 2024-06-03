@@ -7,7 +7,6 @@ public class MatrixSum {
                 { 4, 5, 6 },
                 { 7, 8, 9 }
         };
-
         int sum = findMatrixSum(matrix);
         System.out.println("Sum of all elements in the matrix: " + sum);
     }

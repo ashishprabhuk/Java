@@ -1,25 +1,23 @@
 package Zoho.Round2.TwoDArrays;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PascalTriangleGetRow {
-    public static List<Integer> getRow_OP(int rowIndex) {
-        List<Integer> ans = new ArrayList<>();
+    public static void getRow_OP(int rowIndex) {
         long res = 1;
-        ans.add(1);
-        for(int i = 1; i <= rowIndex; i++){
-            res = (res * (rowIndex - (i - 1)))/i;
-            ans.add((int)res);
+        System.out.print(1 + " ");
+        for (int i = 1; i <= rowIndex; i++) {
+            res = (res * (rowIndex - (i - 1))) / i; // nCr = nCr-1 * (n - r + 1) / r
+            System.out.print(res + " ");
         }
-        return ans;
+        System.out.println();
     }
 
     public static void main(String[] args) {
-        int rowIndex1 = 3;
-        System.out.println("Output: " + getRow_OP(rowIndex1));
+        int rowIndex1 = 1;
+        System.out.print("Output: ");
+        getRow_OP(rowIndex1);
     }
 }
+
 
 
 /*
