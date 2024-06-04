@@ -1,6 +1,6 @@
 package Zoho.Round2.Strings;
 
-public class MobileKeypad {
+public class MobileKeypadStr {
 	static String mobileKeys(String arr[], String input){
 		input = input.toUpperCase();
 		String output = "";
